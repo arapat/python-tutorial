@@ -1,0 +1,88 @@
+<h3 id="math">math</h3>
+<p>: The math library has many functions that are useful for programs that need to perform mathematical operations, that cannot be accomplished using the built in operators.</p>
+<!-- -->
+<p>: This section assumes you have math training up to and including Trigonometry.</p>
+<p>The following list shows all the functions in the math library:</p>
+<ul>
+<li>math.ceil</li>
+<li>math.copysign</li>
+<li>math.fabs</li>
+<li>math.factorial</li>
+<li>math.floor</li>
+<li>math.fmod (Not the most ideal for its purpose. Will not be explained.)</li>
+<li>math.frexp (Outside the scope of this tutorial. Will not be explained.)</li>
+<li>math.fsum</li>
+<li>math.isfinite</li>
+<li>math.isinf</li>
+<li>math.isnan</li>
+<li>math.ldexp</li>
+<li>math.modf (Outside the realm of this tutorial. Will not be explained.)</li>
+<li>math.trunc (Outside the realm of this tutorial. Will not be explained.)</li>
+<li>math.exp</li>
+<li>math.expm1</li>
+<li>math.log</li>
+<li>math.log1p</li>
+<li>math.log10</li>
+<li>math.pow</li>
+<li>math.sqrt</li>
+<li>math.acos</li>
+<li>math.asin</li>
+<li>math.atan</li>
+<li>math.atan2</li>
+<li>math.cos</li>
+<li>math.hypot</li>
+<li>math.sin</li>
+<li>math.tan</li>
+<li>math.degrees</li>
+<li>math.radians</li>
+<li>math.acosh</li>
+<li>math.asinh</li>
+<li>math.atanh</li>
+<li>math.cosh</li>
+<li>math.sinh</li>
+<li>math.tanh</li>
+<li>math.erf</li>
+<li>math.erfc</li>
+<li>math.gamma</li>
+<li>math.lgamma</li>
+<li>math.pi</li>
+<li>math.e</li>
+</ul>
+<p>: Of course, we won't cover every one of these functions. But we will cover a good chunk of them.</p>
+<p>Let's start off by covering the two constants in the math library. <code>math.pi</code> is the mathematical constant &quot;π&quot;, to available precision on your computer. <code>math.e</code> is the mathematical constant &quot;e&quot;, to available precision on your computer. Here is an example of both constants when entered in interactive mode in the Python shell.</p>
+<p><code>&gt;&gt;&gt; import math</code><br />
+<code>&gt;&gt;&gt; math.e</code><br />
+<font color="blue"><code>2.718281828459045</code></font><br />
+<code>&gt;&gt;&gt; math.pi</code><br />
+<font color="blue"><code>3.141592653589793</code></font></p>
+<p>These constants can be stored in a variable just like any other number. Below is an example of such, and shows simple operations on those variables.</p>
+<p><code>&gt;&gt;&gt; conste = math.e</code><br />
+<code>&gt;&gt;&gt; (conste + 5 / 2) * 2.21</code><br />
+<font color="blue"><code>11.532402840894488</code></font><br />
+<code>&gt;&gt;&gt; constpi = math.pi</code><br />
+<code>&gt;&gt;&gt; (((7 /2.1) % constpi) * 2)</code><br />
+<font color="blue"><code>0.38348135948707984</code></font><br />
+<code>&gt;&gt;&gt;</code></p>
+<p>Now, let's look at the functions. Let's start at the top of the list, and work our way down. Some of the functions will be skipped. At this point in the tutorial, you should be able to look at each of these examples to follow, and easily figure out what the example does. A simple sentence or two about what the function does will be provided.</p>
+<p>Below is an example of every <code>math</code> module function, and how it is used. (Excluding functions noted above as not to be explained)</p>
+<p><code>&gt;&gt;&gt; import math</code><br />
+<code>&gt;&gt;&gt; math.ceil(4.5) ** Rounds the number up to the nearest non decimal number **</code><br />
+<code>5</code><br />
+<code>&gt;&gt;&gt; math.ceil(4.1)</code><br />
+<font color="blue"><code>5</code></font><br />
+<code>&gt;&gt;&gt; math.copysign(4, -.4)  ** Returns the number x with the sign of y in the context of (x,y)</code><br />
+<font color="blue"><code>-4.0</code></font><br />
+<code>&gt;&gt;&gt; math.copysign(-4, 4)</code><br />
+<font color="blue"><code>4.0</code></font><br />
+<code>&gt;&gt;&gt; math.fabs(-44)  ** Return the absolute value of the number **</code><br />
+<font color="blue"><code>44.0</code></font><br />
+<code>&gt;&gt;&gt; math.factorial(4)  **  Returns the factorial of a number **</code><br />
+<font color="blue"><code>24</code></font><br />
+<code>&gt;&gt;&gt; math.floor(4.3)  ** Rounds the number down to the nearest non decimal number. **</code><br />
+<font color="blue"><code>4</code></font><br />
+<code>&gt;&gt;&gt; math.floor(4.99999)</code><br />
+<font color="blue"><code>4</code></font><br />
+<code>&gt;&gt;&gt; math.fsum([.1,.2,5,45.2,-.054,.4]) **  Returns the sum of all the numbers in the brackets. Not always precise **</code><br />
+<font color="blue"><code>50.846000000000004</code></font><br />
+<code>&gt;&gt;&gt; math.isfinite(3)</code></font><code> ** Returns True if the value is neither an infinity nor a NaN. Returns False otherwise. **</code><br />
+<font color="blue"><code>True</code></font></p>

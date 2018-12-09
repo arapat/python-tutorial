@@ -1,0 +1,10 @@
+<h3 id="closing-files-with-with">closing files with with</h3>
+<p>We use the &quot;with&quot; statement to open and close files.[^1][^2]</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="cf">with</span> <span class="bu">open</span>(<span class="st">&quot;in_test.txt&quot;</span>, <span class="st">&quot;rt&quot;</span>) <span class="im">as</span> in_file:</a>
+<a class="sourceLine" id="cb1-2" data-line-number="2">    <span class="cf">with</span> <span class="bu">open</span>(<span class="st">&quot;out_test.txt&quot;</span>, <span class="st">&quot;wt&quot;</span>) <span class="im">as</span> out_file:</a>
+<a class="sourceLine" id="cb1-3" data-line-number="3">        text <span class="op">=</span> in_file.read()</a>
+<a class="sourceLine" id="cb1-4" data-line-number="4">        data <span class="op">=</span> parse(text)</a>
+<a class="sourceLine" id="cb1-5" data-line-number="5">        results <span class="op">=</span> encode(data)</a>
+<a class="sourceLine" id="cb1-6" data-line-number="6">        out_file.write(results)</a>
+<a class="sourceLine" id="cb1-7" data-line-number="7">    <span class="bu">print</span>( <span class="st">&quot;All done.&quot;</span> )</a></code></pre></div>
+<p>If some sort of error happens anywhere in this code (one of the files is inaccessible, the parse() function chokes on corrupt data, etc.) the &quot;with&quot; statements guarantee that all the files will eventually be properly closed. Closing a file just means that the file is &quot;cleaned up&quot; and &quot;released&quot; by our program so that it can be used in another program.</p>

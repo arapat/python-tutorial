@@ -1,0 +1,71 @@
+<h3 id="examples">Examples</h3>
+<h4 id="fibonacci-sequence">Fibonacci sequence</h4>
+<p><strong>Fibonacci-method1.py</strong></p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="co"># This program calculates the Fibonacci sequence</span></a>
+<a class="sourceLine" id="cb1-2" data-line-number="2">a <span class="op">=</span> <span class="dv">0</span></a>
+<a class="sourceLine" id="cb1-3" data-line-number="3">b <span class="op">=</span> <span class="dv">1</span></a>
+<a class="sourceLine" id="cb1-4" data-line-number="4">count <span class="op">=</span> <span class="dv">0</span></a>
+<a class="sourceLine" id="cb1-5" data-line-number="5">max_count <span class="op">=</span> <span class="dv">20</span></a>
+<a class="sourceLine" id="cb1-6" data-line-number="6"></a>
+<a class="sourceLine" id="cb1-7" data-line-number="7"><span class="cf">while</span> count <span class="op">&lt;</span> max_count:</a>
+<a class="sourceLine" id="cb1-8" data-line-number="8">    count <span class="op">=</span> count <span class="op">+</span> <span class="dv">1</span></a>
+<a class="sourceLine" id="cb1-9" data-line-number="9">    <span class="bu">print</span>(a, end<span class="op">=</span><span class="st">&quot; &quot;</span>)  <span class="co"># Notice the magic end=&quot; &quot; in the print function arguments  </span></a>
+<a class="sourceLine" id="cb1-10" data-line-number="10">                       <span class="co"># that keeps it from creating a new line.</span></a>
+<a class="sourceLine" id="cb1-11" data-line-number="11">    old_a <span class="op">=</span> a    <span class="co"># we need to keep track of a since we change it.</span></a>
+<a class="sourceLine" id="cb1-12" data-line-number="12">    a <span class="op">=</span> b</a>
+<a class="sourceLine" id="cb1-13" data-line-number="13">    b <span class="op">=</span> old_a <span class="op">+</span> b</a>
+<a class="sourceLine" id="cb1-14" data-line-number="14"><span class="bu">print</span>()  <span class="co"># gets a new (empty) line.</span></a></code></pre></div>
+<p>Output:</p>
+<p><code>0 1 1 2 3 5 8 13 21 34 55 89 144 233 377 610 987 1597 2584 4181</code></p>
+<p>Note that the output is on a single line because of the extra argument <code>end=&quot; &quot;</code> in the <code>print</code> arguments.</p>
+<p><strong>Fibonacci-method2.py</strong></p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="co"># Simplified and faster method to calculate the Fibonacci sequence</span></a>
+<a class="sourceLine" id="cb2-2" data-line-number="2">a <span class="op">=</span> <span class="dv">0</span></a>
+<a class="sourceLine" id="cb2-3" data-line-number="3">b <span class="op">=</span> <span class="dv">1</span></a>
+<a class="sourceLine" id="cb2-4" data-line-number="4">count <span class="op">=</span> <span class="dv">0</span></a>
+<a class="sourceLine" id="cb2-5" data-line-number="5">max_count <span class="op">=</span> <span class="dv">10</span></a>
+<a class="sourceLine" id="cb2-6" data-line-number="6"></a>
+<a class="sourceLine" id="cb2-7" data-line-number="7"><span class="cf">while</span> count <span class="op">&lt;</span> max_count:</a>
+<a class="sourceLine" id="cb2-8" data-line-number="8">    count <span class="op">=</span> count <span class="op">+</span> <span class="dv">1</span></a>
+<a class="sourceLine" id="cb2-9" data-line-number="9">    <span class="bu">print</span>(a, b, end<span class="op">=</span><span class="st">&quot; &quot;</span>)  <span class="co"># Notice the magic end=&quot; &quot;</span></a>
+<a class="sourceLine" id="cb2-10" data-line-number="10">    a <span class="op">=</span> a <span class="op">+</span> b    </a>
+<a class="sourceLine" id="cb2-11" data-line-number="11">    b <span class="op">=</span> a <span class="op">+</span> b</a>
+<a class="sourceLine" id="cb2-12" data-line-number="12"><span class="bu">print</span>()  <span class="co"># gets a new (empty) line.</span></a></code></pre></div>
+<p>Output:</p>
+<p><code>0 1 1 2 3 5 8 13 21 34 55 89 144 233 377 610 987 1597 2584 4181</code></p>
+<p><strong>Fibonacci-method3.py</strong></p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb3-1" data-line-number="1">a <span class="op">=</span> <span class="dv">0</span></a>
+<a class="sourceLine" id="cb3-2" data-line-number="2">b <span class="op">=</span> <span class="dv">1</span></a>
+<a class="sourceLine" id="cb3-3" data-line-number="3">count <span class="op">=</span> <span class="dv">0</span></a>
+<a class="sourceLine" id="cb3-4" data-line-number="4">maxcount <span class="op">=</span> <span class="dv">20</span></a>
+<a class="sourceLine" id="cb3-5" data-line-number="5"></a>
+<a class="sourceLine" id="cb3-6" data-line-number="6"><span class="co">#once loop is started we stay in it</span></a>
+<a class="sourceLine" id="cb3-7" data-line-number="7"><span class="cf">while</span> count <span class="op">&lt;</span> maxcount:</a>
+<a class="sourceLine" id="cb3-8" data-line-number="8">    count <span class="op">+=</span> <span class="dv">1</span></a>
+<a class="sourceLine" id="cb3-9" data-line-number="9">    olda <span class="op">=</span> a</a>
+<a class="sourceLine" id="cb3-10" data-line-number="10">    a <span class="op">=</span> a <span class="op">+</span> b</a>
+<a class="sourceLine" id="cb3-11" data-line-number="11">    b <span class="op">=</span> olda</a>
+<a class="sourceLine" id="cb3-12" data-line-number="12">    <span class="bu">print</span>(olda,end<span class="op">=</span><span class="st">&quot; &quot;</span>)</a>
+<a class="sourceLine" id="cb3-13" data-line-number="13"><span class="bu">print</span>()</a></code></pre></div>
+<p>Output:</p>
+<p><code>0 1 1 2 3 5 8 13 21 34 55 89 144 233 377 610 987 1597 2584 4181</code></p>
+<h4 id="enter-password">Enter password</h4>
+<p><strong>Password.py</strong></p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb4-1" data-line-number="1"><span class="co"># Waits until a password has been entered.  Use Control-C to break out without</span></a>
+<a class="sourceLine" id="cb4-2" data-line-number="2"><span class="co"># the password</span></a>
+<a class="sourceLine" id="cb4-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb4-4" data-line-number="4"><span class="co">#Note that this must not be the password so that the </span></a>
+<a class="sourceLine" id="cb4-5" data-line-number="5"><span class="co"># while loop runs at least once.</span></a>
+<a class="sourceLine" id="cb4-6" data-line-number="6">password <span class="op">=</span> <span class="bu">str</span>()</a>
+<a class="sourceLine" id="cb4-7" data-line-number="7"></a>
+<a class="sourceLine" id="cb4-8" data-line-number="8"><span class="co"># note that != means not equal</span></a>
+<a class="sourceLine" id="cb4-9" data-line-number="9"><span class="cf">while</span> password <span class="op">!=</span> <span class="st">&quot;unicorn&quot;</span>:</a>
+<a class="sourceLine" id="cb4-10" data-line-number="10">    password <span class="op">=</span> <span class="bu">input</span>(<span class="st">&quot;Password: &quot;</span>)</a>
+<a class="sourceLine" id="cb4-11" data-line-number="11"><span class="bu">print</span>(<span class="st">&quot;Welcome in&quot;</span>)</a></code></pre></div>
+<p>Sample run:</p>
+<p><code>Password: </code><strong><code>auo</code></strong><br />
+<code>Password: </code><strong><code>y22</code></strong><br />
+<code>Password: </code><strong><code>password</code></strong><br />
+<code>Password: </code><strong><code>open`` ``sesame</code></strong><br />
+<code>Password: </code><strong><code>unicorn</code></strong><br />
+<code>Welcome in</code></p>

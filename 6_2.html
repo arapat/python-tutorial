@@ -1,0 +1,149 @@
+<h3 id="what-does-the-program-do">What does the program do?</h3>
+<p>The next thing to do is to look at the source code. One of the most important things to do while programming is reading source code. The primary way to do this is code walkthroughs.</p>
+<p>A code walkthrough starts at the first line, and works its way down until the program is done. <code>while</code> loops and <code>if</code> statements mean that some lines may never be run and some lines are run many times. At each line you figure out what Python has done.</p>
+<p>Lets start with the simple perimeter program. Don't type it in, you are going to read it, not run it. The source code is:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1-1" data-line-number="1">height <span class="op">=</span> <span class="bu">int</span>(<span class="bu">input</span>(<span class="st">&quot;Height: &quot;</span>))</a>
+<a class="sourceLine" id="cb1-2" data-line-number="2">width <span class="op">=</span> <span class="bu">int</span>(<span class="bu">input</span>(<span class="st">&quot;Width: &quot;</span>))</a>
+<a class="sourceLine" id="cb1-3" data-line-number="3"><span class="bu">print</span>(<span class="st">&quot;perimeter =&quot;</span>, width <span class="op">+</span> height <span class="op">+</span> width <span class="op">+</span> width)</a></code></pre></div>
+<dl>
+<dt><em>Question:</em> What is the first line Python runs?</dt>
+<dd><em>Answer:</em> The first line is always run first. In this case it is: <code>height = int(input(&quot;Height: &quot;))</code>
+</dd>
+<dt>What does that line do?</dt>
+<dd>Prints <code>Height:</code>, waits for the user to type a string in, and then converts the string to an integer variable height.
+</dd>
+<dt>What is the next line that runs?</dt>
+<dd>In general, it is the next line down which is: <code>width = int(input(&quot;Width: &quot;))</code>
+</dd>
+<dt>What does that line do?</dt>
+<dd>Prints <code>Width:</code>, waits for the user to type a number in, and puts what the user types in the variable width.
+</dd>
+<dt>What is the next line that runs?</dt>
+<dd>When the next line is not indented more or less than the current line, it is the line right afterwards, so it is: <code>print(&quot;perimeter = &quot;, width + height + width + width)</code> (It may also run a function in the current line, but that's a future chapter.)
+</dd>
+<dt>What does that line do?</dt>
+<dd>First it prints <code>perimeter =</code>, then it prints the sum of the values contained within the variables, <code>width</code> and <code>height</code>, from <code>width + height + width + width</code>.
+</dd>
+<dt>Does <code>width + height + width + width</code> calculate the perimeter properly?</dt>
+<dd>Let's see, perimeter of a rectangle is the bottom (width) plus the left side (height) plus the top (width) plus the right side (huh?). The last item should be the right side's length, or the height.
+</dd>
+<dt>Do you understand why some of the times the perimeter was calculated &quot;correctly&quot;?</dt>
+<dd>It was calculated correctly when the width and the height were equal.
+</dd>
+</dl>
+<p>The next program we will do a code walkthrough for is a program that is supposed to print out 5 dots on the screen. However, this is what the program is outputting:</p>
+<p><code>. . . . </code></p>
+<p>And here is the program:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb2-1" data-line-number="1">number <span class="op">=</span> <span class="dv">5</span></a>
+<a class="sourceLine" id="cb2-2" data-line-number="2"><span class="cf">while</span> number <span class="op">&gt;</span> <span class="dv">1</span>:</a>
+<a class="sourceLine" id="cb2-3" data-line-number="3">    <span class="bu">print</span>(<span class="st">&quot;.&quot;</span>,end<span class="op">=</span><span class="st">&quot; &quot;</span>)</a>
+<a class="sourceLine" id="cb2-4" data-line-number="4">    number <span class="op">=</span> number <span class="op">-</span> <span class="dv">1</span></a>
+<a class="sourceLine" id="cb2-5" data-line-number="5"><span class="bu">print</span>()</a></code></pre></div>
+<p>This program will be more complex to walkthrough since it now has indented portions (or control structures). Let us begin.</p>
+<dl>
+<dt>What is the first line to be run?</dt>
+<dd>The first line of the file: <code>number = 5</code>
+</dd>
+<dt>What does it do?</dt>
+<dd>Puts the number 5 in the variable number.
+</dd>
+<dt>What is the next line?</dt>
+<dd>The next line is: <code>while number &gt; 1:</code>
+</dd>
+<dt>What does it do?</dt>
+<dd>Well, <code>while</code> statements in general look at their expression, and if it is true they do the next indented block of code, otherwise they skip the next indented block of code.
+</dd>
+<dt>So what does it do right now?</dt>
+<dd>If <code>number &gt; 1</code> is true then the next two lines will be run.
+</dd>
+<dt>So is <code>number &gt; 1</code>?</dt>
+<dd>The last value put into <code>number</code> was <code>5</code> and <code>5 &gt; 1</code> so yes.
+</dd>
+<dt>So what is the next line?</dt>
+<dd>Since the <code>while</code> was true the next line is: <code>print(&quot;.&quot;,end=&quot; &quot;)</code>
+</dd>
+<dt>What does that line do?</dt>
+<dd>Prints one dot and since the extra argument <code>end=&quot; &quot;</code> exists the next printed text will not be on a different screen line.
+</dd>
+<dt>What is the next line?</dt>
+<dd><code>number = number - 1</code> since that is following line and there are no indent changes.
+</dd>
+<dt>What does it do?</dt>
+<dd>It calculates <code>number - 1</code>, which is the current value of <code>number</code> (or 5) subtracts 1 from it, and makes that the new value of number. So basically it changes <code>number</code>'s value from 5 to 4.
+</dd>
+<dt>What is the next line?</dt>
+<dd>Well, the indent level decreases so we have to look at what type of control structure it is. It is a <code>while</code> loop, so we have to go back to the <code>while</code> clause which is <code>while number &gt; 1:</code>
+</dd>
+<dt>What does it do?</dt>
+<dd>It looks at the value of number, which is 4, and compares it to 1 and since <code>4 &gt; 1</code> the while loop continues.
+</dd>
+<dt>What is the next line?</dt>
+<dd>Since the while loop was true, the next line is: <code>print(&quot;.&quot;,end=&quot; &quot;)</code>
+</dd>
+<dt>What does it do?</dt>
+<dd>It prints a second dot on the line, ending by a space.
+</dd>
+<dt>What is the next line?</dt>
+<dd>No indent change so it is: <code>number = number - 1</code>
+</dd>
+<dt>And what does it do?</dt>
+<dd>It takes the current value of number (4), subtracts 1 from it, which gives it 3 and then finally makes 3 the new value of number.
+</dd>
+<dt>What is the next line?</dt>
+<dd>Since there is an indent change caused by the end of the while loop, the next line is: <code>while number &gt; 1:</code>
+</dd>
+<dt>What does it do?</dt>
+<dd>It compares the current value of number (3) to 1. <code>3 &gt; 1</code> so the while loop continues.
+</dd>
+<dt>What is the next line?</dt>
+<dd>Since the while loop condition was true the next line is: <code>print(&quot;.&quot;,end=&quot; &quot;)</code>
+</dd>
+<dt>And it does what?</dt>
+<dd>A third dot is printed on the line.
+</dd>
+<dt>What is the next line?</dt>
+<dd>It is: <code>number = number - 1</code>
+</dd>
+<dt>What does it do?</dt>
+<dd>It takes the current value of number (3) subtracts from it 1 and makes the 2 the new value of number.
+</dd>
+<dt>What is the next line?</dt>
+<dd>Back up to the start of the while loop: <code>while number &gt; 1:</code>
+</dd>
+<dt>What does it do?</dt>
+<dd>It compares the current value of number (2) to 1. Since <code>2 &gt; 1</code> the while loop continues.
+</dd>
+<dt>What is the next line?</dt>
+<dd>Since the while loop is continuing: <code>print(&quot;.&quot;,end=&quot; &quot;)</code>
+</dd>
+<dt>What does it do?</dt>
+<dd>It discovers the meaning of life, the universe and everything. I'm joking. (I had to make sure you were awake.) The line prints a fourth dot on the screen.
+</dd>
+<dt>What is the next line?</dt>
+<dd>It's: <code>number = number - 1</code>
+</dd>
+<dt>What does it do?</dt>
+<dd>Takes the current value of number (2) subtracts 1 and makes 1 the new value of number.
+</dd>
+<dt>What is the next line?</dt>
+<dd>Back up to the while loop: <code>while number &gt; 1:</code>
+</dd>
+<dt>What does the line do?</dt>
+<dd>It compares the current value of number (1) to 1. Since <code>1 &gt; 1</code> is false (one is not greater than one), the while loop exits.
+</dd>
+<dt>What is the next line?</dt>
+<dd>Since the while loop condition was false the next line is the line after the while loop exits, or: <code>print()</code>
+</dd>
+<dt>What does that line do?</dt>
+<dd>Makes the screen go to the next line.
+</dd>
+<dt>Why doesn't the program print 5 dots?</dt>
+<dd>The loop exits 1 dot too soon.
+</dd>
+<dt>How can we fix that?</dt>
+<dd>Make the loop exit 1 dot later.
+</dd>
+<dt>And how do we do that?</dt>
+<dd>There are several ways. One way would be to change the while loop to: <code>while number &gt; 0:</code> Another way would be to change the conditional to: <code>number &gt;= 1</code> There are a couple others.
+</dd>
+</dl>

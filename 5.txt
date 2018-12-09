@@ -1,0 +1,290 @@
+=== If statement ===
+As always, I believe I should start each chapter with a warm-up typing exercise, so here is a short program to compute the absolute value of an integer:
+<source lang="python">
+n = int(input("Number? "))
+if n < 0:
+   print("The absolute value of", n, "is", -n)
+else:
+   print("The absolute value of", n, "is", n)
+</source>
+
+Here is the output from the two times that I ran this program:
+
+ Number? '''-34'''
+ The absolute value of -34 is 34
+
+ Number? '''1'''
+ The absolute value of 1 is 1
+
+So what does the computer do when it sees this piece of code?  First it prompts the user for a number with the statement "<code>n = int(input("Number? "))</code>".  Next it reads the line "<code>if n < 0:</code>". If <code>n</code> is less than zero Python runs the line "<code>print("The absolute value of", n, "is", -n)</code>". Otherwise it runs the line "<code>print("The absolute value of", n, "is", n)</code>".  
+
+More formally Python looks at whether the ''expression'' <code>n < 0</code> is true or false.  An <code>if</code> statement is followed by an indented ''block'' of statements that are run when the expression is true.  Optionally after the <code>if</code> statement is an <code>else</code> statement and another indented ''block'' of statements.  This second block of statements is run if the expression is false.  
+
+There are a number of different tests that an expression can have.  Here is a table of all of them:
+
+{| class="wikitable"
+!operator 
+!function
+|-
+|<code><</code> 
+|less than
+|-
+|<code><=</code> 
+|less than or equal to
+|-
+|<code>></code> 
+|greater than
+|-
+|<code>>=</code> 
+|greater than or equal to
+|-
+|<code>==</code> 
+|equal
+|-
+|<code>!=</code> 
+|not equal
+|}
+
+Another feature of the <code> if</code> command is the <code> elif </code> statement.  It stands for else if and means if the original <code> if</code> statement is false but the <code> elif</code> part is true, then do the <code>elif</code> part. And if neither the <code>if</code> or <code>elif</code> expressions are true, then do what's in the <code>else</code> block. Here's an example:
+<source lang="python">
+a = 0
+while a < 10:
+    a = a + 1
+    if a > 5:
+        print(a, ">", 5)
+    elif a <= 3:
+        print(a, "<=", 3)
+    else:
+        print("Neither test was true")
+</source>
+
+and the output:
+
+ 1 <= 3
+ 2 <= 3
+ 3 <= 3
+ Neither test was true
+ Neither test was true
+ 6 > 5
+ 7 > 5
+ 8 > 5
+ 9 > 5
+ 10 > 5
+
+Notice how the <code>elif a <= 3</code> is only tested when the <code>if</code> statement fails to be true. There can be more than one <code>elif</code> expression, allowing multiple tests to be done in a single <code>if</code> statement.
+
+=== Examples ===
+<source lang="python">
+# This Program Demonstrates the use of the == operator
+# using numbers
+print(5 == 6)
+# Using variables
+x = 5
+y = 8
+print(x == y)
+</source>
+
+And the output
+
+ False
+ False
+
+'''high_low.py'''<!--\label{firsthighlow}-->
+<source lang="python">
+# Plays the guessing game higher or lower 
+
+# This should actually be something that is semi random like the
+# last digits of the time or something else, but that will have to
+# wait till a later chapter.  (Extra Credit, modify it to be random
+# after the Modules chapter)
+number = 7
+guess = -1
+
+print("Guess the number!")
+while guess != number:
+    guess = int(input("Is it... "))
+
+    if guess == number:
+        print("Hooray! You guessed it right!")
+    elif guess < number:
+        print("It's bigger...")
+    elif guess > number:
+        print("It's not so big.")
+</source>
+
+Sample run:
+
+ Guess the number!
+ Is it... '''2'''
+ It's bigger...
+ Is it... '''5'''
+ It's bigger...
+ Is it... '''10'''
+ It's not so big.
+ Is it... '''7'''
+ Hooray! You guessed it right!
+
+'''even.py'''
+
+<source lang="python">
+# Asks for a number.
+# Prints if it is even or odd
+ 
+number = float(input("Tell me a number: "))
+if number % 2 == 0:
+    print(int(number), "is even.")
+elif number % 2 == 1:
+    print(int(number), "is odd.")
+else:
+    print(number, "is very strange.")
+</source>
+
+Sample runs:
+
+ Tell me a number: '''3'''
+ 3 is odd.
+
+ Tell me a number: '''2'''
+ 2 is even.
+
+ Tell me a number: '''3.4895'''
+ 3.4895 is very strange.
+
+'''average1.py'''
+<source lang="python">
+# keeps asking for numbers until 0 is entered.
+# Prints the average value.
+
+count = 0
+sum = 0.0
+number = 1 # set to something that will not exit the while loop immediately.
+
+print("Enter 0 to exit the loop")
+
+while number != 0:
+    number = float(input("Enter a number: "))
+    if number != 0:
+        count = count + 1
+        sum = sum + number
+    if number == 0:
+        print("The average was:", sum / count)
+</source>
+{{Solution|title=Sample runs|text=
+Sample runs:
+
+ Enter 0 to exit the loop
+ Enter a number: '''3'''
+ Enter a number: '''5'''
+ Enter a number: '''0'''
+ The average was: 4.0
+
+ Enter 0 to exit the loop
+ Enter a number: '''1'''
+ Enter a number: '''4'''
+ Enter a number: '''3'''
+ Enter a number: '''0'''
+ The average was: 2.66666666667
+}}
+'''average2.py'''
+<source lang="python">
+# keeps asking for numbers until count numbers have been entered.
+# Prints the average value.
+
+#Notice that we use an integer to keep track of how many numbers, 
+# but floating point numbers for the input of each number
+sum = 0.0
+
+print("This program will take several numbers then average them")
+count = int(input("How many numbers would you like to average: "))
+current_count = 0
+
+while current_count < count:
+    current_count = current_count + 1
+    print("Number", current_count)
+    number = float(input("Enter a number: "))
+    sum = sum + number
+    
+print("The average was:", sum / count)
+</source>
+
+Sample runs:
+
+ This program will take several numbers then average them
+ How many numbers would you like to average: '''2'''
+ Number 1
+ Enter a number: '''3'''
+ Number 2
+ Enter a number: '''5'''
+ The average was: 4.0
+
+ This program will take several numbers then average them
+ How many numbers would you like to average: '''3'''
+ Number 1
+ Enter a number: '''1'''
+ Number 2
+ Enter a number: '''4'''
+ Number 3
+ Enter a number: '''3'''
+ The average was: 2.66666666667
+<!-- TODO: add another example -->
+
+=== Exercises ===
+Write a program that asks the user their name, if they enter your name
+say "That is a nice name", if they enter "John Cleese" or "Michael
+Palin", tell them how you feel about them ;), otherwise tell them "You
+have a nice name."
+
+{{Solution|title=Solution|text=
+<source lang="python">
+name = input('Your name: ')
+if name == 'Bryn':
+    print('That is a nice name.')
+elif name == 'John Cleese':
+    print('... some funny text.')
+elif name == 'Michael Palin':
+    print('... some funny text.')
+else:
+    print('You have a nice name.')
+</source>
+}}
+
+Modify the higher or lower program from this section to keep track of how many times the user has entered the wrong number.  If it is more than 3 times, print "That must have been complicated." at the end, otherwise print "Good job!"
+
+{{Solution|title=Solution|text=
+<source lang="python">
+number = 7
+guess = -1
+count = 0
+
+print("Guess the number!")
+while guess != number:
+    guess = int(input("Is it... "))
+    count = count + 1
+    if guess == number:
+        print("Hooray! You guessed it right!")
+    elif guess < number:
+        print("It's bigger...")
+    elif guess > number:
+        print("It's not so big.")
+
+if count > 3:
+    print("That must have been complicated.")
+else:
+    print("Good job!")
+</source>
+}}
+
+Write a program that asks for two numbers.  If the sum of the numbers 
+is greater than 100, print "That is a big number."
+
+{{Solution|title=Solution|text=
+<source lang="python">
+number1 = float(input('1st number: '))
+number2 = float(input('2nd number: '))
+if number1 + number2 > 100:
+    print('That is a big number.')
+</source>
+}}
+
+{{navigation |previous=Count to 10 |next=Debugging}}
+{{BookCat}}

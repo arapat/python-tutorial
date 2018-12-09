@@ -1,0 +1,54 @@
+<h3 id="variables-in-functions">Variables in functions</h3>
+<p>When eliminating repeated code, you often have variables in the repeated code. In Python, these are dealt with in a special way. So far all variables we have seen are global variables. Functions have a special type of variable called local variables. These variables only exist while the function is running. When a local variable has the same name as another variable (such as a global variable), the local variable hides the other. Sound confusing? Well, these next examples (which are a bit contrived) should help clear things up.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1-1" data-line-number="1">a <span class="op">=</span> <span class="dv">4</span></a>
+<a class="sourceLine" id="cb1-2" data-line-number="2"> </a>
+<a class="sourceLine" id="cb1-3" data-line-number="3"><span class="kw">def</span> print_func():</a>
+<a class="sourceLine" id="cb1-4" data-line-number="4">    a <span class="op">=</span> <span class="dv">17</span></a>
+<a class="sourceLine" id="cb1-5" data-line-number="5">    <span class="bu">print</span>(<span class="st">&quot;in print_func a =&quot;</span>, a)</a>
+<a class="sourceLine" id="cb1-6" data-line-number="6"></a>
+<a class="sourceLine" id="cb1-7" data-line-number="7">print_func()</a>
+<a class="sourceLine" id="cb1-8" data-line-number="8"><span class="bu">print</span>(<span class="st">&quot;a = &quot;</span>, a)</a></code></pre></div>
+<p>When run, we will receive an output of:</p>
+<p><code>in print_func a = 17</code><br />
+<code>a = 4</code></p>
+<p>Variable assignments inside a function do not override global variables, they exist only inside the function. Even though <code>a</code> was assigned a new value inside the function, this newly assigned value was only relevant to <code>print_func</code>, when the function finishes running, and the <code>a</code>'s values is printed again, we see the originally assigned values.</p>
+<p>Here is another more complex example.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb2-1" data-line-number="1">a_var <span class="op">=</span> <span class="dv">10</span></a>
+<a class="sourceLine" id="cb2-2" data-line-number="2">b_var <span class="op">=</span> <span class="dv">15</span></a>
+<a class="sourceLine" id="cb2-3" data-line-number="3">e_var <span class="op">=</span> <span class="dv">25</span></a>
+<a class="sourceLine" id="cb2-4" data-line-number="4"></a>
+<a class="sourceLine" id="cb2-5" data-line-number="5"><span class="kw">def</span> a_func(a_var):</a>
+<a class="sourceLine" id="cb2-6" data-line-number="6">    <span class="bu">print</span>(<span class="st">&quot;in a_func a_var =&quot;</span>, a_var)</a>
+<a class="sourceLine" id="cb2-7" data-line-number="7">    b_var <span class="op">=</span> <span class="dv">100</span> <span class="op">+</span> a_var</a>
+<a class="sourceLine" id="cb2-8" data-line-number="8">    d_var <span class="op">=</span> <span class="dv">2</span> <span class="op">*</span> a_var</a>
+<a class="sourceLine" id="cb2-9" data-line-number="9">    <span class="bu">print</span>(<span class="st">&quot;in a_func b_var =&quot;</span>, b_var)</a>
+<a class="sourceLine" id="cb2-10" data-line-number="10">    <span class="bu">print</span>(<span class="st">&quot;in a_func d_var =&quot;</span>, d_var)</a>
+<a class="sourceLine" id="cb2-11" data-line-number="11">    <span class="bu">print</span>(<span class="st">&quot;in a_func e_var =&quot;</span>, e_var)</a>
+<a class="sourceLine" id="cb2-12" data-line-number="12">    <span class="cf">return</span> b_var <span class="op">+</span> <span class="dv">10</span></a>
+<a class="sourceLine" id="cb2-13" data-line-number="13"></a>
+<a class="sourceLine" id="cb2-14" data-line-number="14">c_var <span class="op">=</span> a_func(b_var)</a>
+<a class="sourceLine" id="cb2-15" data-line-number="15"></a>
+<a class="sourceLine" id="cb2-16" data-line-number="16"><span class="bu">print</span>(<span class="st">&quot;a_var =&quot;</span>, a_var)</a>
+<a class="sourceLine" id="cb2-17" data-line-number="17"><span class="bu">print</span>(<span class="st">&quot;b_var =&quot;</span>, b_var)</a>
+<a class="sourceLine" id="cb2-18" data-line-number="18"><span class="bu">print</span>(<span class="st">&quot;c_var =&quot;</span>, c_var)</a>
+<a class="sourceLine" id="cb2-19" data-line-number="19"><span class="bu">print</span>(<span class="st">&quot;d_var =&quot;</span>, d_var)</a></code></pre></div>
+<p>output:</p>
+<p><code>in a_func a_var =  15</code><br />
+<code>in a_func b_var =  115</code><br />
+<code>in a_func d_var =  30</code><br />
+<code>in a_func e_var =  25</code><br />
+<code>a_var =  10</code><br />
+<code>b_var =  15</code><br />
+<code>c_var =  125</code><br />
+<code>d_var = </code><br />
+<br />
+<code>Traceback (most recent call last):</code><br />
+<code> File &quot;C:\def2.py&quot;, line 19, in </code><module><br />
+<code>   print(&quot;d_var = &quot;, d_var)</code><br />
+<code>NameError: name 'd_var' is not defined</code></p>
+<p>In this example the variables <code>a_var</code>, <code>b_var</code>, and <code>d_var</code> are all local variables when they are inside the function <code>a_func</code>. After the statement <code>return b_var + 10</code> is run, they all cease to exist. The variable <code>a_var</code> is automatically a local variable since it is a parameter name. The variables <code>b_var</code> and <code>d_var</code> are local variables since they appear on the left of an equals sign in the function in the statements <code>b_var = 100 + a_var</code> and <code>d_var = 2 * a_var</code> .</p>
+<p>Inside of the function <code>a_var</code> has no value assigned to it. When the function is called with <code>c_var = a_func(b_var)</code>, 15 is assigned to <code>a_var</code> since at that point in time <code>b_var</code> is 15, making the call to the function <code>a_func(15)</code>. This ends up setting <code>a_var</code> to 15 when it is inside of <code>a_func</code>.</p>
+<p>As you can see, once the function finishes running, the local variables <code>a_var</code> and <code>b_var</code> that had hidden the global variables of the same name are gone. Then the statement <code>print(&quot;a_var = &quot;, a_var)</code> prints the value <code>10</code> rather than the value <code>15</code> since the local variable that hid the global variable is gone.</p>
+<p>Another thing to notice is the <code>NameError</code> that happens at the end. This appears since the variable <code>d_var</code> no longer exists since <code>a_func</code> finished. All the local variables are deleted when the function exits. If you want to get something from a function, then you will have to use <code>return something</code>.</p>
+<p>One last thing to notice is that the value of <code>e_var</code> remains unchanged inside <code>a_func</code> since it is not a parameter and it never appears on the left of an equals sign inside of the function <code>a_func</code>. When a global variable is accessed inside a function it is the global variable from the outside.</p>
+<p>Functions allow local variables that exist only inside the function and can hide other variables that are outside the function.</p>

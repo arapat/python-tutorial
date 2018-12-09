@@ -1,0 +1,112 @@
+<h3 id="examples">Examples</h3>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="co"># This Program Demonstrates the use of the == operator</span></a>
+<a class="sourceLine" id="cb1-2" data-line-number="2"><span class="co"># using numbers</span></a>
+<a class="sourceLine" id="cb1-3" data-line-number="3"><span class="bu">print</span>(<span class="dv">5</span> <span class="op">==</span> <span class="dv">6</span>)</a>
+<a class="sourceLine" id="cb1-4" data-line-number="4"><span class="co"># Using variables</span></a>
+<a class="sourceLine" id="cb1-5" data-line-number="5">x <span class="op">=</span> <span class="dv">5</span></a>
+<a class="sourceLine" id="cb1-6" data-line-number="6">y <span class="op">=</span> <span class="dv">8</span></a>
+<a class="sourceLine" id="cb1-7" data-line-number="7"><span class="bu">print</span>(x <span class="op">==</span> y)</a></code></pre></div>
+<p>And the output</p>
+<p><code>False</code><br />
+<code>False</code></p>
+<p><strong>high_low.py</strong></p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="co"># Plays the guessing game higher or lower </span></a>
+<a class="sourceLine" id="cb2-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb2-3" data-line-number="3"><span class="co"># This should actually be something that is semi random like the</span></a>
+<a class="sourceLine" id="cb2-4" data-line-number="4"><span class="co"># last digits of the time or something else, but that will have to</span></a>
+<a class="sourceLine" id="cb2-5" data-line-number="5"><span class="co"># wait till a later chapter.  (Extra Credit, modify it to be random</span></a>
+<a class="sourceLine" id="cb2-6" data-line-number="6"><span class="co"># after the Modules chapter)</span></a>
+<a class="sourceLine" id="cb2-7" data-line-number="7">number <span class="op">=</span> <span class="dv">7</span></a>
+<a class="sourceLine" id="cb2-8" data-line-number="8">guess <span class="op">=</span> <span class="dv">-1</span></a>
+<a class="sourceLine" id="cb2-9" data-line-number="9"></a>
+<a class="sourceLine" id="cb2-10" data-line-number="10"><span class="bu">print</span>(<span class="st">&quot;Guess the number!&quot;</span>)</a>
+<a class="sourceLine" id="cb2-11" data-line-number="11"><span class="cf">while</span> guess <span class="op">!=</span> number:</a>
+<a class="sourceLine" id="cb2-12" data-line-number="12">    guess <span class="op">=</span> <span class="bu">int</span>(<span class="bu">input</span>(<span class="st">&quot;Is it... &quot;</span>))</a>
+<a class="sourceLine" id="cb2-13" data-line-number="13"></a>
+<a class="sourceLine" id="cb2-14" data-line-number="14">    <span class="cf">if</span> guess <span class="op">==</span> number:</a>
+<a class="sourceLine" id="cb2-15" data-line-number="15">        <span class="bu">print</span>(<span class="st">&quot;Hooray! You guessed it right!&quot;</span>)</a>
+<a class="sourceLine" id="cb2-16" data-line-number="16">    <span class="cf">elif</span> guess <span class="op">&lt;</span> number:</a>
+<a class="sourceLine" id="cb2-17" data-line-number="17">        <span class="bu">print</span>(<span class="st">&quot;It&#39;s bigger...&quot;</span>)</a>
+<a class="sourceLine" id="cb2-18" data-line-number="18">    <span class="cf">elif</span> guess <span class="op">&gt;</span> number:</a>
+<a class="sourceLine" id="cb2-19" data-line-number="19">        <span class="bu">print</span>(<span class="st">&quot;It&#39;s not so big.&quot;</span>)</a></code></pre></div>
+<p>Sample run:</p>
+<p><code>Guess the number!</code><br />
+<code>Is it... </code><strong><code>2</code></strong><br />
+<code>It's bigger...</code><br />
+<code>Is it... </code><strong><code>5</code></strong><br />
+<code>It's bigger...</code><br />
+<code>Is it... </code><strong><code>10</code></strong><br />
+<code>It's not so big.</code><br />
+<code>Is it... </code><strong><code>7</code></strong><br />
+<code>Hooray! You guessed it right!</code></p>
+<p><strong>even.py</strong></p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="co"># Asks for a number.</span></a>
+<a class="sourceLine" id="cb3-2" data-line-number="2"><span class="co"># Prints if it is even or odd</span></a>
+<a class="sourceLine" id="cb3-3" data-line-number="3"> </a>
+<a class="sourceLine" id="cb3-4" data-line-number="4">number <span class="op">=</span> <span class="bu">float</span>(<span class="bu">input</span>(<span class="st">&quot;Tell me a number: &quot;</span>))</a>
+<a class="sourceLine" id="cb3-5" data-line-number="5"><span class="cf">if</span> number <span class="op">%</span> <span class="dv">2</span> <span class="op">==</span> <span class="dv">0</span>:</a>
+<a class="sourceLine" id="cb3-6" data-line-number="6">    <span class="bu">print</span>(<span class="bu">int</span>(number), <span class="st">&quot;is even.&quot;</span>)</a>
+<a class="sourceLine" id="cb3-7" data-line-number="7"><span class="cf">elif</span> number <span class="op">%</span> <span class="dv">2</span> <span class="op">==</span> <span class="dv">1</span>:</a>
+<a class="sourceLine" id="cb3-8" data-line-number="8">    <span class="bu">print</span>(<span class="bu">int</span>(number), <span class="st">&quot;is odd.&quot;</span>)</a>
+<a class="sourceLine" id="cb3-9" data-line-number="9"><span class="cf">else</span>:</a>
+<a class="sourceLine" id="cb3-10" data-line-number="10">    <span class="bu">print</span>(number, <span class="st">&quot;is very strange.&quot;</span>)</a></code></pre></div>
+<p>Sample runs:</p>
+<p><code>Tell me a number: </code><strong><code>3</code></strong><br />
+<code>3 is odd.</code></p>
+<p><code>Tell me a number: </code><strong><code>2</code></strong><br />
+<code>2 is even.</code></p>
+<p><code>Tell me a number: </code><strong><code>3.4895</code></strong><br />
+<code>3.4895 is very strange.</code></p>
+<p><strong>average1.py</strong></p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb4-1" data-line-number="1"><span class="co"># keeps asking for numbers until 0 is entered.</span></a>
+<a class="sourceLine" id="cb4-2" data-line-number="2"><span class="co"># Prints the average value.</span></a>
+<a class="sourceLine" id="cb4-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb4-4" data-line-number="4">count <span class="op">=</span> <span class="dv">0</span></a>
+<a class="sourceLine" id="cb4-5" data-line-number="5"><span class="bu">sum</span> <span class="op">=</span> <span class="fl">0.0</span></a>
+<a class="sourceLine" id="cb4-6" data-line-number="6">number <span class="op">=</span> <span class="dv">1</span> <span class="co"># set to something that will not exit the while loop immediately.</span></a>
+<a class="sourceLine" id="cb4-7" data-line-number="7"></a>
+<a class="sourceLine" id="cb4-8" data-line-number="8"><span class="bu">print</span>(<span class="st">&quot;Enter 0 to exit the loop&quot;</span>)</a>
+<a class="sourceLine" id="cb4-9" data-line-number="9"></a>
+<a class="sourceLine" id="cb4-10" data-line-number="10"><span class="cf">while</span> number <span class="op">!=</span> <span class="dv">0</span>:</a>
+<a class="sourceLine" id="cb4-11" data-line-number="11">    number <span class="op">=</span> <span class="bu">float</span>(<span class="bu">input</span>(<span class="st">&quot;Enter a number: &quot;</span>))</a>
+<a class="sourceLine" id="cb4-12" data-line-number="12">    <span class="cf">if</span> number <span class="op">!=</span> <span class="dv">0</span>:</a>
+<a class="sourceLine" id="cb4-13" data-line-number="13">        count <span class="op">=</span> count <span class="op">+</span> <span class="dv">1</span></a>
+<a class="sourceLine" id="cb4-14" data-line-number="14">        <span class="bu">sum</span> <span class="op">=</span> <span class="bu">sum</span> <span class="op">+</span> number</a>
+<a class="sourceLine" id="cb4-15" data-line-number="15">    <span class="cf">if</span> number <span class="op">==</span> <span class="dv">0</span>:</a>
+<a class="sourceLine" id="cb4-16" data-line-number="16">        <span class="bu">print</span>(<span class="st">&quot;The average was:&quot;</span>, <span class="bu">sum</span> <span class="op">/</span> count)</a></code></pre></div>
+<p><strong>average2.py</strong></p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb5-1" data-line-number="1"><span class="co"># keeps asking for numbers until count numbers have been entered.</span></a>
+<a class="sourceLine" id="cb5-2" data-line-number="2"><span class="co"># Prints the average value.</span></a>
+<a class="sourceLine" id="cb5-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb5-4" data-line-number="4"><span class="co">#Notice that we use an integer to keep track of how many numbers, </span></a>
+<a class="sourceLine" id="cb5-5" data-line-number="5"><span class="co"># but floating point numbers for the input of each number</span></a>
+<a class="sourceLine" id="cb5-6" data-line-number="6"><span class="bu">sum</span> <span class="op">=</span> <span class="fl">0.0</span></a>
+<a class="sourceLine" id="cb5-7" data-line-number="7"></a>
+<a class="sourceLine" id="cb5-8" data-line-number="8"><span class="bu">print</span>(<span class="st">&quot;This program will take several numbers then average them&quot;</span>)</a>
+<a class="sourceLine" id="cb5-9" data-line-number="9">count <span class="op">=</span> <span class="bu">int</span>(<span class="bu">input</span>(<span class="st">&quot;How many numbers would you like to average: &quot;</span>))</a>
+<a class="sourceLine" id="cb5-10" data-line-number="10">current_count <span class="op">=</span> <span class="dv">0</span></a>
+<a class="sourceLine" id="cb5-11" data-line-number="11"></a>
+<a class="sourceLine" id="cb5-12" data-line-number="12"><span class="cf">while</span> current_count <span class="op">&lt;</span> count:</a>
+<a class="sourceLine" id="cb5-13" data-line-number="13">    current_count <span class="op">=</span> current_count <span class="op">+</span> <span class="dv">1</span></a>
+<a class="sourceLine" id="cb5-14" data-line-number="14">    <span class="bu">print</span>(<span class="st">&quot;Number&quot;</span>, current_count)</a>
+<a class="sourceLine" id="cb5-15" data-line-number="15">    number <span class="op">=</span> <span class="bu">float</span>(<span class="bu">input</span>(<span class="st">&quot;Enter a number: &quot;</span>))</a>
+<a class="sourceLine" id="cb5-16" data-line-number="16">    <span class="bu">sum</span> <span class="op">=</span> <span class="bu">sum</span> <span class="op">+</span> number</a>
+<a class="sourceLine" id="cb5-17" data-line-number="17">    </a>
+<a class="sourceLine" id="cb5-18" data-line-number="18"><span class="bu">print</span>(<span class="st">&quot;The average was:&quot;</span>, <span class="bu">sum</span> <span class="op">/</span> count)</a></code></pre></div>
+<p>Sample runs:</p>
+<p><code>This program will take several numbers then average them</code><br />
+<code>How many numbers would you like to average: </code><strong><code>2</code></strong><br />
+<code>Number 1</code><br />
+<code>Enter a number: </code><strong><code>3</code></strong><br />
+<code>Number 2</code><br />
+<code>Enter a number: </code><strong><code>5</code></strong><br />
+<code>The average was: 4.0</code></p>
+<p><code>This program will take several numbers then average them</code><br />
+<code>How many numbers would you like to average: </code><strong><code>3</code></strong><br />
+<code>Number 1</code><br />
+<code>Enter a number: </code><strong><code>1</code></strong><br />
+<code>Number 2</code><br />
+<code>Enter a number: </code><strong><code>4</code></strong><br />
+<code>Number 3</code><br />
+<code>Enter a number: </code><strong><code>3</code></strong><br />
+<code>The average was: 2.66666666667</code></p>

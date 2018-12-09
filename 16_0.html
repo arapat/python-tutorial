@@ -1,0 +1,165 @@
+<h3 id="file-io">File I/O</h3>
+<p>Here is a simple example of file I/O (input/output):</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="co"># Write a file</span></a>
+<a class="sourceLine" id="cb1-2" data-line-number="2"><span class="cf">with</span> <span class="bu">open</span>(<span class="st">&quot;test.txt&quot;</span>, <span class="st">&quot;wt&quot;</span>) <span class="im">as</span> out_file:</a>
+<a class="sourceLine" id="cb1-3" data-line-number="3">    out_file.write(<span class="st">&quot;This Text is going to out file</span><span class="ch">\n</span><span class="st">Look at it and see!&quot;</span>)</a>
+<a class="sourceLine" id="cb1-4" data-line-number="4"></a>
+<a class="sourceLine" id="cb1-5" data-line-number="5"><span class="co"># Read a file</span></a>
+<a class="sourceLine" id="cb1-6" data-line-number="6"><span class="cf">with</span> <span class="bu">open</span>(<span class="st">&quot;test.txt&quot;</span>, <span class="st">&quot;rt&quot;</span>) <span class="im">as</span> in_file:</a>
+<a class="sourceLine" id="cb1-7" data-line-number="7">    text <span class="op">=</span> in_file.read()</a>
+<a class="sourceLine" id="cb1-8" data-line-number="8"></a>
+<a class="sourceLine" id="cb1-9" data-line-number="9"><span class="bu">print</span>(text)</a></code></pre></div>
+<p>The output and the contents of the file <code>test.txt</code> are:</p>
+<p><code>This Text is going to out file</code><br />
+<code>Look at it and see!</code></p>
+<p>Notice that it wrote a file called <code>test.txt</code> in the directory that you ran the program from. The <code>\n</code> in the string tells Python to put a <em>n</em>ewline where it is.</p>
+<p>An overview of file I/O is:</p>
+<ul>
+<li>Get a file object with the <code>open</code> function</li>
+<li>Read or write to the file object (depending on how it was opened)</li>
+<li>If you did not use <code>with</code> to open the file, you'd have to close it manually</li>
+</ul>
+<p>The first step is to get a file object. The way to do this is to use the <code>open</code> function. The format is <code>file_object = open(filename, mode)</code> where <code>file_object</code> is the variable to put the file object, <code>filename</code> is a string with the filename, and <code>mode</code> is <code>&quot;rt&quot;</code> to <em>r</em>ead a file as <em>t</em>ext or <code>&quot;wt&quot;</code> to <em>w</em>rite a file as <em>t</em>ext (and a few others we will skip here). Next the file objects functions can be called. The two most common functions are <code>read</code> and <code>write</code>. The <code>write</code> function adds a string to the end of the file. The <code>read</code> function reads the next thing in the file and returns it as a string. If no argument is given it will return the whole file (as done in the example).</p>
+<p>Now here is a new version of the phone numbers program that we made earlier:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="kw">def</span> print_numbers(numbers):</a>
+<a class="sourceLine" id="cb2-2" data-line-number="2">    <span class="bu">print</span>(<span class="st">&quot;Telephone Numbers:&quot;</span>)</a>
+<a class="sourceLine" id="cb2-3" data-line-number="3">    <span class="cf">for</span> k, v <span class="kw">in</span> numbers.items():</a>
+<a class="sourceLine" id="cb2-4" data-line-number="4">        <span class="bu">print</span>(<span class="st">&quot;Name:&quot;</span>, k, <span class="st">&quot;</span><span class="ch">\t</span><span class="st">Number:&quot;</span>, v)</a>
+<a class="sourceLine" id="cb2-5" data-line-number="5">    <span class="bu">print</span>()</a>
+<a class="sourceLine" id="cb2-6" data-line-number="6"></a>
+<a class="sourceLine" id="cb2-7" data-line-number="7"><span class="kw">def</span> add_number(numbers, name, number):</a>
+<a class="sourceLine" id="cb2-8" data-line-number="8">    numbers[name] <span class="op">=</span> number</a>
+<a class="sourceLine" id="cb2-9" data-line-number="9"></a>
+<a class="sourceLine" id="cb2-10" data-line-number="10"><span class="kw">def</span> lookup_number(numbers, name):</a>
+<a class="sourceLine" id="cb2-11" data-line-number="11">    <span class="cf">if</span> name <span class="kw">in</span> numbers:</a>
+<a class="sourceLine" id="cb2-12" data-line-number="12">        <span class="cf">return</span> <span class="st">&quot;The number is &quot;</span> <span class="op">+</span> numbers[name]</a>
+<a class="sourceLine" id="cb2-13" data-line-number="13">    <span class="cf">else</span>:</a>
+<a class="sourceLine" id="cb2-14" data-line-number="14">        <span class="cf">return</span> name <span class="op">+</span> <span class="st">&quot; was not found&quot;</span></a>
+<a class="sourceLine" id="cb2-15" data-line-number="15"></a>
+<a class="sourceLine" id="cb2-16" data-line-number="16"><span class="kw">def</span> remove_number(numbers, name):</a>
+<a class="sourceLine" id="cb2-17" data-line-number="17">    <span class="cf">if</span> name <span class="kw">in</span> numbers:</a>
+<a class="sourceLine" id="cb2-18" data-line-number="18">        <span class="kw">del</span> numbers[name]</a>
+<a class="sourceLine" id="cb2-19" data-line-number="19">    <span class="cf">else</span>:</a>
+<a class="sourceLine" id="cb2-20" data-line-number="20">        <span class="bu">print</span>(name,<span class="st">&quot; was not found&quot;</span>)</a>
+<a class="sourceLine" id="cb2-21" data-line-number="21"></a>
+<a class="sourceLine" id="cb2-22" data-line-number="22"><span class="kw">def</span> load_numbers(numbers, filename):</a>
+<a class="sourceLine" id="cb2-23" data-line-number="23">    in_file <span class="op">=</span> <span class="bu">open</span>(filename, <span class="st">&quot;rt&quot;</span>)</a>
+<a class="sourceLine" id="cb2-24" data-line-number="24">    <span class="cf">while</span> <span class="va">True</span>:</a>
+<a class="sourceLine" id="cb2-25" data-line-number="25">        in_line <span class="op">=</span> in_file.readline()</a>
+<a class="sourceLine" id="cb2-26" data-line-number="26">        <span class="cf">if</span> <span class="kw">not</span> in_line:</a>
+<a class="sourceLine" id="cb2-27" data-line-number="27">            <span class="cf">break</span></a>
+<a class="sourceLine" id="cb2-28" data-line-number="28">        in_line <span class="op">=</span> in_line[:<span class="op">-</span><span class="dv">1</span>]</a>
+<a class="sourceLine" id="cb2-29" data-line-number="29">        name, number <span class="op">=</span> in_line.split(<span class="st">&quot;,&quot;</span>)</a>
+<a class="sourceLine" id="cb2-30" data-line-number="30">        numbers[name] <span class="op">=</span> number</a>
+<a class="sourceLine" id="cb2-31" data-line-number="31">    in_file.close()</a>
+<a class="sourceLine" id="cb2-32" data-line-number="32"></a>
+<a class="sourceLine" id="cb2-33" data-line-number="33"><span class="kw">def</span> save_numbers(numbers, filename):</a>
+<a class="sourceLine" id="cb2-34" data-line-number="34">    out_file <span class="op">=</span> <span class="bu">open</span>(filename, <span class="st">&quot;wt&quot;</span>)</a>
+<a class="sourceLine" id="cb2-35" data-line-number="35">    <span class="cf">for</span> k, v <span class="kw">in</span> numbers.items():</a>
+<a class="sourceLine" id="cb2-36" data-line-number="36">        out_file.write(k <span class="op">+</span> <span class="st">&quot;,&quot;</span> <span class="op">+</span> v <span class="op">+</span> <span class="st">&quot;</span><span class="ch">\n</span><span class="st">&quot;</span>)</a>
+<a class="sourceLine" id="cb2-37" data-line-number="37">    out_file.close()</a>
+<a class="sourceLine" id="cb2-38" data-line-number="38"></a>
+<a class="sourceLine" id="cb2-39" data-line-number="39"><span class="kw">def</span> print_menu():</a>
+<a class="sourceLine" id="cb2-40" data-line-number="40">    <span class="bu">print</span>(<span class="st">&#39;1. Print Phone Numbers&#39;</span>)</a>
+<a class="sourceLine" id="cb2-41" data-line-number="41">    <span class="bu">print</span>(<span class="st">&#39;2. Add a Phone Number&#39;</span>)</a>
+<a class="sourceLine" id="cb2-42" data-line-number="42">    <span class="bu">print</span>(<span class="st">&#39;3. Remove a Phone Number&#39;</span>)</a>
+<a class="sourceLine" id="cb2-43" data-line-number="43">    <span class="bu">print</span>(<span class="st">&#39;4. Lookup a Phone Number&#39;</span>)</a>
+<a class="sourceLine" id="cb2-44" data-line-number="44">    <span class="bu">print</span>(<span class="st">&#39;5. Load numbers&#39;</span>)</a>
+<a class="sourceLine" id="cb2-45" data-line-number="45">    <span class="bu">print</span>(<span class="st">&#39;6. Save numbers&#39;</span>)</a>
+<a class="sourceLine" id="cb2-46" data-line-number="46">    <span class="bu">print</span>(<span class="st">&#39;7. Quit&#39;</span>)</a>
+<a class="sourceLine" id="cb2-47" data-line-number="47">    <span class="bu">print</span>()</a>
+<a class="sourceLine" id="cb2-48" data-line-number="48"></a>
+<a class="sourceLine" id="cb2-49" data-line-number="49">phone_list <span class="op">=</span> {}</a>
+<a class="sourceLine" id="cb2-50" data-line-number="50">menu_choice <span class="op">=</span> <span class="dv">0</span></a>
+<a class="sourceLine" id="cb2-51" data-line-number="51">print_menu()</a>
+<a class="sourceLine" id="cb2-52" data-line-number="52"><span class="cf">while</span> <span class="va">True</span>:</a>
+<a class="sourceLine" id="cb2-53" data-line-number="53">    menu_choice <span class="op">=</span> <span class="bu">int</span>(<span class="bu">input</span>(<span class="st">&quot;Type in a number (1-7): &quot;</span>))</a>
+<a class="sourceLine" id="cb2-54" data-line-number="54">    <span class="cf">if</span> menu_choice <span class="op">==</span> <span class="dv">1</span>:</a>
+<a class="sourceLine" id="cb2-55" data-line-number="55">        print_numbers(phone_list)</a>
+<a class="sourceLine" id="cb2-56" data-line-number="56">    <span class="cf">elif</span> menu_choice <span class="op">==</span> <span class="dv">2</span>:</a>
+<a class="sourceLine" id="cb2-57" data-line-number="57">        <span class="bu">print</span>(<span class="st">&quot;Add Name and Number&quot;</span>)</a>
+<a class="sourceLine" id="cb2-58" data-line-number="58">        name <span class="op">=</span> <span class="bu">input</span>(<span class="st">&quot;Name: &quot;</span>)</a>
+<a class="sourceLine" id="cb2-59" data-line-number="59">        phone <span class="op">=</span> <span class="bu">input</span>(<span class="st">&quot;Number: &quot;</span>)</a>
+<a class="sourceLine" id="cb2-60" data-line-number="60">        add_number(phone_list, name, phone)</a>
+<a class="sourceLine" id="cb2-61" data-line-number="61">    <span class="cf">elif</span> menu_choice <span class="op">==</span> <span class="dv">3</span>:</a>
+<a class="sourceLine" id="cb2-62" data-line-number="62">        <span class="bu">print</span>(<span class="st">&quot;Remove Name and Number&quot;</span>)</a>
+<a class="sourceLine" id="cb2-63" data-line-number="63">        name <span class="op">=</span> <span class="bu">input</span>(<span class="st">&quot;Name: &quot;</span>)</a>
+<a class="sourceLine" id="cb2-64" data-line-number="64">        remove_number(phone_list, name)</a>
+<a class="sourceLine" id="cb2-65" data-line-number="65">    <span class="cf">elif</span> menu_choice <span class="op">==</span> <span class="dv">4</span>:</a>
+<a class="sourceLine" id="cb2-66" data-line-number="66">        <span class="bu">print</span>(<span class="st">&quot;Lookup Number&quot;</span>)</a>
+<a class="sourceLine" id="cb2-67" data-line-number="67">        name <span class="op">=</span> <span class="bu">input</span>(<span class="st">&quot;Name: &quot;</span>)</a>
+<a class="sourceLine" id="cb2-68" data-line-number="68">        <span class="bu">print</span>(lookup_number(phone_list, name))</a>
+<a class="sourceLine" id="cb2-69" data-line-number="69">    <span class="cf">elif</span> menu_choice <span class="op">==</span> <span class="dv">5</span>:</a>
+<a class="sourceLine" id="cb2-70" data-line-number="70">        filename <span class="op">=</span> <span class="bu">input</span>(<span class="st">&quot;Filename to load: &quot;</span>)</a>
+<a class="sourceLine" id="cb2-71" data-line-number="71">        load_numbers(phone_list, filename)</a>
+<a class="sourceLine" id="cb2-72" data-line-number="72">    <span class="cf">elif</span> menu_choice <span class="op">==</span> <span class="dv">6</span>:</a>
+<a class="sourceLine" id="cb2-73" data-line-number="73">        filename <span class="op">=</span> <span class="bu">input</span>(<span class="st">&quot;Filename to save: &quot;</span>)</a>
+<a class="sourceLine" id="cb2-74" data-line-number="74">        save_numbers(phone_list, filename)</a>
+<a class="sourceLine" id="cb2-75" data-line-number="75">    <span class="cf">elif</span> menu_choice <span class="op">==</span> <span class="dv">7</span>:</a>
+<a class="sourceLine" id="cb2-76" data-line-number="76">        <span class="cf">break</span></a>
+<a class="sourceLine" id="cb2-77" data-line-number="77">    <span class="cf">else</span>:</a>
+<a class="sourceLine" id="cb2-78" data-line-number="78">        print_menu()</a>
+<a class="sourceLine" id="cb2-79" data-line-number="79"></a>
+<a class="sourceLine" id="cb2-80" data-line-number="80"><span class="bu">print</span>(<span class="st">&quot;Goodbye&quot;</span>)  </a></code></pre></div>
+<p>Notice that it now includes saving and loading files. Here is some output of my running it twice:</p>
+<p><code>1. Print Phone Numbers</code><br />
+<code>2. Add a Phone Number</code><br />
+<code>3. Remove a Phone Number</code><br />
+<code>4. Lookup a Phone Number</code><br />
+<code>5. Load numbers</code><br />
+<code>6. Save numbers</code><br />
+<code>7. Quit</code><br />
+<br />
+<code>Type in a number (1-7): </code><strong><code>2</code></strong><br />
+<code>Add Name and Number</code><br />
+<code>Name: </code><strong><code>Jill</code></strong><br />
+<code>Number: </code><strong><code>1234</code></strong><br />
+<code>Type in a number (1-7): </code><strong><code>2</code></strong><br />
+<code>Add Name and Number</code><br />
+<code>Name: </code><strong><code>Fred</code></strong><br />
+<code>Number: </code><strong><code>4321</code></strong><br />
+<code>Type in a number (1-7): </code><strong><code>1</code></strong><br />
+<code>Telephone Numbers:</code><br />
+<code>Name: Jill     Number: 1234</code><br />
+<code>Name: Fred     Number: 4321</code><br />
+<br />
+<code>Type in a number (1-7): </code><strong><code>6</code></strong><br />
+<code>Filename to save: </code><strong><code>numbers.txt</code></strong><br />
+<code>Type in a number (1-7): </code><strong><code>7</code></strong><br />
+<code>Goodbye</code></p>
+<p><code>1. Print Phone Numbers</code><br />
+<code>2. Add a Phone Number</code><br />
+<code>3. Remove a Phone Number</code><br />
+<code>4. Lookup a Phone Number</code><br />
+<code>5. Load numbers</code><br />
+<code>6. Save numbers</code><br />
+<code>7. Quit</code><br />
+<br />
+<code>Type in a number (1-7): </code><strong><code>5</code></strong><br />
+<code>Filename to load: </code><strong><code>numbers.txt</code></strong><br />
+<code>Type in a number (1-7): </code><strong><code>1</code></strong><br />
+<code>Telephone Numbers:</code><br />
+<code>Name: Jill     Number: 1234</code><br />
+<code>Name: Fred     Number: 4321</code><br />
+<br />
+<code>Type in a number (1-7): </code><strong><code>7</code></strong><br />
+<code>Goodbye</code></p>
+<p>The new portions of this program are:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="kw">def</span> load_numbers(numbers, filename):</a>
+<a class="sourceLine" id="cb3-2" data-line-number="2">    in_file <span class="op">=</span> <span class="bu">open</span>(filename, <span class="st">&quot;rt&quot;</span>)</a>
+<a class="sourceLine" id="cb3-3" data-line-number="3">    <span class="cf">while</span> <span class="va">True</span>:</a>
+<a class="sourceLine" id="cb3-4" data-line-number="4">        in_line <span class="op">=</span> in_file.readline()</a>
+<a class="sourceLine" id="cb3-5" data-line-number="5">        <span class="cf">if</span> <span class="kw">not</span> in_line:</a>
+<a class="sourceLine" id="cb3-6" data-line-number="6">            <span class="cf">break</span></a>
+<a class="sourceLine" id="cb3-7" data-line-number="7">        in_line <span class="op">=</span> in_line[:<span class="op">-</span><span class="dv">1</span>]</a>
+<a class="sourceLine" id="cb3-8" data-line-number="8">        name, number <span class="op">=</span> in_line.split(<span class="st">&quot;,&quot;</span>)</a>
+<a class="sourceLine" id="cb3-9" data-line-number="9">        numbers[name] <span class="op">=</span> number</a>
+<a class="sourceLine" id="cb3-10" data-line-number="10">    in_file.close()</a>
+<a class="sourceLine" id="cb3-11" data-line-number="11"></a>
+<a class="sourceLine" id="cb3-12" data-line-number="12"><span class="kw">def</span> save_numbers(numbers, filename):</a>
+<a class="sourceLine" id="cb3-13" data-line-number="13">    out_file <span class="op">=</span> <span class="bu">open</span>(filename, <span class="st">&quot;wt&quot;</span>)</a>
+<a class="sourceLine" id="cb3-14" data-line-number="14">    <span class="cf">for</span> k, v <span class="kw">in</span> numbers.items():</a>
+<a class="sourceLine" id="cb3-15" data-line-number="15">        out_file.write(k <span class="op">+</span> <span class="st">&quot;,&quot;</span> <span class="op">+</span> v <span class="op">+</span> <span class="st">&quot;</span><span class="ch">\n</span><span class="st">&quot;</span>)</a>
+<a class="sourceLine" id="cb3-16" data-line-number="16">    out_file.close()</a></code></pre></div>
+<p>First we will look at the save portion of the program. First it creates a file object with the command <code>open(filename, &quot;wt&quot;)</code>. Next it goes through and creates a line for each of the phone numbers with the command <code>out_file.write(k + &quot;,&quot; + v + &quot;\n&quot;)</code>. This writes out a line that contains the name, a comma, the number and follows it by a newline.</p>
+<p>The loading portion is a little more complicated. It starts by getting a file object. Then it uses a <code>while True:</code> loop to keep looping until a <code>break</code> statement is encountered. Next it gets a line with the line <code>in_line = in_file.readline()</code>. The <code>readline</code> function will return an empty string when the end of the file is reached. The <code>if</code> statement checks for this and <code>break</code>s out of the <code>while</code> loop when that happens. Of course if the <code>readline</code> function did not return the newline at the end of the line there would be no way to tell if an empty string was an empty line or the end of the file so the newline is left in what <code>readline</code> returns. Hence we have to get rid of the newline. The line <code>in_line = in_line[:-1]</code> does this for us by dropping the last character. Next the line <code>name, number = in_line.split(&quot;,&quot;)</code> splits the line at the comma into a name and a number. This is then added to the <code>numbers</code> dictionary.</p>

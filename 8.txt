@@ -1,0 +1,137 @@
+Some people find this section useful, and some find it confusing.  If you find it confusing you can skip it.  Now we will do a walk through for the following program:
+<source lang="python">
+def mult(a, b):
+    if b == 0:
+        return 0
+    rest = mult(a, b - 1)
+    value = a + rest
+    return value
+result = mult(3, 2)
+print("3 * 2 = ", result)
+</source>
+ 
+Basically this program creates a positive integer multiplication function
+(that is far slower than the built in multiplication function) and then
+demonstrates this function with a use of the function. This program demonstrates the use of recursion, that is a form of iteration (repetition) in which there is a function that repeatedly calls itself until an exit condition is satisfied. It uses repeated additions to give the same result as mutiplication: e.g. 3&nbsp;+&nbsp;3 (addition) gives the same result as 3&nbsp;*&nbsp;2 (multiplication).
+
+; ''Question:'' What is the first thing the program does?
+: ''Answer:'' The first thing done is the function mult is defined with the lines:
+<source lang="python">
+def mult(a, b):
+    if b == 0:
+        return 0
+    rest = mult(a, b - 1)
+    value = a + rest
+    return value
+</source>
+: This creates a function that takes two parameters and returns a value when it is done.  Later this function can be run.
+; What happens next?  
+: The next line after the function, <code>result = mult(3, 2)</code> is run.
+; What does this line do?
+: This line will assign the return value of <code>mult(3, 2)</code> to the variable <code>result</code>.
+; And what does <code>mult(3, 2)</code> return?
+: We need to do a walkthrough of the <code>mult</code> function to find out.
+; What happens next?
+: The variable <code>a</code> gets the value 3 assigned to it and the variable <code>b</code> gets the value 2 assigned to it.
+; And then?
+: The line <code>if b == 0:</code> is run.  Since <code>b</code> has the value 2 this is false so the line <code>return 0</code> is skipped.
+; And what then?
+: The line <code>rest = mult(a, b - 1)</code> is run.  This line sets the local variable <code>rest</code> to the value of <code>mult(a, b - 1)</code>.  The value of <code> a</code> is 3 and the value of <code> b</code> is 2 so the function call is <code>mult(3,1)</code>
+; So what is the value of <code>mult(3, 1)</code> ?
+: We will need to run the function <code> mult</code> with the parameters 3 and 1.
+; So what happens next?
+: The local variables in the '' new'' run of the function are set so that <code>a</code> has the value 3 and <code> b</code> has the value 1. Since these are local values these do not affect the previous values of <code>a</code> and <code>b</code>.
+; And then?
+: Since <code> b</code> has the value 1 the if statement is false, so the next line becomes <code>rest = mult(a, b - 1)</code>.
+; What does this line do?
+: This line will assign the value of <code>mult(3, 0)</code> to rest.
+; So what is that value?
+: We will have to run the function one more time to find that out. This time <code>a</code> has the value 3 and <code>b</code> has the value 0.
+; So what happens next?
+: The first line in the function to run is <code>if b == 0:</code>. <code> b</code> has the value 0 so the next line to run is <code>return 0</code> 
+; And what does the line <code>return 0</code> do?
+: This line returns the value 0 out of the function. 
+; So?
+: So now we know that <code>mult(3, 0)</code> has the value 0.  Now we know what the line <code>rest = mult(a, b - 1)</code> did since we have run the function <code>mult</code> with the parameters 3 and 0.  We have finished running <code>mult(3, 0)</code> and are now back to running <code> mult(3, 1)</code>. The variable <code>rest</code> gets assigned the value 0.
+; What line is run next?
+: The line <code>value = a + rest</code> is run next. In this run of the function, <code>a = 3</code> and <code>rest = 0</code> so now <code>value = 3</code>.  
+; What happens next?
+: The line <code>return value</code> is run.  This returns 3 from the function. This also exits from the run of the function <code> mult(3, 1)</code>.  After <code>return</code> is called, we go back to running <code> mult(3, 2)</code>.
+; Where were we in <code> mult(3, 2)</code>?
+: We had the variables <code>a = 3</code> and <code>b = 2</code> and were examining the line <code>rest = mult(a, b - 1)</code>.
+; So what happens now?
+: The variable <code>rest</code> get 3 assigned to it.  The next line <code>value = a + rest</code> sets <code>value</code> to <code>3 + 3</code> or 6.  
+; So now what happens?
+: The next line runs, this returns 6 from the function.  We are now back to running the line <code>result = mult(3, 2)</code> which can now assign the value 6 to the variable <code>result</code>.
+; What happens next?  
+: The next line after the function, <code>print("3 * 2 = ", result)</code> is run.
+; And what does this do?
+: It prints <code>3 * 2 = </code> and the value of <code>result</code> which is 6. The complete line printed is <code>3 * 2 = 6</code>.
+; What is happening overall?  
+: Basically we used two facts to calculate the multiple of the two numbers.  The first is that any number times 0 is 0 (<code>x * 0 = 0</code>).  The second is that a number times another number is equal to the first number plus the first number times one less than the second number (<code>x * y = x + x * (y - 1)</code>).  So what happens is <code>3 * 2</code> is first converted into <code> 3 + 3 * 1</code>.  Then <code>3 * 1</code> is converted into <code>3 + 3 * 0</code>.  Then we know that any number times 0 is 0 so <code>3 * 0</code> is 0.  Then we can calculate that <code>3 + 3 * 0</code> is <code>3 + 0</code> which is <code>3</code>.  Now we know what <code>3 * 1</code> is so we can calculate that <code>3 + 3 * 1</code> is <code>3 + 3</code> which is <code>6</code>.
+
+This is how the whole thing works:
+
+ mult(3, 2)
+ 3 + mult(3, 1)
+ 3 + 3 + mult(3, 0)
+ 3 + 3 + 0
+ 3 + 3
+ 6
+
+==== Recursion ====
+Programming constructs solving a problem by solving a smaller version of the same problem are called ''recursive''. In the examples in this chapter, recursion is realized by defining a function calling itself. This facilitates implementing solutions to programming tasks as it may be sufficient to consider the next step of a problem instead of the whole problem at once. It is also useful as it allows to express some mathematical concepts with straightforward, easy to read code.
+
+Any problem that can be solved with recursion could be re-implemented with loops. Using the latter usually results in better performance. However equivalent implementations using loops are usually harder to get done correctly.
+
+Probably the most intuitive definition of ''recursion'' is:
+; Recursion
+: If you still don't get it, see ''recursion''.
+
+Try walking through the factorial example if the multiplication example did not make sense.
+
+=== Examples ===
+'''factorial.py'''
+<source lang="python">
+#defines a function that calculates the factorial
+
+def factorial(n):
+    if n <= 1:
+        return 1
+    return n * factorial(n - 1)
+
+print("2! =", factorial(2))
+print("3! =", factorial(3))
+print("4! =", factorial(4))
+print("5! =", factorial(5))
+</source>
+
+Output:
+ 
+ 2! = 2
+ 3! = 6
+ 4! = 24
+ 5! = 120
+
+'''countdown.py'''
+<source lang="python">
+def count_down(n):
+    print(n)
+    if n > 0:
+        return count_down(n-1)
+
+count_down(5)
+</source>
+
+Output:
+ 5
+ 4
+ 3
+ 2
+ 1
+ 0
+
+<!--Now try replacing the "if" with "while" (you are still typing these out, right?).  Now you've managed to turn your computer into a calculator which can't correctly count down from four.  In essence, "while" acts as combined "if" and "repeat."  Throwing in two recursions makes for some interesting counting.-->
+
+{{navigation |previous=Defining Functions |next=Lists}}
+{{BookCat}}

@@ -1,0 +1,116 @@
+<p>And now presenting a cool trick that can be done with strings:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="kw">def</span> shout(string):</a>
+<a class="sourceLine" id="cb1-2" data-line-number="2">    <span class="cf">for</span> character <span class="kw">in</span> string:</a>
+<a class="sourceLine" id="cb1-3" data-line-number="3">        <span class="bu">print</span>(<span class="st">&quot;Gimme a &quot;</span> <span class="op">+</span> character)</a>
+<a class="sourceLine" id="cb1-4" data-line-number="4">        <span class="bu">print</span>(<span class="st">&quot;&#39;&quot;</span> <span class="op">+</span> character <span class="op">+</span> <span class="st">&quot;&#39;&quot;</span>)</a>
+<a class="sourceLine" id="cb1-5" data-line-number="5"></a>
+<a class="sourceLine" id="cb1-6" data-line-number="6">shout(<span class="st">&quot;Lose&quot;</span>)</a>
+<a class="sourceLine" id="cb1-7" data-line-number="7"></a>
+<a class="sourceLine" id="cb1-8" data-line-number="8"><span class="kw">def</span> middle(string):</a>
+<a class="sourceLine" id="cb1-9" data-line-number="9">    <span class="bu">print</span>(<span class="st">&quot;The middle character is:&quot;</span>, string[<span class="bu">len</span>(string) <span class="op">//</span> <span class="dv">2</span>])</a>
+<a class="sourceLine" id="cb1-10" data-line-number="10"></a>
+<a class="sourceLine" id="cb1-11" data-line-number="11">middle(<span class="st">&quot;abcdefg&quot;</span>)</a>
+<a class="sourceLine" id="cb1-12" data-line-number="12">middle(<span class="st">&quot;The Python Programming Language&quot;</span>)</a>
+<a class="sourceLine" id="cb1-13" data-line-number="13">middle(<span class="st">&quot;Atlanta&quot;</span>)</a></code></pre></div>
+<p>And the output is:</p>
+<p><code>Gimme a L</code><br />
+<code>'L'</code><br />
+<code>Gimme a o</code><br />
+<code>'o'</code><br />
+<code>Gimme a s</code><br />
+<code>'s'</code><br />
+<code>Gimme a e</code><br />
+<code>'e'</code><br />
+<code>The middle character is: d</code><br />
+<code>The middle character is: r</code><br />
+<code>The middle character is: a</code></p>
+<p>What these programs demonstrate is that strings are similar to lists in several ways. The <code>shout()</code> function shows that <code>for</code> loops can be used with strings just as they can be used with lists. The <code>middle</code> procedure shows that that strings can also use the <code>len()</code> function and array indexes and slices. Most list features work on strings as well.</p>
+<p>The next feature demonstrates some string specific features:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="kw">def</span> to_upper(string):</a>
+<a class="sourceLine" id="cb2-2" data-line-number="2">    <span class="co">## Converts a string to upper case</span></a>
+<a class="sourceLine" id="cb2-3" data-line-number="3">    upper_case <span class="op">=</span> <span class="st">&quot;&quot;</span></a>
+<a class="sourceLine" id="cb2-4" data-line-number="4">    <span class="cf">for</span> character <span class="kw">in</span> string:</a>
+<a class="sourceLine" id="cb2-5" data-line-number="5">        <span class="cf">if</span> <span class="st">&#39;a&#39;</span> <span class="op">&lt;=</span> character <span class="op">&lt;=</span> <span class="st">&#39;z&#39;</span>:</a>
+<a class="sourceLine" id="cb2-6" data-line-number="6">            location <span class="op">=</span> <span class="bu">ord</span>(character) <span class="op">-</span> <span class="bu">ord</span>(<span class="st">&#39;a&#39;</span>)</a>
+<a class="sourceLine" id="cb2-7" data-line-number="7">            new_ascii <span class="op">=</span> location <span class="op">+</span> <span class="bu">ord</span>(<span class="st">&#39;A&#39;</span>)</a>
+<a class="sourceLine" id="cb2-8" data-line-number="8">            character <span class="op">=</span> <span class="bu">chr</span>(new_ascii)</a>
+<a class="sourceLine" id="cb2-9" data-line-number="9">        upper_case <span class="op">=</span> upper_case <span class="op">+</span> character</a>
+<a class="sourceLine" id="cb2-10" data-line-number="10">    <span class="cf">return</span> upper_case</a>
+<a class="sourceLine" id="cb2-11" data-line-number="11"></a>
+<a class="sourceLine" id="cb2-12" data-line-number="12"><span class="bu">print</span>(to_upper(<span class="st">&quot;This is Text&quot;</span>))</a></code></pre></div>
+<p>with the output being:</p>
+<p><code>THIS IS TEXT</code></p>
+<p>This works because the computer represents the characters of a string as numbers from 0 to 1,114,111. For example 'A' is 65, 'B' is 66 and א is 1488. The values are the <a href="w:en:unicode" title="wikilink">unicode</a> value. Python has a function called <code>ord()</code> (short for ordinal) that returns a character as a number. There is also a corresponding function called <code>chr()</code> that converts a number into a character. With this in mind the program should start to be clear. The first detail is the line: <code>if 'a' &lt;= character &lt;= 'z':</code> which checks to see if a letter is lower case. If it is then the next lines are used. First it is converted into a location so that a = 0, b = 1, c = 2 and so on with the line: <code>location = ord(character) - ord('a')</code>. Next the new value is found with <code>new_ascii = location + ord('A')</code>. This value is converted back to a character that is now upper case. Note that if you really need the upper case of a letter, you should use <code>u=var.upper()</code> which will work with other languages as well.</p>
+<p>Now for some interactive typing exercise:</p>
+<p><code>&gt;&gt;&gt; </code><strong><code>#`` ``Integer`` ``to`` ``String</code></strong><br />
+<code>&gt;&gt;&gt; </code><strong><code>2</code></strong><br />
+<code>2</code><br />
+<code>&gt;&gt;&gt; </code><strong><code>repr(2)</code></strong><br />
+<code>'2'</code><br />
+<code>&gt;&gt;&gt; </code><strong><code>-123</code></strong><br />
+<code>-123</code><br />
+<code>&gt;&gt;&gt; </code><strong><code>repr(-123)</code></strong><br />
+<code>'-123'</code><br />
+<code>&gt;&gt;&gt; </code><strong><code>#`` ``String`` ``to`` ``Integer</code></strong><br />
+<code>&gt;&gt;&gt; </code><strong><code>&quot;23&quot;</code></strong><br />
+<code>'23'</code><br />
+<code>&gt;&gt;&gt; </code><strong><code>int(&quot;23&quot;)</code></strong><br />
+<code>23</code><br />
+<code>&gt;&gt;&gt; </code><strong><code>&quot;23&quot;`` ``*`` ``2</code></strong><br />
+<code>'2323'</code><br />
+<code>&gt;&gt;&gt; </code><strong><code>int(&quot;23&quot;)`` ``*`` ``2</code></strong><br />
+<code>46</code><br />
+<code>&gt;&gt;&gt; </code><strong><code>#`` ``Float`` ``to`` ``String</code></strong><br />
+<code>&gt;&gt;&gt; </code><strong><code>1.23</code></strong><br />
+<code>1.23</code><br />
+<code>&gt;&gt;&gt; </code><strong><code>repr(1.23)</code></strong><br />
+<code>'1.23'</code><br />
+<code>&gt;&gt;&gt; </code><strong><code>#`` ``Float`` ``to`` ``Integer</code></strong><br />
+<code>&gt;&gt;&gt; </code><strong><code>1.23</code></strong><br />
+<code>1.23</code><br />
+<code>&gt;&gt;&gt; </code><strong><code>int(1.23)</code></strong><br />
+<code>1</code><br />
+<code>&gt;&gt;&gt; </code><strong><code>int(-1.23)</code></strong><br />
+<code>-1</code><br />
+<code>&gt;&gt;&gt; </code><strong><code>#`` ``String`` ``to`` ``Float</code></strong><br />
+<code>&gt;&gt;&gt; </code><strong><code>float(&quot;1.23&quot;)</code></strong><br />
+<code>1.23</code><br />
+<code>&gt;&gt;&gt; </code><strong><code>&quot;1.23&quot;</code></strong><code> </code><br />
+<code>'1.23'</code><br />
+<code>&gt;&gt;&gt; </code><strong><code>float(&quot;123&quot;)</code></strong><br />
+<code>123.0</code></p>
+<p>If you haven't guessed already the function <code>repr()</code> can convert an integer to a string and the function <code>int()</code> can convert a string to an integer. The function <code>float()</code> can convert a string to a float. The <code>repr()</code> function returns a printable representation of something. Here are some examples of this:</p>
+<p><code>&gt;&gt;&gt; </code><strong><code>repr(1)</code></strong><br />
+<code>'1'</code><br />
+<code>&gt;&gt;&gt; </code><strong><code>repr(234.14)</code></strong><br />
+<code>'234.14'</code><br />
+<code>&gt;&gt;&gt; </code><strong><code>repr([4,`` ``42,`` ``10])</code></strong><br />
+<code>'[4, 42, 10]'</code></p>
+<p>The <code>int()</code> function tries to convert a string (or a float) into an integer. There is also a similar function called <code>float()</code> that will convert an integer or a string into a float. Another function that Python has is the <code>eval()</code> function. The <code>eval()</code> function takes a string and returns data of the type that python thinks it found. For example:</p>
+<p><code>&gt;&gt;&gt; </code><strong><code>v`` ``=`` ``eval('123')</code></strong><br />
+<code>&gt;&gt;&gt; </code><strong><code>print(v,`` ``type(v))</code></strong><br />
+<code>123 &lt;type 'int'&gt;</code><br />
+<code>&gt;&gt;&gt; </code><strong><code>v`` ``=`` ``eval('645.123')</code></strong><br />
+<code>&gt;&gt;&gt; </code><strong><code>print(v,`` ``type(v))</code></strong><br />
+<code>645.123 &lt;type 'float'&gt;</code><br />
+<code>&gt;&gt;&gt; </code><strong><code>v`` ``=`` ``eval('[1,`` ``2,`` ``3]')</code></strong><br />
+<code>&gt;&gt;&gt; </code><strong><code>print(v,`` ``type(v))</code></strong><br />
+<code>[1, 2, 3] &lt;type 'list'&gt;</code></p>
+<p>If you use the <code>eval()</code> function you should check that it returns the type that you expect.</p>
+<p>One useful string function is the <code>split()</code> method. Here's an example:</p>
+<p><code>&gt;&gt;&gt; </code><strong><code>&quot;This`` ``is`` ``a`` ``bunch`` ``of`` ``words&quot;.split()</code></strong><br />
+<code>['This', 'is', 'a', 'bunch', 'of', 'words']</code><br />
+<code>&gt;&gt;&gt; </code><strong><code>text`` ``=`` ``&quot;First`` ``batch,`` ``second`` ``batch,`` ``third,`` ``fourth&quot;</code></strong><br />
+<code>&gt;&gt;&gt; </code><strong><code>text.split(&quot;,&quot;)</code></strong><br />
+<code>['First batch', ' second batch', ' third', ' fourth']</code></p>
+<p>Notice how <code>split()</code> converts a string into a list of strings. The string is split by whitespace by default or by the optional argument (in this case a comma). You can also add another argument that tells <code>split()</code> how many times the separator will be used to split the text. For example:</p>
+<p><code>&gt;&gt;&gt; </code><strong><code>list`` ``=`` ``text.split(&quot;,&quot;)</code></strong><br />
+<code>&gt;&gt;&gt; </code><strong><code>len(list)</code></strong><br />
+<code>4</code><br />
+<code>&gt;&gt;&gt; </code><strong><code>list[-1]</code></strong><br />
+<code>' fourth'</code><br />
+<code>&gt;&gt;&gt; </code><strong><code>list`` ``=`` ``text.split(&quot;,&quot;,`` ``2)</code></strong><br />
+<code>&gt;&gt;&gt; </code><strong><code>len(list)</code></strong><br />
+<code>3</code><br />
+<code>&gt;&gt;&gt; </code><strong><code>list[-1]</code></strong><br />
+<code>' third, fourth'</code></p>

@@ -1,0 +1,54 @@
+<h3 id="creating-functions">Creating Functions</h3>
+<p>To start off this chapter I am going to give you an example of what you could do but shouldn't (so don't type it in):</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1-1" data-line-number="1">a <span class="op">=</span> <span class="dv">23</span></a>
+<a class="sourceLine" id="cb1-2" data-line-number="2">b <span class="op">=</span> <span class="dv">-23</span></a>
+<a class="sourceLine" id="cb1-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb1-4" data-line-number="4"><span class="cf">if</span> a <span class="op">&lt;</span> <span class="dv">0</span>:</a>
+<a class="sourceLine" id="cb1-5" data-line-number="5">    a <span class="op">=</span> <span class="op">-</span>a</a>
+<a class="sourceLine" id="cb1-6" data-line-number="6"><span class="cf">if</span> b <span class="op">&lt;</span> <span class="dv">0</span>:</a>
+<a class="sourceLine" id="cb1-7" data-line-number="7">    b <span class="op">=</span> <span class="op">-</span>b</a>
+<a class="sourceLine" id="cb1-8" data-line-number="8"><span class="cf">if</span> a <span class="op">==</span> b:</a>
+<a class="sourceLine" id="cb1-9" data-line-number="9">    <span class="bu">print</span>(<span class="st">&quot;The absolute values of&quot;</span>, a, <span class="st">&quot;and&quot;</span>, b, <span class="st">&quot;are equal.&quot;</span>)</a>
+<a class="sourceLine" id="cb1-10" data-line-number="10"><span class="cf">else</span>:</a>
+<a class="sourceLine" id="cb1-11" data-line-number="11">    <span class="bu">print</span>(<span class="st">&quot;The absolute values of&quot;</span>, a, <span class="st">&quot;and&quot;</span>, b, <span class="st">&quot;are different.&quot;</span>)</a></code></pre></div>
+<p>with the output being:</p>
+<p><code>The absolute values of 23 and 23 are equal.</code></p>
+<p>The program seems a little repetitive. Programmers hate to repeat things -- that's what computers are for, after all! (Note also that finding the absolute value changed the value of the variable, which is why it is printing out 23, and not -23 in the output.) Fortunately Python allows you to create functions to remove duplication. Here is the rewritten example:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb2-1" data-line-number="1">a <span class="op">=</span> <span class="dv">23</span></a>
+<a class="sourceLine" id="cb2-2" data-line-number="2">b <span class="op">=</span> <span class="dv">-23</span></a>
+<a class="sourceLine" id="cb2-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb2-4" data-line-number="4"><span class="kw">def</span> absolute_value(n):</a>
+<a class="sourceLine" id="cb2-5" data-line-number="5">    <span class="cf">if</span> n <span class="op">&lt;</span> <span class="dv">0</span>:</a>
+<a class="sourceLine" id="cb2-6" data-line-number="6">        n <span class="op">=</span> <span class="op">-</span>n</a>
+<a class="sourceLine" id="cb2-7" data-line-number="7">    <span class="cf">return</span> n</a>
+<a class="sourceLine" id="cb2-8" data-line-number="8"></a>
+<a class="sourceLine" id="cb2-9" data-line-number="9"><span class="cf">if</span> absolute_value(a) <span class="op">==</span> absolute_value(b):</a>
+<a class="sourceLine" id="cb2-10" data-line-number="10">    <span class="bu">print</span>(<span class="st">&quot;The absolute values of&quot;</span>, a, <span class="st">&quot;and&quot;</span>, b, <span class="st">&quot;are equal.&quot;</span>)</a>
+<a class="sourceLine" id="cb2-11" data-line-number="11"><span class="cf">else</span>:</a>
+<a class="sourceLine" id="cb2-12" data-line-number="12">    <span class="bu">print</span>(<span class="st">&quot;The absolute values of&quot;</span>, a, <span class="st">&quot;and&quot;</span>, b, <span class="st">&quot;are different.&quot;</span>)</a></code></pre></div>
+<p>with the output being:</p>
+<p><code>The absolute values of 23 and -23 are equal.</code></p>
+<p>The key feature of this program is the <code>def</code> statement. <code>def</code> (short for define) starts a function definition. <code>def</code> is followed by the name of the function <code>absolute_value</code>. Next comes a '(' followed by the parameter <code>n</code> (<code>n</code> is passed from the program into the function when the function is called). The statements after the ':' are executed when the function is used. The statements continue until either the indented statements end or a <code>return</code> is encountered. The <code>return</code> statement returns a value back to the place where the function was called. We already have encountered a function in our very first program, the <code>print</code> function. Now we can make new functions.</p>
+<p>Notice how the values of <code>a</code> and <code>b</code> are not changed. Functions can be used to repeat tasks that don't return values. Here are some examples:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="kw">def</span> hello():</a>
+<a class="sourceLine" id="cb3-2" data-line-number="2">    <span class="bu">print</span>(<span class="st">&quot;Hello&quot;</span>)</a>
+<a class="sourceLine" id="cb3-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb3-4" data-line-number="4"><span class="kw">def</span> area(width, height):</a>
+<a class="sourceLine" id="cb3-5" data-line-number="5">    <span class="cf">return</span> width <span class="op">*</span> height</a>
+<a class="sourceLine" id="cb3-6" data-line-number="6"></a>
+<a class="sourceLine" id="cb3-7" data-line-number="7"><span class="kw">def</span> print_welcome(name):</a>
+<a class="sourceLine" id="cb3-8" data-line-number="8">    <span class="bu">print</span>(<span class="st">&quot;Welcome&quot;</span>, name)</a>
+<a class="sourceLine" id="cb3-9" data-line-number="9"></a>
+<a class="sourceLine" id="cb3-10" data-line-number="10">hello()</a>
+<a class="sourceLine" id="cb3-11" data-line-number="11">hello()</a>
+<a class="sourceLine" id="cb3-12" data-line-number="12"></a>
+<a class="sourceLine" id="cb3-13" data-line-number="13">print_welcome(<span class="st">&quot;Fred&quot;</span>)</a>
+<a class="sourceLine" id="cb3-14" data-line-number="14">w <span class="op">=</span> <span class="dv">4</span></a>
+<a class="sourceLine" id="cb3-15" data-line-number="15">h <span class="op">=</span> <span class="dv">5</span></a>
+<a class="sourceLine" id="cb3-16" data-line-number="16"><span class="bu">print</span>(<span class="st">&quot;width =&quot;</span>, w, <span class="st">&quot; height =&quot;</span>, h, <span class="st">&quot; area =&quot;</span>, area(w, h))</a></code></pre></div>
+<p>with output being:</p>
+<p><code>Hello</code><br />
+<code>Hello</code><br />
+<code>Welcome Fred</code><br />
+<code>width = 4  height = 5  area = 20</code></p>
+<p>That example shows some more stuff that you can do with functions. Notice that you can use no arguments or two or more. Notice also when a function doesn't need to send back a value, a return is optional.</p>

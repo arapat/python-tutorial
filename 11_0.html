@@ -1,0 +1,131 @@
+<p>Here is a little example of boolean expressions (you don't have to type it in):</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1-1" data-line-number="1">a <span class="op">=</span> <span class="dv">6</span></a>
+<a class="sourceLine" id="cb1-2" data-line-number="2">b <span class="op">=</span> <span class="dv">7</span></a>
+<a class="sourceLine" id="cb1-3" data-line-number="3">c <span class="op">=</span> <span class="dv">42</span></a>
+<a class="sourceLine" id="cb1-4" data-line-number="4"><span class="bu">print</span>(<span class="dv">1</span>, a <span class="op">==</span> <span class="dv">6</span>)</a>
+<a class="sourceLine" id="cb1-5" data-line-number="5"><span class="bu">print</span>(<span class="dv">2</span>, a <span class="op">==</span> <span class="dv">7</span>)</a>
+<a class="sourceLine" id="cb1-6" data-line-number="6"><span class="bu">print</span>(<span class="dv">3</span>, a <span class="op">==</span> <span class="dv">6</span> <span class="kw">and</span> b <span class="op">==</span> <span class="dv">7</span>)</a>
+<a class="sourceLine" id="cb1-7" data-line-number="7"><span class="bu">print</span>(<span class="dv">4</span>, a <span class="op">==</span> <span class="dv">7</span> <span class="kw">and</span> b <span class="op">==</span> <span class="dv">7</span>)</a>
+<a class="sourceLine" id="cb1-8" data-line-number="8"><span class="bu">print</span>(<span class="dv">5</span>, <span class="kw">not</span> a <span class="op">==</span> <span class="dv">7</span> <span class="kw">and</span> b <span class="op">==</span> <span class="dv">7</span>)</a>
+<a class="sourceLine" id="cb1-9" data-line-number="9"><span class="bu">print</span>(<span class="dv">6</span>, a <span class="op">==</span> <span class="dv">7</span> <span class="kw">or</span> b <span class="op">==</span> <span class="dv">7</span>)</a>
+<a class="sourceLine" id="cb1-10" data-line-number="10"><span class="bu">print</span>(<span class="dv">7</span>, a <span class="op">==</span> <span class="dv">7</span> <span class="kw">or</span> b <span class="op">==</span> <span class="dv">6</span>)</a>
+<a class="sourceLine" id="cb1-11" data-line-number="11"><span class="bu">print</span>(<span class="dv">8</span>, <span class="kw">not</span> (a <span class="op">==</span> <span class="dv">7</span> <span class="kw">and</span> b <span class="op">==</span> <span class="dv">6</span>))</a>
+<a class="sourceLine" id="cb1-12" data-line-number="12"><span class="bu">print</span>(<span class="dv">9</span>, <span class="kw">not</span> a <span class="op">==</span> <span class="dv">7</span> <span class="kw">and</span> b <span class="op">==</span> <span class="dv">6</span>)</a></code></pre></div>
+<p>With the output being:</p>
+<p><code>1 True</code><br />
+<code>2 False</code><br />
+<code>3 True</code><br />
+<code>4 False</code><br />
+<code>5 True</code><br />
+<code>6 True</code><br />
+<code>7 False</code><br />
+<code>8 True</code><br />
+<code>9 False</code></p>
+<p>What is going on? The program consists of a bunch of funny looking <code>print</code> statements. Each <code>print</code> statement prints a number and an expression. The number is to help keep track of which statement I am dealing with. Notice how each expression ends up being either <code>False</code> or <code>True</code>. In Python false can also be written as 0 and true as 1.</p>
+<p>The lines:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="bu">print</span>(<span class="dv">1</span>, a <span class="op">==</span> <span class="dv">6</span>)</a>
+<a class="sourceLine" id="cb2-2" data-line-number="2"><span class="bu">print</span>(<span class="dv">2</span>, a <span class="op">==</span> <span class="dv">7</span>)</a></code></pre></div>
+<p>print out a <code>True</code> and a <code>False</code> respectively just as expected since the first is true and the second is false. The third print, <code>print(3, a == 6 and b == 7)</code>, is a little different. The operator <code>and</code> means if both the statement before and the statement after are true then the whole expression is true otherwise the whole expression is false. The next line, <code>print(4, a == 7 and b == 7)</code>, shows how if part of an <code>and</code> expression is false, the whole thing is false. The behavior of <code>and</code> can be summarized as follows:</p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">expression</th>
+<th style="text-align: left;">result</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">true <code>and</code> true</td>
+<td style="text-align: left;">true</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">true <code>and</code> false</td>
+<td style="text-align: left;">false</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">false <code>and</code> true</td>
+<td style="text-align: left;">false</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">false <code>and</code> false</td>
+<td style="text-align: left;">false</td>
+</tr>
+</tbody>
+</table>
+<p>Notice that if the first expression is false Python does not check the second expression since it knows the whole expression is false. Try running <code>False and print(&quot;Hi&quot;)</code> and compare this to running <code>True and print(&quot;Hi&quot;)</code> The technical term for this is <a href="w:Short-circuit_evaluation" title="wikilink">short-circuit evaluation</a></p>
+<p>The next line, <code>print(5, not a == 7 and b == 7)</code>, uses the <code>not</code> operator. <code>not</code> just gives the opposite of the expression. (The expression could be rewritten as <code>print(5, a != 7 and b == 7)</code>). Here is the table:</p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">expression</th>
+<th style="text-align: left;">result</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><code>not</code> true</td>
+<td style="text-align: left;">false</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>not</code> false</td>
+<td style="text-align: left;">true</td>
+</tr>
+</tbody>
+</table>
+<p>The two following lines, <code>print(6, a == 7 or b == 7)</code> and <code>print(7, a == 7 or b == 6)</code>, use the <code>or</code> operator. The <code>or</code> operator returns true if the first expression is true, or if the second expression is true or both are true. If neither are true it returns false. Here's the table:</p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">expression</th>
+<th style="text-align: left;">result</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">true <code>or</code> true</td>
+<td style="text-align: left;">true</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">true <code>or</code> false</td>
+<td style="text-align: left;">true</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">false <code>or</code> true</td>
+<td style="text-align: left;">true</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">false <code>or</code> false</td>
+<td style="text-align: left;">false</td>
+</tr>
+</tbody>
+</table>
+<p>Notice that if the first expression is true Python doesn't check the second expression since it knows the whole expression is true. This works since <code>or</code> is true if at least one half of the expression is true. The first part is true so the second part could be either false or true, but the whole expression is still true.</p>
+<p>The next two lines, <code>print(8, not (a == 7 and b == 6))</code> and <code>print(9, not a == 7 and b == 6)</code>, show that parentheses can be used to group expressions and force one part to be evaluated first. Notice that the parentheses changed the expression from false to true. This occurred since the parentheses forced the <code>not</code> to apply to the whole expression instead of just the <code>a == 7</code> portion.</p>
+<p>Here is an example of using a boolean expression:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="bu">list</span> <span class="op">=</span> [<span class="st">&quot;Life&quot;</span>, <span class="st">&quot;The Universe&quot;</span>, <span class="st">&quot;Everything&quot;</span>, <span class="st">&quot;Jack&quot;</span>, <span class="st">&quot;Jill&quot;</span>, <span class="st">&quot;Life&quot;</span>, <span class="st">&quot;Jill&quot;</span>]</a>
+<a class="sourceLine" id="cb3-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb3-3" data-line-number="3"><span class="co"># make a copy of the list. See the More on Lists chapter to explain what [:] means.</span></a>
+<a class="sourceLine" id="cb3-4" data-line-number="4">copy <span class="op">=</span> <span class="bu">list</span>[:]</a>
+<a class="sourceLine" id="cb3-5" data-line-number="5"><span class="co"># sort the copy</span></a>
+<a class="sourceLine" id="cb3-6" data-line-number="6">copy.sort()</a>
+<a class="sourceLine" id="cb3-7" data-line-number="7">prev <span class="op">=</span> copy[<span class="dv">0</span>]</a>
+<a class="sourceLine" id="cb3-8" data-line-number="8"><span class="kw">del</span> copy[<span class="dv">0</span>]</a>
+<a class="sourceLine" id="cb3-9" data-line-number="9"></a>
+<a class="sourceLine" id="cb3-10" data-line-number="10">count <span class="op">=</span> <span class="dv">0</span></a>
+<a class="sourceLine" id="cb3-11" data-line-number="11"></a>
+<a class="sourceLine" id="cb3-12" data-line-number="12"><span class="co"># go through the list searching for a match</span></a>
+<a class="sourceLine" id="cb3-13" data-line-number="13"><span class="cf">while</span> count <span class="op">&lt;</span> <span class="bu">len</span>(copy) <span class="kw">and</span> copy[count] <span class="op">!=</span> prev:</a>
+<a class="sourceLine" id="cb3-14" data-line-number="14">    prev <span class="op">=</span> copy[count]</a>
+<a class="sourceLine" id="cb3-15" data-line-number="15">    count <span class="op">=</span> count <span class="op">+</span> <span class="dv">1</span></a>
+<a class="sourceLine" id="cb3-16" data-line-number="16"></a>
+<a class="sourceLine" id="cb3-17" data-line-number="17"><span class="co"># If a match was not found then count can&#39;t be &lt; len</span></a>
+<a class="sourceLine" id="cb3-18" data-line-number="18"><span class="co"># since the while loop continues while count is &lt; len</span></a>
+<a class="sourceLine" id="cb3-19" data-line-number="19"><span class="co"># and no match is found</span></a>
+<a class="sourceLine" id="cb3-20" data-line-number="20"></a>
+<a class="sourceLine" id="cb3-21" data-line-number="21"><span class="cf">if</span> count <span class="op">&lt;</span> <span class="bu">len</span>(copy):</a>
+<a class="sourceLine" id="cb3-22" data-line-number="22">    <span class="bu">print</span>(<span class="st">&quot;First Match:&quot;</span>, prev)</a></code></pre></div>
+<p>And here is the output:</p>
+<p><code>First Match: Jill</code></p>
+<p>This program works by continuing to check for match <code>while count &lt; len(copy) and copy[count] is not equal to prev</code>. When either <code>count</code> is greater than the last index of <code>copy</code> or a match has been found the <code>and</code> is no longer true so the loop exits. The <code>if</code> simply checks to make sure that the <code>while</code> exited because a match was found.</p>
+<p>The other &quot;trick&quot; of <code>and</code> is used in this example. If you look at the table for <code>and</code> notice that the third entry is &quot;false and false&quot;. If <code>count &gt;= len(copy)</code> (in other words <code>count &lt; len(copy)</code> is false) then <code>copy[count]</code> is never looked at. This is because Python knows that if the first is false then they can't both be true. This is known as a short circuit and is useful if the second half of the <code>and</code> will cause an error if something is wrong. I used the first expression (<code>count &lt; len(copy)</code>) to check and see if <code>count</code> was a valid index for <code>copy</code>. (If you don't believe me remove the matches &quot;Jill&quot; and &quot;Life&quot;, check that it still works and then reverse the order of <code>count &lt; len(copy) and copy[count] != prev</code> to <code>copy[count] != prev and count &lt; len(copy)</code>.)</p>
+<p>Boolean expressions can be used when you need to check two or more different things at once.</p>

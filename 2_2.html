@@ -1,0 +1,72 @@
+<h3 id="expressions">Expressions</h3>
+<p>Here is another program:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="bu">print</span>(<span class="st">&quot;2 + 2 is&quot;</span>, <span class="dv">2</span> <span class="op">+</span> <span class="dv">2</span>)</a>
+<a class="sourceLine" id="cb1-2" data-line-number="2"><span class="bu">print</span>(<span class="st">&quot;3 * 4 is&quot;</span>, <span class="dv">3</span> <span class="op">*</span> <span class="dv">4</span>)</a>
+<a class="sourceLine" id="cb1-3" data-line-number="3"><span class="bu">print</span>(<span class="st">&quot;100 - 1 is&quot;</span>, <span class="dv">100</span> <span class="op">-</span> <span class="dv">1</span>)</a>
+<a class="sourceLine" id="cb1-4" data-line-number="4"><span class="bu">print</span>(<span class="st">&quot;(33 + 2) / 5 + 11.5 is&quot;</span>, (<span class="dv">33</span> <span class="op">+</span> <span class="dv">2</span>) <span class="op">/</span> <span class="dv">5</span> <span class="op">+</span> <span class="fl">11.5</span>)</a></code></pre></div>
+<p>And here is the <em>output</em> when the program is run:</p>
+<p><code>2 + 2 is 4</code><br />
+<code>3 * 4 is 12</code><br />
+<code>100 - 1 is 99</code><br />
+<code>(33 + 2) / 5 + 11.5 is 18.5</code></p>
+<p>As you can see, Python can turn your thousand-dollar computer into a five-dollar calculator.</p>
+<h4 id="arithmetic-expressions">Arithmetic expressions</h4>
+<p>In this example, the print function is followed by two arguments, with each of the arguments separated by a comma. So with the first line of the program</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="bu">print</span>(<span class="st">&quot;2 + 2 is&quot;</span>, <span class="dv">2</span> <span class="op">+</span> <span class="dv">2</span>)</a></code></pre></div>
+<p>The first argument is the string <code>&quot;2 + 2 is&quot;</code> and the second argument is the <em>arithmetic expression</em> <code>2 + 2</code>, which is one kind of <em>expression</em>.</p>
+<p>What is important to note is that a string is printed as is (without the enclosing double quotes), but an <em>expression</em> is <em>evaluated</em>, or converted to its actual value.</p>
+<p>Python has seven basic operations for numbers:</p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Operation</th>
+<th style="text-align: left;">Symbol</th>
+<th style="text-align: left;">Example</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Power (exponentiation)</td>
+<td style="text-align: left;"><code>**</code></td>
+<td style="text-align: left;"><code>5 ** 2 == 25</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Multiplication</td>
+<td style="text-align: left;"><code>*</code></td>
+<td style="text-align: left;"><code>2 * 3 == 6</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Division</td>
+<td style="text-align: left;"><code>/</code></td>
+<td style="text-align: left;"><code>14 / 3 == 4.666666666666667</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Integer Division</td>
+<td style="text-align: left;"><code>//</code></td>
+<td style="text-align: left;"><code>14 // 3 == 4</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Remainder (modulo)</td>
+<td style="text-align: left;"><code>%</code></td>
+<td style="text-align: left;"><code>14 % 3 == 2</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Addition</td>
+<td style="text-align: left;"><code>+</code></td>
+<td style="text-align: left;"><code>1 + 2 == 3</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Subtraction</td>
+<td style="text-align: left;"><code>-</code></td>
+<td style="text-align: left;"><code>4 - 3 == 1</code></td>
+</tr>
+</tbody>
+</table>
+<p>Notice that there are two ways to do division, one that returns the repeating decimal, and the other that can get the remainder and the whole number. The order of operations is the same as in math:</p>
+<ul>
+<li>parentheses <code>()</code></li>
+<li>exponents <code>**</code></li>
+<li>multiplication <code>*</code>, division <code>/</code>, integer division <code>//</code>, and remainder <code>%</code></li>
+<li>addition <code>+</code> and subtraction <code>-</code></li>
+</ul>
+<p>So use parentheses to structure your formulas when needed.</p>

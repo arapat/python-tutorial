@@ -1,0 +1,144 @@
+<h3 id="slicing-strings-and-lists">Slicing strings (and lists)</h3>
+<p>Strings can be cut into pieces — in the same way as it was shown for lists in the previous chapter — by using the <em>slicing</em> &quot;operator&quot; <code>[]</code>. The slicing operator works in the same way as before: text[first_index:last_index] (in very rare cases there can be another colon and a third argument, as in the example shown below).</p>
+<p>In order not to get confused by the index numbers, it is easiest to see them as <em>clipping places</em>, possibilities to cut a string into parts. Here is an example, which shows the clipping places (in yellow) and their index numbers (red and blue) for a simple text string:</p>
+<p><tt></p>
+<table>
+<tbody>
+<tr class="odd">
+<td></td>
+<td></td>
+<td style="text-align: left;">0</td>
+<td></td>
+<td style="text-align: left;">1</td>
+<td></td>
+<td style="text-align: left;">2</td>
+<td></td>
+<td style="text-align: left;">...</td>
+<td></td>
+<td style="text-align: left;">-2</td>
+<td></td>
+<td style="text-align: left;">-1</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td></td>
+<td style="text-align: left;">↓</td>
+<td></td>
+<td style="text-align: left;">↓</td>
+<td></td>
+<td style="text-align: left;">↓</td>
+<td></td>
+<td style="text-align: left;">↓</td>
+<td></td>
+<td style="text-align: left;">↓</td>
+<td></td>
+<td style="text-align: left;">↓</td>
+<td></td>
+<td>↓</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>text =</td>
+<td>&quot;</td>
+<td style="text-align: left;"></td>
+<td>S</td>
+<td style="text-align: left;"></td>
+<td>T</td>
+<td style="text-align: left;"></td>
+<td>R</td>
+<td style="text-align: left;"></td>
+<td>I</td>
+<td style="text-align: left;"></td>
+<td>N</td>
+<td style="text-align: left;"></td>
+<td>G</td>
+<td></td>
+<td>&quot;</td>
+</tr>
+<tr class="even">
+<td></td>
+<td></td>
+<td style="text-align: left;">↑</td>
+<td></td>
+<td style="text-align: left;"></td>
+<td></td>
+<td style="text-align: left;"></td>
+<td></td>
+<td style="text-align: left;"></td>
+<td></td>
+<td style="text-align: left;"></td>
+<td></td>
+<td style="text-align: left;"></td>
+<td></td>
+<td>↑</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td></td>
+<td style="text-align: left;">[:</td>
+<td></td>
+<td style="text-align: left;"></td>
+<td></td>
+<td style="text-align: left;"></td>
+<td></td>
+<td style="text-align: left;"></td>
+<td></td>
+<td style="text-align: left;"></td>
+<td></td>
+<td style="text-align: left;"></td>
+<td></td>
+<td>:]</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p></tt></p>
+<p>Note that the red indexes are counted from the beginning of the string and the blue ones from the end of the string backwards. (Note that there is no blue -0, which could seem to be logical at the end of the string. Because <code>-0 == 0</code>, -0 means &quot;beginning of the string&quot; as well.) Now we are ready to use the indexes for slicing operations:</p>
+<p><tt></p>
+<table>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">text[1:4]</td>
+<td style="text-align: left;">→</td>
+<td style="text-align: left;">&quot;TRI&quot;</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">text[:5]</td>
+<td style="text-align: left;">→</td>
+<td style="text-align: left;">&quot;STRIN&quot;</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">text[:-1]</td>
+<td style="text-align: left;">→</td>
+<td style="text-align: left;">&quot;STRIN&quot;</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">text[-4:]</td>
+<td style="text-align: left;">→</td>
+<td style="text-align: left;">&quot;RING&quot;</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">text[2]</td>
+<td style="text-align: left;">→</td>
+<td style="text-align: left;">&quot;R&quot;</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">text[:]</td>
+<td style="text-align: left;">→</td>
+<td style="text-align: left;">&quot;STRING&quot;</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">text[::-1]</td>
+<td style="text-align: left;">→</td>
+<td style="text-align: left;">&quot;GNIRTS&quot;</td>
+</tr>
+</tbody>
+</table>
+<p></tt></p>
+<p><code>text[1:4]</code> gives us all of the <code>text</code> string between clipping places 1 and 4, &quot;<code>TRI</code>&quot;. If you omit one of the [first_index:last_index] arguments, you get the beginning or end of the string as default: <code>text[:5]</code> gives &quot;<code>STRIN</code>&quot;. For both <code>first_index</code> and <code>last_index</code> we can use both the red and the blue numbering schema: <code>text[:-1]</code> gives the same as <code>text[:5]</code>, because the index -1 is at the same place as 5 in this case. If we do not use an argument containing a colon, the number is treated in a different way: <code>text[2]</code> gives us one character following the second clipping point, &quot;<code>R</code>&quot;. The special slicing operation <code>text[:]</code> means &quot;from the beginning to the end&quot; and produces a copy of the entire string (or list, as shown in the previous chapter).</p>
+<p>Last but not least, the slicing operation can have a second colon and a third argument, which is interpreted as the &quot;step size&quot;: <code>text[::-1]</code> is <code>text</code> from beginning to the end, with a step size of -1. -1 means &quot;every character, but in the other direction&quot;. &quot;<code>STRING</code>&quot; backwards is &quot;<code>GNIRTS</code>&quot; (test a step length of 2, if you have not got the point here).</p>
+<p>All these slicing operations work with lists as well. In that sense strings are just a special case of lists, where the list elements are single characters. Just remember the concept of <em>clipping places</em>, and the indexes for slicing things will get a lot less confusing.</p>

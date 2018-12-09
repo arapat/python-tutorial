@@ -1,0 +1,36 @@
+<h3 id="printing">Printing</h3>
+<p>Programming tutorials since the beginning of time have started with a little program called &quot;Hello, World!&quot;[^1] So here it is:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="bu">print</span>(<span class="st">&quot;Hello, World!&quot;</span>)</a></code></pre></div>
+<p>If you are using the command line to run programs then type it in with a text editor, save it as <code>hello.py</code> and run it with <code>python3 hello.py</code></p>
+<p>Otherwise go into IDLE, create a new window, and create the program as in section <a href="Non-Programmer&#39;s_Tutorial_for_Python_3/Intro#Creating_and_Running_Programs" title="wikilink">Creating and Running Programs</a>.</p>
+<p>When this program is run here's what it prints:</p>
+<p><code>Hello, World!</code></p>
+<p>Now I'm not going to tell you this every time, but when I show you a program I recommend that you type it in and run it. I learn better when I type it in and you probably do too.</p>
+<p>Now here is a more complicated program:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="bu">print</span>(<span class="st">&quot;Jack and Jill went up a hill&quot;</span>)</a>
+<a class="sourceLine" id="cb2-2" data-line-number="2"><span class="bu">print</span>(<span class="st">&quot;to fetch a pail of water;&quot;</span>)</a>
+<a class="sourceLine" id="cb2-3" data-line-number="3"><span class="bu">print</span>(<span class="st">&quot;Jack fell down, and broke his crown,&quot;</span>)</a>
+<a class="sourceLine" id="cb2-4" data-line-number="4"><span class="bu">print</span>(<span class="st">&quot;and Jill came tumbling after.&quot;</span>)</a></code></pre></div>
+<p>When you run this program it prints out:</p>
+<p><code>Jack and Jill went up a hill</code><br />
+<code>to fetch a pail of water;</code><br />
+<code>Jack fell down, and broke his crown,</code><br />
+<code>and Jill came tumbling after.</code></p>
+<p>When the computer runs this program it first sees the line:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="bu">print</span>(<span class="st">&quot;Jack and Jill went up a hill&quot;</span>)</a></code></pre></div>
+<p>so the computer prints:</p>
+<p><code>Jack and Jill went up a hill</code></p>
+<p>Then the computer goes down to the next line and sees:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb4-1" data-line-number="1"><span class="bu">print</span>(<span class="st">&quot;to fetch a pail of water;&quot;</span>)</a></code></pre></div>
+<p>So the computer prints to the screen:</p>
+<p><code>to fetch a pail of water;</code></p>
+<p>The computer keeps looking at each line, follows the command and then goes on to the next line. The computer keeps running commands until it reaches the end of the program.</p>
+<h4 id="terminology">Terminology</h4>
+<p>Now is probably a good time to give you a bit of an explanation of what is happening - and a little bit of programming terminology.</p>
+<p>What we were doing above was using a <em>function</em> called <code>print</code>. The function's name - <code>print</code> - is followed by parentheses containing zero or more <em>arguments</em>. So in this example</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb5-1" data-line-number="1"><span class="bu">print</span>(<span class="st">&quot;Hello, World!&quot;</span>)</a></code></pre></div>
+<p>there is one <em>argument</em>, which is <code>&quot;Hello, World!&quot;</code>. Note that this argument is a group of characters enclosed in double quotes (&quot;&quot;). This is commonly referred to as a <em>string of characters</em>, or <em>string</em>, for short. Another example of a string is <code>&quot;Jack and Jill went up a hill&quot;</code>. The combination of a function and parentheses with the arguments is a <em>function call</em>.</p>
+<p>A function and its arguments are one type of <em>statement</em> that python has, so</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb6-1" data-line-number="1"><span class="bu">print</span>(<span class="st">&quot;Hello, World!&quot;</span>)</a></code></pre></div>
+<p>is an example of a statement. Basically, you can think of a statement as a single line in a program.</p>
+<p>That's probably more than enough terminology for now.</p>

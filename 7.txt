@@ -1,0 +1,312 @@
+=== Creating Functions ===
+To start off this chapter I am going to give you an example of what you could do but shouldn't (so don't type it in):
+<source lang=python>
+a = 23
+b = -23
+
+if a < 0:
+    a = -a
+if b < 0:
+    b = -b
+if a == b:
+    print("The absolute values of", a, "and", b, "are equal.")
+else:
+    print("The absolute values of", a, "and", b, "are different.")
+</source>
+
+with the output being:
+
+ The absolute values of 23 and 23 are equal.
+
+The program seems a little repetitive. Programmers hate to repeat things -- that's what computers are for, after all! (Note also that finding the absolute value changed the value of the variable, which is why it is printing out 23, and not -23 in the output.) Fortunately Python allows you to create functions to remove duplication.  Here is the rewritten example:
+<source lang=python>
+a = 23
+b = -23
+
+def absolute_value(n):
+    if n < 0:
+        n = -n
+    return n
+
+if absolute_value(a) == absolute_value(b):
+    print("The absolute values of", a, "and", b, "are equal.")
+else:
+    print("The absolute values of", a, "and", b, "are different.")
+</source>
+
+with the output being:
+
+ The absolute values of 23 and -23 are equal.
+
+The key feature of this program is the <code>def</code> statement.  <code>def</code>
+(short for define) starts a function definition.  <code>def</code> is
+followed by the name of the function <code>absolute_value</code>.  Next comes a '(' followed by the parameter <code>n</code> (<code>n</code> is passed from the program into the function when the function is called).  The statements after the ':' are executed when the function is used.  The statements continue until either the indented statements end or a <code>return</code> is encountered.  The <code>return</code> statement returns a value back to the place where the function was called. We already have encountered a function in our very first program, the <code>print</code> function.  Now we can make new functions.  
+
+Notice how the values of <code>a</code> and <code>b</code> are not changed.
+Functions can be used to repeat tasks that don't return
+values.  Here are some examples:
+<source lang="python">
+def hello():
+    print("Hello")
+
+def area(width, height):
+    return width * height
+
+def print_welcome(name):
+    print("Welcome", name)
+
+hello()
+hello()
+
+print_welcome("Fred")
+w = 4
+h = 5
+print("width =", w, " height =", h, " area =", area(w, h))
+</source>
+
+with output being:
+
+ Hello
+ Hello
+ Welcome Fred
+ width = 4  height = 5  area = 20
+
+That example shows some more stuff that you can do with
+functions.  Notice that you can use no arguments or two or more.
+Notice also when a function doesn't need to send back a value, a
+return is optional.
+<!-- Functions can be used to eliminate repeat code. -->
+
+=== Variables in functions ===
+When eliminating repeated code, you often have variables in the repeated code.  In Python, these are dealt with in a special way.  So far all variables we have seen are global variables.  Functions have a special type of variable called local variables.  These variables only exist while the function is running.  When a local variable has the same name as another variable (such as a global variable), the local variable hides the other.  Sound confusing?  Well, these next examples (which are a bit contrived) should help clear things up.
+
+<source lang="python">
+a = 4
+ 
+def print_func():
+    a = 17
+    print("in print_func a =", a)
+
+print_func()
+print("a = ", a)
+</source>
+
+When run, we will receive an output of:
+
+ in print_func a = 17
+ a = 4
+
+Variable assignments inside a function do not override global variables, they exist only inside the function.  Even though <code>a</code> was assigned a new value inside the function, this newly assigned value was only relevant to <code>print_func</code>, when 
+the function finishes running, and the <code>a</code>'s values is printed again, we see the originally assigned values.
+
+Here is another more complex example.
+
+<source lang="python">
+a_var = 10
+b_var = 15
+e_var = 25
+
+def a_func(a_var):
+    print("in a_func a_var =", a_var)
+    b_var = 100 + a_var
+    d_var = 2 * a_var
+    print("in a_func b_var =", b_var)
+    print("in a_func d_var =", d_var)
+    print("in a_func e_var =", e_var)
+    return b_var + 10
+
+c_var = a_func(b_var)
+
+print("a_var =", a_var)
+print("b_var =", b_var)
+print("c_var =", c_var)
+print("d_var =", d_var)
+
+</source>
+
+output:
+
+ in a_func a_var =  15
+ in a_func b_var =  115
+ in a_func d_var =  30
+ in a_func e_var =  25
+ a_var =  10
+ b_var =  15
+ c_var =  125
+ d_var = 
+ 
+ Traceback (most recent call last):
+  File "C:\def2.py", line 19, in <module>
+    print("d_var = ", d_var)
+ NameError: name 'd_var' is not defined
+
+
+In this example the variables <code>a_var</code>, <code>b_var</code>, and <code>d_var</code> are all local variables when they are inside the function <code>a_func</code>.  After the statement <code>return b_var + 10</code> is run, they all cease to exist. The variable <code>a_var</code> is automatically a local variable since it is a parameter name.  The variables <code>b_var</code> and <code>d_var</code> are local variables since they appear on the left of an equals sign in the function in the statements <code>b_var = 100 + a_var</code> and <code>d_var = 2 * a_var</code> .
+
+Inside of the function <code>a_var</code> has no value assigned to it.  When the function is called with <code>c_var = a_func(b_var)</code>, 15 is assigned to <code>a_var</code> since at that point in time <code>b_var</code> is 15, making the call to the function <code>a_func(15)</code>.  This ends up setting <code>a_var</code> to 15 when it is inside of <code>a_func</code>.
+
+As you can see, once the function finishes running, the local variables
+<code>a_var</code> and <code>b_var</code> that had hidden the global variables of the same name are gone.  Then the statement <code>print("a_var = ", a_var)</code> prints the value <code>10</code> rather than the value <code>15</code> since the local variable 
+that hid the global variable is gone.  
+
+Another thing to notice is the <code>NameError</code> that happens at the end.  This appears since the variable <code>d_var</code> no longer exists since <code>a_func</code> finished.  All the local variables are deleted when the function exits.  If you want to get something from a function, then you will have to use <code>return something</code>.
+
+One last thing to notice is that the value of <code>e_var</code> remains unchanged inside <code>a_func</code> since it is not a parameter and it never appears on the left of an equals sign inside of the function <code>a_func</code>.  When a global variable is accessed inside a function it is the global variable from the outside.
+
+Functions allow local variables that exist only inside the function and 
+can hide other variables that are outside the function.
+
+=== Examples ===
+'''temperature2.py'''
+<source lang="python">
+#! /usr/bin/python
+#-*-coding: utf-8 -*-
+# converts temperature to Fahrenheit or Celsius
+ 
+def print_options():
+    print("Options:")
+    print(" 'p' print options")
+    print(" 'c' convert from Celsius")
+    print(" 'f' convert from Fahrenheit")
+    print(" 'q' quit the program")
+ 
+def celsius_to_fahrenheit(c_temp):
+    return 9.0 / 5.0 * c_temp + 32
+ 
+def fahrenheit_to_celsius(f_temp):
+    return (f_temp - 32.0) * 5.0 / 9.0
+ 
+choice = "p"
+while choice != "q":
+    if choice == "c":
+        c_temp = float(input("Celsius temperature: "))
+        print("Fahrenheit:", celsius_to_fahrenheit(c_temp))
+        choice = input("option: ")
+    elif choice == "f":
+        f_temp = float(input("Fahrenheit temperature: "))
+        print("Celsius:", fahrenheit_to_celsius(f_temp))
+        choice = input("option: ")
+    else:
+        choice = "p"    #Alternatively choice != "q": so that print 
+                        #when anything unexpected inputed
+        print_options()
+        choice = input("option: ")
+</source>
+
+Sample Run:
+
+ Options:
+  'p' print options
+  'c' convert from celsius
+  'f' convert from fahrenheit
+  'q' quit the program
+ option: '''c'''
+ Celsius temperature: '''30''' 
+ Fahrenheit: 86.0
+ option: '''f'''
+ Fahrenheit temperature: '''60'''
+ Celsius: 15.5555555556
+ option: '''q'''
+
+'''area2.py'''
+<source lang="python">
+#! /usr/bin/python
+#-*-coding: utf-8 -*-
+# calculates a given rectangle area
+
+def hello():
+    print('Hello!')
+ 
+def area(width, height):
+    return width * height
+ 
+def print_welcome(name):
+    print('Welcome,', name)
+ 
+def positive_input(prompt):
+    number = float(input(prompt))
+    while number <= 0:
+        print('Must be a positive number')
+        number = float(input(prompt))
+    return number
+ 
+name = input('Your Name: ')
+hello()
+print_welcome(name)
+print()
+print('To find the area of a rectangle,')
+print('enter the width and height below.')
+print()
+w = positive_input('Width: ')
+h = positive_input('Height: ')
+ 
+print('Width =', w, ' Height =', h, ' so Area =', area(w, h))
+</source>
+
+Sample Run:
+
+ Your Name: '''Josh'''
+ Hello!
+ Welcome, Josh
+ 
+ To find the area of a rectangle,
+ enter the width and height below.
+ 
+ Width: '''-4'''
+ Must be a positive number
+ Width: '''4'''
+ Height: '''3'''
+ Width = 4  Height = 3  so Area = 12
+
+=== Exercises ===
+Rewrite the area2.py program from the Examples above to have a separate function for the area of a square, the area of a rectangle, and the area of a circle (<code>3.14 * radius**2</code>). This program should include a menu interface.
+
+{{Solution|title=Solution|text=
+
+<source lang="python">
+def square(L):
+    return L * L
+
+def rectangle(width , height):
+    return width * height
+
+def circle(radius):
+    return 3.14159 * radius ** 2
+
+def options():
+    print()
+    print("Options:")
+    print("s = calculate the area of a square.")
+    print("c = calculate the area of a circle.")
+    print("r = calculate the area of a rectangle.")
+    print("q = quit")
+    print()
+
+print("This program will calculate the area of a square, circle or rectangle.")
+choice = "x"
+options()
+while choice != "q":
+    choice = input("Please enter your choice: ")
+    if choice == "s":
+        L = float(input("Length of square side: "))
+        print("The area of this square is", square(L))
+        options()
+    elif choice == "c":
+        radius = float(input("Radius of the circle: "))
+        print("The area of the circle is", circle(radius))
+        options()
+    elif choice == "r":
+        width = float(input("Width of the rectangle: "))
+        height = float(input("Height of the rectangle: "))
+        print("The area of the rectangle is", rectangle(width, height))
+        options()
+    elif choice == "q":
+        print(" ",end="")
+    else:
+        print("Unrecognized option.")
+        options()
+</source>
+}}
+
+{{navigation |previous=Debugging |next=Advanced Functions Example}}
+{{BookCat}}

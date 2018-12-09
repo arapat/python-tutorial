@@ -1,0 +1,15 @@
+<h3 id="advanced-use-of-.txt-files">Advanced use of .txt files</h3>
+<p>You might be saying to yourself, &quot;Well I know how to read and write to a textfile, but what if I want to print the file without opening out another program?&quot;</p>
+<p>There are a few different ways to accomplish this. The easiest way does open another program, but everything is taken care of in the Python code, and doesn't require the user to specify a file to be printed. This method involves invoking the subprocess of another program.</p>
+<p>Remember the file we wrote output to in the above program? Let's use that file. Keep in mind, in order to prevent some errors, this program uses concepts from the Next chapter. Please feel free to revisit this example after the next chapter.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode Python"><code class="sourceCode python"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="im">import</span> subprocess</a>
+<a class="sourceLine" id="cb1-2" data-line-number="2"><span class="kw">def</span> main():</a>
+<a class="sourceLine" id="cb1-3" data-line-number="3">    <span class="cf">try</span>:</a>
+<a class="sourceLine" id="cb1-4" data-line-number="4">        <span class="bu">print</span>(<span class="st">&quot;This small program invokes the print function in the Notepad application&quot;</span>)</a>
+<a class="sourceLine" id="cb1-5" data-line-number="5">        <span class="co">#Lets print the file we created in the program above</span></a>
+<a class="sourceLine" id="cb1-6" data-line-number="6">        subprocess.call([<span class="st">&#39;notepad&#39;</span>,<span class="st">&#39;/p&#39;</span>,<span class="st">&#39;numbers.txt&#39;</span>])</a>
+<a class="sourceLine" id="cb1-7" data-line-number="7">    <span class="cf">except</span> <span class="pp">WindowsError</span>:</a>
+<a class="sourceLine" id="cb1-8" data-line-number="8">        <span class="bu">print</span>(<span class="st">&quot;The called subprocess does not exist, or cannot be called.&quot;</span>)</a>
+<a class="sourceLine" id="cb1-9" data-line-number="9"></a>
+<a class="sourceLine" id="cb1-10" data-line-number="10">main()</a></code></pre></div>
+<p>The <code>subprocess.call</code> takes three arguments. The first argument in the context of this example, should be the name of the program which you would like to invoke the printing subprocess from. The second argument should be the specific subprocess within that program. For simplicity, just understand that in this program, <code>'/p'</code> is the subprocess used to access your printer through the specified application. The last argument should be the name of the file you want to send to the printing subprocess. In this case, it is the same file used earlier in this chapter.</p>

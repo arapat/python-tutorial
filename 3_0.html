@@ -1,0 +1,31 @@
+<h3 id="input-and-variables">Input and Variables</h3>
+<p>Now I feel it is time for a really complicated program. Here it is:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="bu">print</span>(<span class="st">&quot;Halt!&quot;</span>)</a>
+<a class="sourceLine" id="cb1-2" data-line-number="2">user_input <span class="op">=</span> <span class="bu">input</span>(<span class="st">&quot;Who goes there? &quot;</span>)</a>
+<a class="sourceLine" id="cb1-3" data-line-number="3"><span class="bu">print</span>(<span class="st">&quot;You may pass,&quot;</span>,  user_input)</a></code></pre></div>
+<p>When <strong>I</strong> ran it, here is what <strong>my</strong> screen showed:</p>
+<p><code>Halt!</code><br />
+<code>Who goes there? </code><strong><code>Josh</code></strong><br />
+<code>You may pass, Josh</code></p>
+<p><em>Note: After running the code by pressing F5, the python shell will only give output:</em></p>
+<p><code>Halt!</code><br />
+<code>Who goes there?</code></p>
+<p><em>You need to enter your name in the python shell, and then press enter for the rest of the output.</em></p>
+<p>Of course when you run the program your screen will look different because of the <code>input()</code> statement. When you ran the program you probably noticed (you did run the program, right?) how you had to type in your name and then press Enter. Then the program printed out some more text and also your name. This is an example of <em>input</em>. The program reaches a certain point and then waits for the user to input some data that the program can use later.</p>
+<p>Of course, getting information from the user would be useless if we didn't have anywhere to put that information and this is where variables come in. In the previous program <code>user_input</code> is a <em>variable</em>. Variables are like a box that can store some piece of data. Here is a program to show examples of variables:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb2-1" data-line-number="1">a <span class="op">=</span> <span class="fl">123.4</span></a>
+<a class="sourceLine" id="cb2-2" data-line-number="2">b23 <span class="op">=</span> <span class="st">&#39;Spam&#39;</span></a>
+<a class="sourceLine" id="cb2-3" data-line-number="3">first_name <span class="op">=</span> <span class="st">&quot;Bill&quot;</span></a>
+<a class="sourceLine" id="cb2-4" data-line-number="4">b <span class="op">=</span> <span class="dv">432</span></a>
+<a class="sourceLine" id="cb2-5" data-line-number="5">c <span class="op">=</span> a <span class="op">+</span> b</a>
+<a class="sourceLine" id="cb2-6" data-line-number="6"><span class="bu">print</span>(<span class="st">&quot;a + b is&quot;</span>,c)</a>
+<a class="sourceLine" id="cb2-7" data-line-number="7"><span class="bu">print</span>(<span class="st">&quot;first_name is&quot;</span>,first_name)</a>
+<a class="sourceLine" id="cb2-8" data-line-number="8"><span class="bu">print</span>(<span class="st">&quot;Sorted Parts, After Midnight or&quot;</span>,b23)</a></code></pre></div>
+<p>And here is the output:</p>
+<p><code>a + b is 555.4</code><br />
+<code>first_name is Bill</code><br />
+<code>Sorted Parts, After Midnight or Spam</code></p>
+<p>Variables store data. The variables in the above program are <code>a</code>, <code>b23</code>, <code>first_name</code>, <code>b</code>, and <code>c</code>. The two basic types are <em>strings</em> and <em>numbers</em>. Strings are a sequence of letters, numbers and other characters. In this example <code>b23</code> and <code>first_name</code> are variables that are storing strings. <code>Spam</code>, <code>Bill</code>, <code>a + b is</code>, <code>first_name is</code>, and <code>Sorted Parts, After Midnight or</code> are the strings in this program. The characters are surrounded by <code>&quot;</code> or <code>'</code>. The other type of variables are numbers. Remember that variables are used to store a value, they do not use quotation marks (&quot; and '). If you want to use an actual <em>value</em>, you <em>must</em> use quotation marks.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb3-1" data-line-number="1">value1 <span class="op">==</span> Pim</a>
+<a class="sourceLine" id="cb3-2" data-line-number="2">value2 <span class="op">==</span> <span class="st">&quot;Pim&quot;</span></a></code></pre></div>
+<p>Both look the same, but in the first one Python checks if the value stored in the variable <code>value1</code> is the same as the value stored in the <em>variable</em> <code>Pim</code>. In the second one, Python checks if the string (the actual letters <code>P</code>,<code>i</code>, and <code>m</code>) are the same as in <code>value2</code> (continue this tutorial for more explanation about strings and about the <code>==</code>).</p>

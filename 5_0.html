@@ -1,0 +1,71 @@
+<h3 id="if-statement">If statement</h3>
+<p>As always, I believe I should start each chapter with a warm-up typing exercise, so here is a short program to compute the absolute value of an integer:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1-1" data-line-number="1">n <span class="op">=</span> <span class="bu">int</span>(<span class="bu">input</span>(<span class="st">&quot;Number? &quot;</span>))</a>
+<a class="sourceLine" id="cb1-2" data-line-number="2"><span class="cf">if</span> n <span class="op">&lt;</span> <span class="dv">0</span>:</a>
+<a class="sourceLine" id="cb1-3" data-line-number="3">   <span class="bu">print</span>(<span class="st">&quot;The absolute value of&quot;</span>, n, <span class="st">&quot;is&quot;</span>, <span class="op">-</span>n)</a>
+<a class="sourceLine" id="cb1-4" data-line-number="4"><span class="cf">else</span>:</a>
+<a class="sourceLine" id="cb1-5" data-line-number="5">   <span class="bu">print</span>(<span class="st">&quot;The absolute value of&quot;</span>, n, <span class="st">&quot;is&quot;</span>, n)</a></code></pre></div>
+<p>Here is the output from the two times that I ran this program:</p>
+<p><code>Number? </code><strong><code>-34</code></strong><br />
+<code>The absolute value of -34 is 34</code></p>
+<p><code>Number? </code><strong><code>1</code></strong><br />
+<code>The absolute value of 1 is 1</code></p>
+<p>So what does the computer do when it sees this piece of code? First it prompts the user for a number with the statement &quot;<code>n = int(input(&quot;Number? &quot;))</code>&quot;. Next it reads the line &quot;<code>if n &lt; 0:</code>&quot;. If <code>n</code> is less than zero Python runs the line &quot;<code>print(&quot;The absolute value of&quot;, n, &quot;is&quot;, -n)</code>&quot;. Otherwise it runs the line &quot;<code>print(&quot;The absolute value of&quot;, n, &quot;is&quot;, n)</code>&quot;.</p>
+<p>More formally Python looks at whether the <em>expression</em> <code>n &lt; 0</code> is true or false. An <code>if</code> statement is followed by an indented <em>block</em> of statements that are run when the expression is true. Optionally after the <code>if</code> statement is an <code>else</code> statement and another indented <em>block</em> of statements. This second block of statements is run if the expression is false.</p>
+<p>There are a number of different tests that an expression can have. Here is a table of all of them:</p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">operator</th>
+<th style="text-align: left;">function</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><code>&lt;</code></td>
+<td style="text-align: left;">less than</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>&lt;=</code></td>
+<td style="text-align: left;">less than or equal to</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><code>&gt;</code></td>
+<td style="text-align: left;">greater than</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>&gt;=</code></td>
+<td style="text-align: left;">greater than or equal to</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><code>==</code></td>
+<td style="text-align: left;">equal</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>!=</code></td>
+<td style="text-align: left;">not equal</td>
+</tr>
+</tbody>
+</table>
+<p>Another feature of the <code>if</code> command is the <code>elif</code> statement. It stands for else if and means if the original <code>if</code> statement is false but the <code>elif</code> part is true, then do the <code>elif</code> part. And if neither the <code>if</code> or <code>elif</code> expressions are true, then do what's in the <code>else</code> block. Here's an example:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb2-1" data-line-number="1">a <span class="op">=</span> <span class="dv">0</span></a>
+<a class="sourceLine" id="cb2-2" data-line-number="2"><span class="cf">while</span> a <span class="op">&lt;</span> <span class="dv">10</span>:</a>
+<a class="sourceLine" id="cb2-3" data-line-number="3">    a <span class="op">=</span> a <span class="op">+</span> <span class="dv">1</span></a>
+<a class="sourceLine" id="cb2-4" data-line-number="4">    <span class="cf">if</span> a <span class="op">&gt;</span> <span class="dv">5</span>:</a>
+<a class="sourceLine" id="cb2-5" data-line-number="5">        <span class="bu">print</span>(a, <span class="st">&quot;&gt;&quot;</span>, <span class="dv">5</span>)</a>
+<a class="sourceLine" id="cb2-6" data-line-number="6">    <span class="cf">elif</span> a <span class="op">&lt;=</span> <span class="dv">3</span>:</a>
+<a class="sourceLine" id="cb2-7" data-line-number="7">        <span class="bu">print</span>(a, <span class="st">&quot;&lt;=&quot;</span>, <span class="dv">3</span>)</a>
+<a class="sourceLine" id="cb2-8" data-line-number="8">    <span class="cf">else</span>:</a>
+<a class="sourceLine" id="cb2-9" data-line-number="9">        <span class="bu">print</span>(<span class="st">&quot;Neither test was true&quot;</span>)</a></code></pre></div>
+<p>and the output:</p>
+<p><code>1 &lt;= 3</code><br />
+<code>2 &lt;= 3</code><br />
+<code>3 &lt;= 3</code><br />
+<code>Neither test was true</code><br />
+<code>Neither test was true</code><br />
+<code>6 &gt; 5</code><br />
+<code>7 &gt; 5</code><br />
+<code>8 &gt; 5</code><br />
+<code>9 &gt; 5</code><br />
+<code>10 &gt; 5</code></p>
+<p>Notice how the <code>elif a &lt;= 3</code> is only tested when the <code>if</code> statement fails to be true. There can be more than one <code>elif</code> expression, allowing multiple tests to be done in a single <code>if</code> statement.</p>

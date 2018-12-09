@@ -1,0 +1,91 @@
+<h3 id="a-note-on-boolean-operators">A note on Boolean Operators</h3>
+<p>A common mistake for people new to programming is a misunderstanding of the way that boolean operators works, which stems from the way the python interpreter reads these expressions. For example, after initially learning about &quot;and &quot; and &quot;or&quot; statements, one might assume that the expression <code>x == ('a' or 'b')</code> would check to see if the variable <code>x</code> was equivalent to one of the strings <code>'a'</code> or <code>'b'</code>. This is not so. To see what I'm talking about, start an interactive session with the interpreter and enter the following expressions:</p>
+<p><code>&gt;&gt;&gt; 'a' == ('a' or 'b')</code><br />
+<code>&gt;&gt;&gt; 'b' == ('a' or 'b')</code><br />
+<code>&gt;&gt;&gt; 'a' == ('a' and 'b')</code><br />
+<code>&gt;&gt;&gt; 'b' == ('a' and 'b')</code></p>
+<p>And this will be the unintuitive result:</p>
+<p><code>&gt;&gt;&gt;</code><em><code>'`` ``'a'`` ``==`` ``('a'`` ``or`` ``'b')</code></em><code>'</code><br />
+<code>True</code><br />
+<code>&gt;&gt;&gt;</code><em><code>'`` ``'b'`` ``==`` ``('a'`` ``or`` ``'b')</code></em><code>'</code><br />
+<code>False</code><br />
+<code>&gt;&gt;&gt;</code><em><code>'`` ``'a'`` ``==`` ``('a'`` ``and`` ``'b')</code></em><code>'</code><br />
+<code>False </code><br />
+<code>&gt;&gt;&gt;</code><em><code>'`` ``'b'`` ``==`` ``('a'`` ``and`` ``'b')</code></em><code>'</code><br />
+<code>True</code></p>
+<p>At this point, the <code>and</code> and <code>or</code> operators seem to be broken. It doesn't make sense that, for the first two expressions, <code>'a'</code> is equivalent to <code>'a'</code> or <code>'b'</code> while <code>'b'</code> is not. Furthermore, it doesn't make any sense that 'b' is equivalent to <code>'a'</code> and <code>'b'</code>. After examining what the interpreter does with boolean operators, these results do in fact exactly what you are asking of them, it's just not the same as what you think you are asking.</p>
+<p>When the Python interpreter looks at an <code>or</code> expression, it takes the first statement and checks to see if it is true. If the first statement is true, then Python returns that object's value without checking the second statement. This is because for an <code>or</code> expression, the whole thing is true if one of the values is true; the program does not need to bother with the second statement. On the other hand, if the first value is evaluated as false Python checks the second half and returns that value. That second half determines the truth value of the whole expression since the first half was false. This &quot;laziness&quot; on the part of the interpreter is called &quot;short circuiting&quot; and is a common way of evaluating boolean expressions in many programming languages.</p>
+<p>Similarly, for an <code>and</code> expression, Python uses a short circuit technique to speed truth value evaluation. If the first statement is false then the whole thing must be false, so it returns that value. Otherwise if the first value is true it checks the second and returns that value.</p>
+<p>One thing to note at this point is that the boolean expression returns a value indicating <code>True</code> or <code>False</code>, but that Python considers a number of different things to have a truth value assigned to them. To check the truth value of any given object <code>x</code>, you can use the fuction <code>bool(x)</code> to see its truth value. Below is a table with examples of the truth values of various objects:</p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">True</th>
+<th style="text-align: left;">False</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">True</td>
+<td style="text-align: left;">False</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">1</td>
+<td style="text-align: left;">0</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Numbers other than zero</td>
+<td style="text-align: left;">The string 'None'</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Nonempty strings</td>
+<td style="text-align: left;">Empty strings</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Nonempty lists</td>
+<td style="text-align: left;">Empty lists</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Nonempty dictionaries</td>
+<td style="text-align: left;">Empty dictionaries</td>
+</tr>
+</tbody>
+</table>
+<p>Now it is possible to understand the perplexing results we were getting when we tested those boolean expressions before. Let's take a look at what the interpreter &quot;sees&quot; as it goes through that code:</p>
+<p><strong>First case:</strong></p>
+<p><code>&gt;&gt;&gt;</code><em><code>'`` ``'a'`` ``==`` ``('a'`` ``or`` ``'b')</code></em><code>'  # Look at parentheses first, so evaluate expression &quot;('a' or 'b')&quot;</code><br />
+<code>                           # 'a' is a nonempty string, so the first value is True</code><br />
+<code>                           # Return that first value: 'a'</code><br />
+<code>&gt;&gt;&gt;''' 'a' == 'a' '''          # the string 'a' is equivalent to the string 'a', so expression is True</code><br />
+<code>True</code></p>
+<p><strong>Second case:</strong></p>
+<p><code>&gt;&gt;&gt;</code><em><code>'`` ``'b'`` ``==`` ``('a'`` ``or`` ``'b')</code></em><code>'  # Look at parentheses first, so evaluate expression &quot;('a' or 'b')&quot;</code><br />
+<code>                           # 'a' is a nonempty string, so the first value is True</code><br />
+<code>                           # Return that first value: 'a'</code><br />
+<code>&gt;&gt;&gt;''' 'b' == 'a' '''          # the string 'b' is not equivalent to the string 'a', so expression is False</code><br />
+<code>False </code></p>
+<p><strong>Third case:</strong></p>
+<p><code>&gt;&gt;&gt;</code><em><code>'`` ``'a'`` ``==`` ``('a'`` ``and`` ``'b')</code></em><code>' # Look at parentheses first, so evaluate expression &quot;('a' and 'b')&quot;</code><br />
+<code>                           # 'a' is a nonempty string, so the first value is True, examine second value</code><br />
+<code>                           # 'b' is a nonempty string, so second value is True</code><br />
+<code>                           # Return that second value as result of whole expression: 'b'</code><br />
+<code>&gt;&gt;&gt;''' 'a' == 'b' '''          # the string 'a' is not equivalent to the string 'b', so expression is False</code><br />
+<code>False</code></p>
+<p><strong>Fourth case:</strong></p>
+<p><code>&gt;&gt;&gt;</code><em><code>'`` ``'b'`` ``==`` ``('a'`` ``and`` ``'b')</code></em><code>' # Look at parentheses first, so evaluate expression &quot;('a' and 'b')&quot;</code><br />
+<code>                           # 'a' is a nonempty string, so the first value is True, examine second value</code><br />
+<code>                           # 'b' is a nonempty string, so second value is True</code><br />
+<code>                           # Return that second value as result of whole expression: 'b'</code><br />
+<code>&gt;&gt;&gt;''' 'b' == 'b' '''          # the string 'b' is equivalent to the string 'b', so expression is True</code><br />
+<code>True </code></p>
+<p>So Python was really doing its job when it gave those apparently bogus results. As mentioned previously, the important thing is to recognize what value your boolean expression will return when it is evaluated, because it isn't always obvious.</p>
+<p>Going back to those initial expressions, this is how you would write them out so they behaved in a way that you want:</p>
+<p><code>&gt;&gt;&gt;''' 'a' == 'a' or 'a' == 'b' '''</code><br />
+<code>True</code><br />
+<code>&gt;&gt;&gt;''' 'b' == 'a' or 'b' == 'b' '''</code><br />
+<code>True</code><br />
+<code>&gt;&gt;&gt;''' 'a' == 'a' and 'a' == 'b' '''</code><br />
+<code>False</code><br />
+<code>&gt;&gt;&gt;''' 'b' == 'a' and 'b' == 'b' '''</code><br />
+<code>False</code></p>
+<p>When these comparisons are evaluated they return truth values in terms of True or False, not strings, so we get the proper results.</p>

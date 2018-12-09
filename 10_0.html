@@ -1,0 +1,111 @@
+<p>And here is the new typing exercise for this chapter:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1-1" data-line-number="1">onetoten <span class="op">=</span> <span class="bu">range</span>(<span class="dv">1</span>, <span class="dv">11</span>)</a>
+<a class="sourceLine" id="cb1-2" data-line-number="2"><span class="cf">for</span> count <span class="kw">in</span> onetoten:</a>
+<a class="sourceLine" id="cb1-3" data-line-number="3">    <span class="bu">print</span>(count)</a></code></pre></div>
+<p>and the ever-present output:</p>
+<p><code>1</code><br />
+<code>2</code><br />
+<code>3</code><br />
+<code>4</code><br />
+<code>5</code><br />
+<code>6</code><br />
+<code>7</code><br />
+<code>8</code><br />
+<code>9</code><br />
+<code>10</code></p>
+<p>The output looks awfully familiar but the program code looks different. The first line uses the <code>range</code> function. The <code>range</code> function uses two arguments like this <code>range(start, finish)</code>. <code>start</code> is the first number that is produced. <code>finish</code> is one larger than the last number. Note that this program could have been done in a shorter way:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="cf">for</span> count <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>, <span class="dv">11</span>):</a>
+<a class="sourceLine" id="cb2-2" data-line-number="2">    <span class="bu">print</span>(count)</a></code></pre></div>
+<p>The range function returns an iterable. This can be converted into a list with the <code>list</code> function. which will then be the dominant number. Here are some examples to show what happens with the <code>range</code> command:</p>
+<p><code>&gt;&gt;&gt; </code><strong><code>range(1,`` ``10)</code></strong><br />
+<code>range(1, 10)</code><br />
+<code>&gt;&gt;&gt; </code><strong><code>list(range(1,`` ``10))</code></strong><br />
+<code>[1, 2, 3, 4, 5, 6, 7, 8, 9]</code><br />
+<code>&gt;&gt;&gt; </code><strong><code>list(range(-32,`` ``-20))</code></strong><br />
+<code>[-32, -31, -30, -29, -28, -27, -26, -25, -24, -23, -22, -21]</code><br />
+<code>&gt;&gt;&gt; </code><strong><code>list(range(5,21))</code></strong><br />
+<code>[5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20]</code><br />
+<code>&gt;&gt;&gt; </code><strong><code>list(range(5))</code></strong><br />
+<code>[0, 1, 2, 3, 4]</code><br />
+<code>&gt;&gt;&gt; </code><strong><code>list(range(21,`` ``5))</code></strong><br />
+<code>[]</code></p>
+<p>The next line <code>for count in onetoten:</code> uses the <code>for</code> control structure. A <code>for</code> control structure looks like <code>for variable in list:</code>. <code>list</code> is gone through starting with the first element of the list and going to the last. As <code>for</code> goes through each element in a list it puts each into <code>variable</code>. That allows <code>variable</code> to be used in each successive time the <code>for</code> loop is run through. Here is another example (you don't have to type this) to demonstrate:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb3-1" data-line-number="1">demolist <span class="op">=</span> [<span class="st">&#39;life&#39;</span>, <span class="dv">42</span>, <span class="st">&#39;the universe&#39;</span>, <span class="dv">6</span>, <span class="st">&#39;and&#39;</span>, <span class="dv">7</span>, <span class="st">&#39;everything&#39;</span>]</a>
+<a class="sourceLine" id="cb3-2" data-line-number="2"><span class="cf">for</span> item <span class="kw">in</span> demolist:</a>
+<a class="sourceLine" id="cb3-3" data-line-number="3">    <span class="bu">print</span>(<span class="st">&quot;The current item is:&quot;</span>,item)</a></code></pre></div>
+<p>The output is:</p>
+<p><code>The current item is: life</code><br />
+<code>The current item is: 42</code><br />
+<code>The current item is: the universe</code><br />
+<code>The current item is: 6</code><br />
+<code>The current item is: and</code><br />
+<code>The current item is: 7</code><br />
+<code>The current item is: everything</code></p>
+<p>Notice how the <code>for</code> loop goes through and sets item to each element in the list. So, what is <code>for</code> good for? The first use is to go through all the elements of a list and do something with each of them. Here's a quick way to add up all the elements:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb4-1" data-line-number="1"><span class="bu">list</span> <span class="op">=</span> [<span class="dv">2</span>, <span class="dv">4</span>, <span class="dv">6</span>, <span class="dv">8</span>]</a>
+<a class="sourceLine" id="cb4-2" data-line-number="2"><span class="bu">sum</span> <span class="op">=</span> <span class="dv">0</span></a>
+<a class="sourceLine" id="cb4-3" data-line-number="3"><span class="cf">for</span> num <span class="kw">in</span> <span class="bu">list</span>:</a>
+<a class="sourceLine" id="cb4-4" data-line-number="4">    <span class="bu">sum</span> <span class="op">=</span> <span class="bu">sum</span> <span class="op">+</span> num</a>
+<a class="sourceLine" id="cb4-5" data-line-number="5"></a>
+<a class="sourceLine" id="cb4-6" data-line-number="6"><span class="bu">print</span>(<span class="st">&quot;The sum is:&quot;</span>, <span class="bu">sum</span>)</a></code></pre></div>
+<p>with the output simply being:</p>
+<p>The sum is: 20</p>
+<p>Or you could write a program to find out if there are any duplicates in a list like this program does:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb5-1" data-line-number="1"><span class="bu">list</span> <span class="op">=</span> [<span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">7</span>, <span class="dv">8</span>, <span class="dv">9</span>, <span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">7</span>, <span class="dv">10</span>]</a>
+<a class="sourceLine" id="cb5-2" data-line-number="2"><span class="bu">list</span>.sort()</a>
+<a class="sourceLine" id="cb5-3" data-line-number="3">prev <span class="op">=</span> <span class="va">None</span></a>
+<a class="sourceLine" id="cb5-4" data-line-number="4"><span class="cf">for</span> item <span class="kw">in</span> <span class="bu">list</span>:</a>
+<a class="sourceLine" id="cb5-5" data-line-number="5">    <span class="cf">if</span> prev <span class="op">==</span> item:</a>
+<a class="sourceLine" id="cb5-6" data-line-number="6">        <span class="bu">print</span>(<span class="st">&quot;Duplicate of&quot;</span>, prev, <span class="st">&quot;found&quot;</span>)</a>
+<a class="sourceLine" id="cb5-7" data-line-number="7">    prev <span class="op">=</span> item</a></code></pre></div>
+<p>and for good measure:</p>
+<p><code>Duplicate of 7 found</code></p>
+<p>Okay, so how does it work? Here is a special debugging version to help you understand (you don't need to type this in):</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb6-1" data-line-number="1">l <span class="op">=</span> [<span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">7</span>, <span class="dv">8</span>, <span class="dv">9</span>, <span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">7</span>, <span class="dv">10</span>]</a>
+<a class="sourceLine" id="cb6-2" data-line-number="2"><span class="bu">print</span>(<span class="st">&quot;l = [4, 5, 7, 8, 9, 1, 0, 7, 10]&quot;</span>, <span class="st">&quot;</span><span class="ch">\t\t</span><span class="st">l:&quot;</span>, l)</a>
+<a class="sourceLine" id="cb6-3" data-line-number="3">l.sort()</a>
+<a class="sourceLine" id="cb6-4" data-line-number="4"><span class="bu">print</span>(<span class="st">&quot;l.sort()&quot;</span>, <span class="st">&quot;</span><span class="ch">\t\t</span><span class="st">l:&quot;</span>, l)</a>
+<a class="sourceLine" id="cb6-5" data-line-number="5">prev <span class="op">=</span> l[<span class="dv">0</span>]</a>
+<a class="sourceLine" id="cb6-6" data-line-number="6"><span class="bu">print</span>(<span class="st">&quot;prev = l[0]&quot;</span>, <span class="st">&quot;</span><span class="ch">\t\t</span><span class="st">prev:&quot;</span>, prev)</a>
+<a class="sourceLine" id="cb6-7" data-line-number="7"><span class="kw">del</span> l[<span class="dv">0</span>]</a>
+<a class="sourceLine" id="cb6-8" data-line-number="8"><span class="bu">print</span>(<span class="st">&quot;del l[0]&quot;</span>, <span class="st">&quot;</span><span class="ch">\t\t</span><span class="st">l:&quot;</span>, l)</a>
+<a class="sourceLine" id="cb6-9" data-line-number="9"><span class="cf">for</span> item <span class="kw">in</span> l:</a>
+<a class="sourceLine" id="cb6-10" data-line-number="10">    <span class="cf">if</span> prev <span class="op">==</span> item:</a>
+<a class="sourceLine" id="cb6-11" data-line-number="11">        <span class="bu">print</span>(<span class="st">&quot;Duplicate of&quot;</span>, prev, <span class="st">&quot;found&quot;</span>)</a>
+<a class="sourceLine" id="cb6-12" data-line-number="12">    <span class="bu">print</span>(<span class="st">&quot;if prev == item:&quot;</span>, <span class="st">&quot;</span><span class="ch">\t\t</span><span class="st">prev:&quot;</span>, prev, <span class="st">&quot;</span><span class="ch">\t</span><span class="st">item:&quot;</span>, item)</a>
+<a class="sourceLine" id="cb6-13" data-line-number="13">    prev <span class="op">=</span> item</a>
+<a class="sourceLine" id="cb6-14" data-line-number="14">    <span class="bu">print</span>(<span class="st">&quot;prev = item&quot;</span>, <span class="st">&quot;</span><span class="ch">\t\t</span><span class="st">prev:&quot;</span>, prev, <span class="st">&quot;</span><span class="ch">\t</span><span class="st">item:&quot;</span>, item)</a></code></pre></div>
+<p>with the output being:</p>
+<p><code>l = [4, 5, 7, 8, 9, 1, 0, 7, 10]        l: [4, 5, 7, 8, 9, 1, 0, 7, 10]</code><br />
+<code>l.sort()                l: [0, 1, 4, 5, 7, 7, 8, 9, 10]</code><br />
+<code>prev = l[0]             prev: 0</code><br />
+<code>del l[0]                l: [1, 4, 5, 7, 7, 8, 9, 10]</code><br />
+<code>if prev == item:        prev: 0         item: 1</code><br />
+<code>prev = item             prev: 1         item: 1</code><br />
+<code>if prev == item:        prev: 1         item: 4</code><br />
+<code>prev = item             prev: 4         item: 4</code><br />
+<code>if prev == item:        prev: 4         item: 5</code><br />
+<code>prev = item             prev: 5         item: 5</code><br />
+<code>if prev == item:        prev: 5         item: 7</code><br />
+<code>prev = item             prev: 7         item: 7</code><br />
+<code>Duplicate of 7 found</code><br />
+<code>if prev == item:        prev: 7         item: 7</code><br />
+<code>prev = item             prev: 7         item: 7</code><br />
+<code>if prev == item:        prev: 7         item: 8</code><br />
+<code>prev = item             prev: 8         item: 8</code><br />
+<code>if prev == item:        prev: 8         item: 9</code><br />
+<code>prev = item             prev: 9         item: 9</code><br />
+<code>if prev == item:        prev: 9         item: 10</code><br />
+<code>prev = item             prev: 10        item: 10</code></p>
+<p>The reason I put so many <code>print</code> statements in the code was so that you can see what is happening in each line. (By the way, if you can't figure out why a program is not working, try putting in lots of print statements in places where you want to know what is happening.) First the program starts with a boring old list. Next the program sorts the list. This is so that any duplicates get put next to each other. The program then initializes a <code>prev</code>(ious) variable. Next the first element of the list is deleted so that the first item is not incorrectly thought to be a duplicate. Next a <code>for</code> loop is gone into. Each item of the list is checked to see if it is the same as the previous. If it is a duplicate was found. The value of <code>prev</code> is then changed so that the next time the <code>for</code> loop is run through <code>prev</code> is the previous item to the current. Sure enough, the 7 is found to be a duplicate. (Notice how <code>\t</code> is used to print a tab.)</p>
+<p>The other way to use <code>for</code> loops is to do something a certain number of times. Here is some code to print out the first 9 numbers of the Fibonacci series:</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb7-1" data-line-number="1">a <span class="op">=</span> <span class="dv">1</span></a>
+<a class="sourceLine" id="cb7-2" data-line-number="2">b <span class="op">=</span> <span class="dv">1</span></a>
+<a class="sourceLine" id="cb7-3" data-line-number="3"><span class="cf">for</span> c <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>, <span class="dv">10</span>):</a>
+<a class="sourceLine" id="cb7-4" data-line-number="4">    <span class="bu">print</span>(a, end<span class="op">=</span><span class="st">&quot; &quot;</span>)</a>
+<a class="sourceLine" id="cb7-5" data-line-number="5">    n <span class="op">=</span> a <span class="op">+</span> b</a>
+<a class="sourceLine" id="cb7-6" data-line-number="6">    a <span class="op">=</span> b</a>
+<a class="sourceLine" id="cb7-7" data-line-number="7">    b <span class="op">=</span> n</a></code></pre></div>
+<p>with the surprising output:</p>
+<p><code>1 1 2 3 5 8 13 21 34</code></p>
+<p>Everything that can be done with <code>for</code> loops can also be done with <code>while</code> loops but <code>for</code> loops give an easy way to go through all the elements in a list or to do something a certain number of times.</p>

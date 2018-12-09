@@ -1,0 +1,103 @@
+== Intro to Imported Libraries and other Functions ==
+
+In this chapter, we will cover some functions from various imported libraries that are commonly asked about, or used in Python. This chapter is not required to fully understand basics of Python. This chapter is meant to show further capability of Python, which can be utilized with what you already know about the language.
+
+=== math ===
+
+:The math library has many functions that are useful for programs that need to perform mathematical operations, that cannot be accomplished using the built in operators.
+
+:This section assumes you have math training up to and including Trigonometry.
+
+The following list shows all the functions in the math library:
+*math.ceil
+*math.copysign
+*math.fabs
+*math.factorial
+*math.floor
+*math.fmod (Not the most ideal for its purpose. Will not be explained.)
+*math.frexp (Outside the scope of this tutorial. Will not be explained.)
+*math.fsum
+*math.isfinite
+*math.isinf
+*math.isnan
+*math.ldexp
+*math.modf  (Outside the realm of this tutorial. Will not be explained.)
+*math.trunc (Outside the realm of this tutorial. Will not be explained.)
+*math.exp
+*math.expm1
+*math.log
+*math.log1p
+*math.log10
+*math.pow
+*math.sqrt
+*math.acos
+*math.asin
+*math.atan
+*math.atan2
+*math.cos
+*math.hypot
+*math.sin
+*math.tan
+*math.degrees
+*math.radians
+*math.acosh
+*math.asinh
+*math.atanh
+*math.cosh
+*math.sinh
+*math.tanh
+*math.erf
+*math.erfc
+*math.gamma
+*math.lgamma
+*math.pi
+*math.e
+
+:Of course, we won't cover every one of these functions. But we will cover a good chunk of them.
+
+Let's start off by covering the two constants in the math library. <code>math.pi</code> is the mathematical constant "π", to available precision on your computer. <code>math.e</code> is the mathematical constant "e", to available precision on your computer.
+Here is an example of both constants when entered in interactive mode in the Python shell.
+ >>> import math
+ >>> math.e
+ <font color="blue">2.718281828459045</font>
+ >>> math.pi
+ <font color="blue">3.141592653589793</font>
+
+These constants can be stored in a variable just like any other number. Below is an example of such, and shows simple operations on those variables.
+ >>> conste = math.e
+ >>> (conste + 5 / 2) * 2.21
+ <font color="blue">11.532402840894488</font>
+ >>> constpi = math.pi
+ >>> (((7 /2.1) % constpi) * 2)
+ <font color="blue">0.38348135948707984</font>
+ >>>
+
+Now, let's look at the functions. Let's start at the top of the list, and work our way down. Some of the functions will be skipped.
+At this point in the tutorial, you should be able to look at each of these examples to follow, and easily figure out what the example does. A simple sentence or two about what the function does will be provided.
+
+Below is an example of every <code>math</code> module function, and how it is used. (Excluding functions noted above as not to be explained)
+
+ >>> import math
+ >>> math.ceil(4.5) ** Rounds the number up to the nearest non decimal number **
+ 5
+ >>> math.ceil(4.1)
+ <font color="blue">5</font>
+ >>> math.copysign(4, -.4)  ** Returns the number <code>x</code> with the sign of <code>y</code> in the context of <code>(x,y)</code>
+ <font color="blue">-4.0</font>
+ >>> math.copysign(-4, 4)
+ <font color="blue">4.0</font>
+ >>> math.fabs(-44)  ** Return the absolute value of the number **
+ <font color="blue">44.0</font>
+ >>> math.factorial(4)  **  Returns the factorial of a number **
+ <font color="blue">24</font>
+ >>> math.floor(4.3)  ** Rounds the number down to the nearest non decimal number. **
+ <font color="blue">4</font>
+ >>> math.floor(4.99999)
+ <font color="blue">4</font>
+ >>> math.fsum([.1,.2,5,45.2,-.054,.4]) **  Returns the sum of all the numbers in the brackets. Not always precise **
+ <font color="blue">50.846000000000004</font>
+ >>> math.isfinite(3)</font> ** Returns <code>True</code> if the value is neither an infinity nor a NaN. Returns <code>False</code> otherwise. **
+ <font color="blue">True</font>
+
+{{navigation |previous=Intro to Object Oriented Programming in Python 3 |next=The End}}
+{{BookCat}}

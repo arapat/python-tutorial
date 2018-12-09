@@ -1,0 +1,40 @@
+<h3 id="examples">Examples</h3>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="co"># This program requires an excellent understanding of decimal numbers.</span></a>
+<a class="sourceLine" id="cb1-2" data-line-number="2"><span class="kw">def</span> to_string(in_int):</a>
+<a class="sourceLine" id="cb1-3" data-line-number="3">    <span class="co">&quot;&quot;&quot;Converts an integer to a string&quot;&quot;&quot;</span></a>
+<a class="sourceLine" id="cb1-4" data-line-number="4">    out_str <span class="op">=</span> <span class="st">&quot;&quot;</span></a>
+<a class="sourceLine" id="cb1-5" data-line-number="5">    prefix <span class="op">=</span> <span class="st">&quot;&quot;</span></a>
+<a class="sourceLine" id="cb1-6" data-line-number="6">    <span class="cf">if</span> in_int <span class="op">&lt;</span> <span class="dv">0</span>:</a>
+<a class="sourceLine" id="cb1-7" data-line-number="7">        prefix <span class="op">=</span> <span class="st">&quot;-&quot;</span></a>
+<a class="sourceLine" id="cb1-8" data-line-number="8">        in_int <span class="op">=</span> <span class="op">-</span>in_int</a>
+<a class="sourceLine" id="cb1-9" data-line-number="9">    <span class="cf">while</span> in_int <span class="op">//</span> <span class="dv">10</span> <span class="op">!=</span> <span class="dv">0</span>:</a>
+<a class="sourceLine" id="cb1-10" data-line-number="10">        out_str <span class="op">=</span> <span class="bu">str</span>(in_int <span class="op">%</span> <span class="dv">10</span>) <span class="op">+</span> out_str</a>
+<a class="sourceLine" id="cb1-11" data-line-number="11">        in_int <span class="op">=</span> in_int <span class="op">//</span> <span class="dv">10</span></a>
+<a class="sourceLine" id="cb1-12" data-line-number="12">    out_str <span class="op">=</span> <span class="bu">str</span>(in_int <span class="op">%</span> <span class="dv">10</span>) <span class="op">+</span> out_str</a>
+<a class="sourceLine" id="cb1-13" data-line-number="13">    <span class="cf">return</span> prefix <span class="op">+</span> out_str</a>
+<a class="sourceLine" id="cb1-14" data-line-number="14"></a>
+<a class="sourceLine" id="cb1-15" data-line-number="15"><span class="kw">def</span> to_int(in_str):</a>
+<a class="sourceLine" id="cb1-16" data-line-number="16">    <span class="co">&quot;&quot;&quot;Converts a string to an integer&quot;&quot;&quot;</span></a>
+<a class="sourceLine" id="cb1-17" data-line-number="17">    out_num <span class="op">=</span> <span class="dv">0</span></a>
+<a class="sourceLine" id="cb1-18" data-line-number="18">    <span class="cf">if</span> in_str[<span class="dv">0</span>] <span class="op">==</span> <span class="st">&quot;-&quot;</span>:</a>
+<a class="sourceLine" id="cb1-19" data-line-number="19">        multiplier <span class="op">=</span> <span class="dv">-1</span></a>
+<a class="sourceLine" id="cb1-20" data-line-number="20">        in_str <span class="op">=</span> in_str[<span class="dv">1</span>:]</a>
+<a class="sourceLine" id="cb1-21" data-line-number="21">    <span class="cf">else</span>:</a>
+<a class="sourceLine" id="cb1-22" data-line-number="22">        multiplier <span class="op">=</span> <span class="dv">1</span></a>
+<a class="sourceLine" id="cb1-23" data-line-number="23">    <span class="cf">for</span> c <span class="kw">in</span> in_str:</a>
+<a class="sourceLine" id="cb1-24" data-line-number="24">        out_num <span class="op">=</span> out_num <span class="op">*</span> <span class="dv">10</span> <span class="op">+</span> <span class="bu">int</span>(c)</a>
+<a class="sourceLine" id="cb1-25" data-line-number="25">    <span class="cf">return</span> out_num <span class="op">*</span> multiplier</a>
+<a class="sourceLine" id="cb1-26" data-line-number="26"></a>
+<a class="sourceLine" id="cb1-27" data-line-number="27"><span class="bu">print</span>(to_string(<span class="dv">2</span>))</a>
+<a class="sourceLine" id="cb1-28" data-line-number="28"><span class="bu">print</span>(to_string(<span class="dv">23445</span>))</a>
+<a class="sourceLine" id="cb1-29" data-line-number="29"><span class="bu">print</span>(to_string(<span class="op">-</span><span class="dv">23445</span>))</a>
+<a class="sourceLine" id="cb1-30" data-line-number="30"><span class="bu">print</span>(to_int(<span class="st">&quot;14234&quot;</span>))</a>
+<a class="sourceLine" id="cb1-31" data-line-number="31"><span class="bu">print</span>(to_int(<span class="st">&quot;12345&quot;</span>))</a>
+<a class="sourceLine" id="cb1-32" data-line-number="32"><span class="bu">print</span>(to_int(<span class="st">&quot;-3512&quot;</span>))</a></code></pre></div>
+<p>The output is:</p>
+<p><code>2</code><br />
+<code>23445</code><br />
+<code>-23445</code><br />
+<code>14234</code><br />
+<code>12345</code><br />
+<code>-3512</code></p>

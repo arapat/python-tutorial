@@ -1,0 +1,23 @@
+<h3 id="catching-errors-with-try">catching errors with try</h3>
+<p>So you now have the perfect program, it runs flawlessly, except for one detail, it will crash on invalid user input. Have no fear, for Python has a special control structure for you. It's called <code>try</code> and it tries to do something. Here is an example of a program with a problem:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="bu">print</span>(<span class="st">&quot;Type Control C or -1 to exit&quot;</span>)</a>
+<a class="sourceLine" id="cb1-2" data-line-number="2">number <span class="op">=</span> <span class="dv">1</span></a>
+<a class="sourceLine" id="cb1-3" data-line-number="3"><span class="cf">while</span> number <span class="op">!=</span> <span class="dv">-1</span>:</a>
+<a class="sourceLine" id="cb1-4" data-line-number="4">   number <span class="op">=</span> <span class="bu">int</span>(<span class="bu">input</span>(<span class="st">&quot;Enter a number: &quot;</span>))</a>
+<a class="sourceLine" id="cb1-5" data-line-number="5">   <span class="bu">print</span>(<span class="st">&quot;You entered:&quot;</span>, number)</a></code></pre></div>
+<p>Notice how when you enter <code>@#&amp;</code> it outputs something like:</p>
+<p><code>Traceback (most recent call last):</code><br />
+<code> File &quot;try_less.py&quot;, line 4, in </code><module><br />
+<code>   number = int(input(&quot;Enter a number: &quot;))</code><br />
+<code>ValueError: invalid literal for int() with base 10: '\\@#&amp;'</code></p>
+<p>As you can see the <code>int()</code> function is unhappy with the number <code>@#&amp;</code> (as well it should be). The last line shows what the problem is; Python found a <code>ValueError</code>. How can our program deal with this? What we do is first: put the place where errors may occur in a <code>try</code> block, and second: tell Python how we want <code>ValueError</code>s handled. The following program does this:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="bu">print</span>(<span class="st">&quot;Type Control C or -1 to exit&quot;</span>)</a>
+<a class="sourceLine" id="cb2-2" data-line-number="2">number <span class="op">=</span> <span class="dv">1</span></a>
+<a class="sourceLine" id="cb2-3" data-line-number="3"><span class="cf">while</span> number <span class="op">!=</span> <span class="dv">-1</span>:</a>
+<a class="sourceLine" id="cb2-4" data-line-number="4">    <span class="cf">try</span>:</a>
+<a class="sourceLine" id="cb2-5" data-line-number="5">        number <span class="op">=</span> <span class="bu">int</span>(<span class="bu">input</span>(<span class="st">&quot;Enter a number: &quot;</span>))</a>
+<a class="sourceLine" id="cb2-6" data-line-number="6">        <span class="bu">print</span>(<span class="st">&quot;You entered:&quot;</span>, number)</a>
+<a class="sourceLine" id="cb2-7" data-line-number="7">    <span class="cf">except</span> <span class="pp">ValueError</span>:</a>
+<a class="sourceLine" id="cb2-8" data-line-number="8">        <span class="bu">print</span>(<span class="st">&quot;That was not a number.&quot;</span>)</a></code></pre></div>
+<p>Now when we run the new program and give it <code>@#&amp;</code> it tells us &quot;That was not a number.&quot; and continues with what it was doing before.</p>
+<p>When your program keeps having some error that you know how to handle, put code in a <code>try</code> block, and put the way to handle the error in the <code>except</code> block.</p>

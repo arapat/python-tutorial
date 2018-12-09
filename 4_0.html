@@ -1,0 +1,64 @@
+<h3 id="while-loops">While loops</h3>
+<p>Presenting our first <em>control structure</em>. Ordinarily the computer starts with the first line and then goes down from there. Control structures change the order that statements are executed or decide if a certain statement will be run. Here's the source for a program that uses the while control structure:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1-1" data-line-number="1">a <span class="op">=</span> <span class="dv">0</span>            <span class="co"># FIRST, set the initial value of the variable a to 0(zero).</span></a>
+<a class="sourceLine" id="cb1-2" data-line-number="2"><span class="cf">while</span> a <span class="op">&lt;</span> <span class="dv">10</span>:    <span class="co"># While the value of the variable a is less than 10 do the following:</span></a>
+<a class="sourceLine" id="cb1-3" data-line-number="3">    a <span class="op">=</span> a <span class="op">+</span> <span class="dv">1</span>    <span class="co"># Increase the value of the variable a by 1, as in: a = a + 1! </span></a>
+<a class="sourceLine" id="cb1-4" data-line-number="4">    <span class="bu">print</span>(a)     <span class="co"># Print to screen what the present value of the variable a is.</span></a>
+<a class="sourceLine" id="cb1-5" data-line-number="5">                 <span class="co"># REPEAT! until the value of the variable a is equal to 9!? See note. </span></a>
+<a class="sourceLine" id="cb1-6" data-line-number="6">                 </a>
+<a class="sourceLine" id="cb1-7" data-line-number="7">                 <span class="co"># </span><span class="al">NOTE</span><span class="co">:</span></a>
+<a class="sourceLine" id="cb1-8" data-line-number="8">                 <span class="co"># The value of the variable a will increase by 1</span></a>
+<a class="sourceLine" id="cb1-9" data-line-number="9">                 <span class="co"># with each repeat, or loop of the &#39;while statement BLOCK&#39;.</span></a>
+<a class="sourceLine" id="cb1-10" data-line-number="10">                 <span class="co"># e.g. a = 1 then a = 2 then a = 3 etc. until a = 9 then...</span></a>
+<a class="sourceLine" id="cb1-11" data-line-number="11">                 <span class="co"># the code will finish adding 1 to a (now a = 10), printing the </span></a>
+<a class="sourceLine" id="cb1-12" data-line-number="12">                 <span class="co"># result, and then exiting the &#39;while statement BLOCK&#39;. </span></a>
+<a class="sourceLine" id="cb1-13" data-line-number="13">                 <span class="co">#              --</span></a>
+<a class="sourceLine" id="cb1-14" data-line-number="14">                 <span class="co"># While a &lt; 10: |</span></a>
+<a class="sourceLine" id="cb1-15" data-line-number="15">                 <span class="co">#     a = a + 1 |&lt;--[ The while statement BLOCK ]</span></a>
+<a class="sourceLine" id="cb1-16" data-line-number="16">                 <span class="co">#     print (a) |</span></a>
+<a class="sourceLine" id="cb1-17" data-line-number="17">                 <span class="co">#              --</span></a></code></pre></div>
+<p>And here is the extremely exciting output:</p>
+<p><code>1</code><br />
+<code>2</code><br />
+<code>3</code><br />
+<code>4</code><br />
+<code>5</code><br />
+<code>6</code><br />
+<code>7</code><br />
+<code>8</code><br />
+<code>9</code><br />
+<code>10</code></p>
+<p>(And you thought it couldn't get any worse after turning your computer into a five-dollar calculator?)</p>
+<p>So what does the program do? First it sees the line <code>a = 0</code> and sets <code>a</code> to zero. Then it sees <code>while a &lt; 10:</code> and so the computer checks to see if <code>a &lt; 10</code>. The first time the computer sees this statement, <code>a</code> is zero, so it is less than 10. In other words, as long as <code>a</code> is less than ten, the computer will run the tabbed in statements. This eventually makes <code>a</code> equal to ten (by adding one to <code>a</code> again and again) and the <code>while a &lt; 10</code> is not true any longer. Reaching that point, the program will stop running the indented lines.</p>
+<p>Always remember to put a colon &quot;<strong>:</strong>&quot; at the end of the <code>while</code> statement line!</p>
+<p>Here is another example of the use of <code>while</code>:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb2-1" data-line-number="1">a <span class="op">=</span> <span class="dv">1</span></a>
+<a class="sourceLine" id="cb2-2" data-line-number="2">s <span class="op">=</span> <span class="dv">0</span></a>
+<a class="sourceLine" id="cb2-3" data-line-number="3"><span class="bu">print</span>(<span class="st">&#39;Enter Numbers to add to the sum.&#39;</span>)</a>
+<a class="sourceLine" id="cb2-4" data-line-number="4"><span class="bu">print</span>(<span class="st">&#39;Enter 0 to quit.&#39;</span>)</a>
+<a class="sourceLine" id="cb2-5" data-line-number="5"><span class="cf">while</span> a <span class="op">!=</span> <span class="dv">0</span>:                           </a>
+<a class="sourceLine" id="cb2-6" data-line-number="6">    <span class="bu">print</span>(<span class="st">&#39;Current Sum:&#39;</span>, s)            </a>
+<a class="sourceLine" id="cb2-7" data-line-number="7">    a <span class="op">=</span> <span class="bu">float</span>(<span class="bu">input</span>(<span class="st">&#39;Number? &#39;</span>))        </a>
+<a class="sourceLine" id="cb2-8" data-line-number="8">    s <span class="op">=</span> s <span class="op">+</span> a                            </a>
+<a class="sourceLine" id="cb2-9" data-line-number="9"><span class="bu">print</span>(<span class="st">&#39;Total Sum =&#39;</span>, s)</a></code></pre></div>
+<p><code>Enter Numbers to add to the sum.</code><br />
+<code>Enter 0 to quit.</code><br />
+<code>Current Sum: 0</code><br />
+<code>Number? </code><strong><code>200</code></strong><br />
+<code>Current Sum: 200.0</code><br />
+<code>Number? </code><strong><code>-15.25</code></strong><br />
+<code>Current Sum: 184.75</code><br />
+<code>Number? </code><strong><code>-151.85</code></strong><br />
+<code>Current Sum: 32.9</code><br />
+<code>Number? </code><strong><code>10.00</code></strong><br />
+<code>Current Sum: 42.9</code><br />
+<code>Number? </code><strong><code>0</code></strong><br />
+<code>Total Sum = 42.9</code></p>
+<p>Notice how <code>print('Total Sum =', s)</code> is only run at the end. The <code>while</code> statement only affects the lines that are indented with whitespace. The <code>!=</code> means does not equal so <code>while a != 0:</code> means as long as <code>a</code> is not zero run the tabbed statements that follow.</p>
+<p>Note that <code>a</code> is a floating point number, and not all floating point numbers can be accurately represented, so using <code>!=</code> on them can sometimes not work. Try typing in 1.1 in interactive mode.</p>
+<h4 id="infinite-loops-or-never-ending-loop">Infinite loops or Never Ending Loop</h4>
+<p>Now that we have while loops, it is possible to have programs that run forever. An easy way to do this is to write a program like this:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="cf">while</span> <span class="dv">1</span> <span class="op">==</span> <span class="dv">1</span>:</a>
+<a class="sourceLine" id="cb3-2" data-line-number="2">   <span class="bu">print</span>(<span class="st">&quot;Help, I&#39;m stuck in a loop.&quot;</span>)</a></code></pre></div>
+<p>The &quot;<code>==</code>&quot; operator is used to test equality of the expressions on the two sides of the operator, just as &quot;<code>&lt;</code>&quot; was used for &quot;less than&quot; before (you will get a complete list of all comparison operators in the next chapter).</p>
+<p>This program will output <code>Help, I'm stuck in a loop.</code> until the heat death of the universe or you stop it, because 1 will forever be equal to 1. The way to stop it is to hit the Control (or <em>Ctrl</em>) button and <em>C</em> (the letter) at the same time. This will kill the program. (Note: sometimes you will have to hit enter after the Control-C.) On some systems, nothing will stop it, short of killing the process--so avoid!</p>

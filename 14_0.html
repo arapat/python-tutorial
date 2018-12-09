@@ -1,0 +1,139 @@
+<p>We have already seen lists and how they can be used. Now that you have some more background I will go into more detail about lists. First we will look at more ways to get at the elements in a list and then we will talk about copying them.</p>
+<p>Here are some examples of using indexing to access a single element of a list:</p>
+<p><code>&gt;&gt;&gt; </code><strong><code>some_numbers`` ``=`` ``['zero',`` ``'one',`` ``'two',`` ``'three',`` ``'four',`` ``'five']</code></strong><br />
+<code>&gt;&gt;&gt; </code><strong><code>some_numbers[0]</code></strong><br />
+<code>'zero'</code><br />
+<code>&gt;&gt;&gt; </code><strong><code>some_numbers[4]</code></strong><br />
+<code>'four'</code><br />
+<code>&gt;&gt;&gt; </code><strong><code>some_numbers[5]</code></strong><br />
+<code>'five'</code></p>
+<p>All those examples should look familiar to you. If you want the first item in the list just look at index 0. The second item is index 1 and so on through the list. However what if you want the last item in the list? One way could be to use the <code>len()</code> function like <code>some_numbers[len(some_numbers) - 1]</code>. This way works since the <code>len()</code> function always returns the last index plus one. The second from the last would then be <code>some_numbers[len(some_numbers) - 2]</code>. There is an easier way to do this. In Python the last item is always index -1. The second to the last is index -2 and so on. Here are some more examples:</p>
+<p><code>&gt;&gt;&gt; </code><strong><code>some_numbers[len(some_numbers)`` ``-`` ``1]</code></strong><br />
+<code>'five'</code><br />
+<code>&gt;&gt;&gt; </code><strong><code>some_numbers[len(some_numbers)`` ``-`` ``2]</code></strong><br />
+<code>'four'</code><br />
+<code>&gt;&gt;&gt; </code><strong><code>some_numbers[-1]</code></strong><br />
+<code>'five'</code><br />
+<code>&gt;&gt;&gt; </code><strong><code>some_numbers[-2]</code></strong><br />
+<code>'four'</code><br />
+<code>&gt;&gt;&gt; </code><strong><code>some_numbers[-6]</code></strong><br />
+<code>'zero'</code></p>
+<p>Thus any item in the list can be indexed in two ways: from the front and from the back.</p>
+<p>Another useful way to get into parts of lists is using slicing. Here is another example to give you an idea what they can be used for:</p>
+<p><code>&gt;&gt;&gt; </code><strong><code>things`` ``=`` ``[0,`` ``'Fred',`` ``2,`` ``'S.P.A.M.',`` ``'Stocking',`` ``42,`` ``&quot;Jack&quot;,`` ``&quot;Jill&quot;]</code></strong><br />
+<code>&gt;&gt;&gt; </code><strong><code>things[0]</code></strong><br />
+<code>0</code><br />
+<code>&gt;&gt;&gt; </code><strong><code>things[7]</code></strong><br />
+<code>'Jill'</code><br />
+<code>&gt;&gt;&gt; </code><strong><code>things[0:8]</code></strong><br />
+<code>[0, 'Fred', 2, 'S.P.A.M.', 'Stocking', 42, 'Jack', 'Jill']</code><br />
+<code>&gt;&gt;&gt; </code><strong><code>things[2:4]</code></strong><br />
+<code>[2, 'S.P.A.M.']</code><br />
+<code>&gt;&gt;&gt; </code><strong><code>things[4:7]</code></strong><br />
+<code>['Stocking', 42, 'Jack']</code><br />
+<code>&gt;&gt;&gt; </code><strong><code>things[1:5]</code></strong><br />
+<code>['Fred', 2, 'S.P.A.M.', 'Stocking']</code></p>
+<p>Slicing is used to return part of a list. The slicing operator is in the form <code>things[first_index:last_index]</code>. Slicing cuts the list before the <code>first_index</code> and before the <code>last_index</code> and returns the parts in between. You can use both types of indexing:</p>
+<p><code>&gt;&gt;&gt; </code><strong><code>things[-4:-2]</code></strong><br />
+<code>['Stocking', 42]</code><br />
+<code>&gt;&gt;&gt; </code><strong><code>things[-4]</code></strong><br />
+<code>'Stocking'</code><br />
+<code>&gt;&gt;&gt; </code><strong><code>things[-4:6]</code></strong><br />
+<code>['Stocking', 42]</code></p>
+<p>Another trick with slicing is the unspecified index. If the first index is not specified the beginning of the list is assumed. If the last index is not specified the whole rest of the list is assumed. Here are some examples:</p>
+<p><code>&gt;&gt;&gt; </code><strong><code>things[:2]</code></strong><br />
+<code>[0, 'Fred']</code><br />
+<code>&gt;&gt;&gt; </code><strong><code>things[-2:]</code></strong><br />
+<code>['Jack', 'Jill']</code><br />
+<code>&gt;&gt;&gt; </code><strong><code>things[:3]</code></strong><br />
+<code>[0, 'Fred', 2]</code><br />
+<code>&gt;&gt;&gt; </code><strong><code>things[:-5]</code></strong><br />
+<code>[0, 'Fred', 2]</code></p>
+<p>Here is a (HTML inspired) program example (copy and paste in the poem definition if you want):</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1-1" data-line-number="1">poem <span class="op">=</span> [<span class="st">&quot;&lt;B&gt;&quot;</span>, <span class="st">&quot;Jack&quot;</span>, <span class="st">&quot;and&quot;</span>, <span class="st">&quot;Jill&quot;</span>, <span class="st">&quot;&lt;/B&gt;&quot;</span>, <span class="st">&quot;went&quot;</span>, <span class="st">&quot;up&quot;</span>, <span class="st">&quot;the&quot;</span>,</a>
+<a class="sourceLine" id="cb1-2" data-line-number="2">        <span class="st">&quot;hill&quot;</span>, <span class="st">&quot;to&quot;</span>, <span class="st">&quot;&lt;B&gt;&quot;</span>, <span class="st">&quot;fetch&quot;</span>, <span class="st">&quot;a&quot;</span>, <span class="st">&quot;pail&quot;</span>, <span class="st">&quot;of&quot;</span>, <span class="st">&quot;&lt;/B&gt;&quot;</span>,</a>
+<a class="sourceLine" id="cb1-3" data-line-number="3">        <span class="st">&quot;water.&quot;</span>, <span class="st">&quot;Jack&quot;</span>, <span class="st">&quot;fell&quot;</span>, <span class="st">&quot;&lt;B&gt;&quot;</span>, <span class="st">&quot;down&quot;</span>, <span class="st">&quot;and&quot;</span>, <span class="st">&quot;broke&quot;</span>,</a>
+<a class="sourceLine" id="cb1-4" data-line-number="4">        <span class="st">&quot;&lt;/B&gt;&quot;</span>, <span class="st">&quot;his&quot;</span>, <span class="st">&quot;crown&quot;</span>, <span class="st">&quot;and&quot;</span>, <span class="st">&quot;&lt;B&gt;&quot;</span>, <span class="st">&quot;Jill&quot;</span>, <span class="st">&quot;came&quot;</span>,</a>
+<a class="sourceLine" id="cb1-5" data-line-number="5">        <span class="st">&quot;&lt;/B&gt;&quot;</span>, <span class="st">&quot;tumbling&quot;</span>, <span class="st">&quot;after&quot;</span>]</a>
+<a class="sourceLine" id="cb1-6" data-line-number="6"></a>
+<a class="sourceLine" id="cb1-7" data-line-number="7"><span class="kw">def</span> get_bolds(text):</a>
+<a class="sourceLine" id="cb1-8" data-line-number="8">    true <span class="op">=</span> <span class="dv">1</span></a>
+<a class="sourceLine" id="cb1-9" data-line-number="9">    false <span class="op">=</span> <span class="dv">0</span></a>
+<a class="sourceLine" id="cb1-10" data-line-number="10">    <span class="co">## is_bold tells whether or not we are currently looking at </span></a>
+<a class="sourceLine" id="cb1-11" data-line-number="11">    <span class="co">## a bold section of text.</span></a>
+<a class="sourceLine" id="cb1-12" data-line-number="12">    is_bold <span class="op">=</span> false</a>
+<a class="sourceLine" id="cb1-13" data-line-number="13">    <span class="co">## start_block is the index of the start of either an unbolded </span></a>
+<a class="sourceLine" id="cb1-14" data-line-number="14">    <span class="co">## segment of text or a bolded segment.</span></a>
+<a class="sourceLine" id="cb1-15" data-line-number="15">    start_block <span class="op">=</span> <span class="dv">0</span></a>
+<a class="sourceLine" id="cb1-16" data-line-number="16">    <span class="cf">for</span> index <span class="kw">in</span> <span class="bu">range</span>(<span class="bu">len</span>(text)):</a>
+<a class="sourceLine" id="cb1-17" data-line-number="17">        <span class="co">## Handle a starting of bold text</span></a>
+<a class="sourceLine" id="cb1-18" data-line-number="18">        <span class="cf">if</span> text[index] <span class="op">==</span> <span class="st">&quot;&lt;B&gt;&quot;</span>:</a>
+<a class="sourceLine" id="cb1-19" data-line-number="19">            <span class="cf">if</span> is_bold:</a>
+<a class="sourceLine" id="cb1-20" data-line-number="20">                <span class="bu">print</span>(<span class="st">&quot;Error: Extra Bold&quot;</span>)</a>
+<a class="sourceLine" id="cb1-21" data-line-number="21">            <span class="co">## print &quot;Not Bold:&quot;, text[start_block:index]</span></a>
+<a class="sourceLine" id="cb1-22" data-line-number="22">            is_bold <span class="op">=</span> true</a>
+<a class="sourceLine" id="cb1-23" data-line-number="23">            start_block <span class="op">=</span> index <span class="op">+</span> <span class="dv">1</span></a>
+<a class="sourceLine" id="cb1-24" data-line-number="24">        <span class="co">## Handle end of bold text</span></a>
+<a class="sourceLine" id="cb1-25" data-line-number="25">        <span class="co">## Remember that the last number in a slice is the index </span></a>
+<a class="sourceLine" id="cb1-26" data-line-number="26">        <span class="co">## after the last index used.</span></a>
+<a class="sourceLine" id="cb1-27" data-line-number="27">        <span class="cf">if</span> text[index] <span class="op">==</span> <span class="st">&quot;&lt;/B&gt;&quot;</span>:</a>
+<a class="sourceLine" id="cb1-28" data-line-number="28">            <span class="cf">if</span> <span class="kw">not</span> is_bold:</a>
+<a class="sourceLine" id="cb1-29" data-line-number="29">                <span class="bu">print</span>(<span class="st">&quot;Error: Extra Close Bold&quot;</span>)</a>
+<a class="sourceLine" id="cb1-30" data-line-number="30">            <span class="bu">print</span>(<span class="st">&quot;Bold [&quot;</span>, start_block, <span class="st">&quot;:&quot;</span>, index, <span class="st">&quot;]&quot;</span>, text[start_block:index])</a>
+<a class="sourceLine" id="cb1-31" data-line-number="31">            is_bold <span class="op">=</span> false</a>
+<a class="sourceLine" id="cb1-32" data-line-number="32">            start_block <span class="op">=</span> index <span class="op">+</span> <span class="dv">1</span></a>
+<a class="sourceLine" id="cb1-33" data-line-number="33"></a>
+<a class="sourceLine" id="cb1-34" data-line-number="34">get_bolds(poem)</a></code></pre></div>
+<p>with the output being:</p>
+<p><code>Bold [ 1 : 4 ] ['Jack', 'and', 'Jill']</code><br />
+<code>Bold [ 11 : 15 ] ['fetch', 'a', 'pail', 'of']</code><br />
+<code>Bold [ 20 : 23 ] ['down', 'and', 'broke']</code><br />
+<code>Bold [ 28 : 30 ] ['Jill', 'came']</code></p>
+<p>The <code>get_bold()</code> function takes in a list that is broken into words and tokens. The tokens that it looks for are <code>&lt;B&gt;</code> which starts the bold text and <code>&lt;/B&gt;</code> which ends bold text. The function <code>get_bold()</code> goes through and searches for the start and end tokens.</p>
+<p>The next feature of lists is copying them. If you try something simple like:</p>
+<p><code>&gt;&gt;&gt; </code><strong><code>a`` ``=`` ``[1,`` ``2,`` ``3]</code></strong><br />
+<code>&gt;&gt;&gt; </code><strong><code>b`` ``=`` ``a</code></strong><br />
+<code>&gt;&gt;&gt; </code><strong><code>print(b)</code></strong><br />
+<code>[1, 2, 3]</code><br />
+<code>&gt;&gt;&gt; </code><strong><code>b[1]`` ``=`` ``10</code></strong><br />
+<code>&gt;&gt;&gt; </code><strong><code>print(b)</code></strong><br />
+<code>[1, 10, 3]</code><br />
+<code>&gt;&gt;&gt; </code><strong><code>print(a)</code></strong><br />
+<code>[1, 10, 3]</code></p>
+<p>This probably looks surprising since a modification to <code>b</code> resulted in <code>a</code> being changed as well. What happened is that the statement <code>b = a</code> makes <code>b</code> a <em>reference</em> to <code>a</code>. This means that <code>b</code> can be thought of as another name for <code>a</code>. Hence any modification to <code>b</code> changes <code>a</code> as well. However some assignments don't create two names for one list:</p>
+<p><code>&gt;&gt;&gt; </code><strong><code>a`` ``=`` ``[1,`` ``2,`` ``3]</code></strong><br />
+<code>&gt;&gt;&gt; </code><strong><code>b`` ``=`` ``a`` ``*`` ``2</code></strong><br />
+<code>&gt;&gt;&gt; </code><strong><code>print(a)</code></strong><br />
+<code>[1, 2, 3]</code><br />
+<code>&gt;&gt;&gt; </code><strong><code>print(b)</code></strong><br />
+<code>[1, 2, 3, 1, 2, 3]</code><br />
+<code>&gt;&gt;&gt; </code><strong><code>a[1]`` ``=`` ``10</code></strong><br />
+<code>&gt;&gt;&gt; </code><strong><code>print(a)</code></strong><br />
+<code>[1, 10, 3]</code><br />
+<code>&gt;&gt;&gt; </code><strong><code>print(b)</code></strong><br />
+<code>[1, 2, 3, 1, 2, 3]</code></p>
+<p>In this case <code>b</code> is not a reference to <code>a</code> since the expression <code>a * 2</code> creates a new list. Then the statement <code>b = a * 2</code> gives <code>b</code> a reference to <code>a * 2</code> rather than a reference to <code>a</code>. All assignment operations create a reference. When you pass a list as an argument to a function you create a reference as well. Most of the time you don't have to worry about creating references rather than copies. However when you need to make modifications to one list without changing another name of the list you have to make sure that you have actually created a copy.</p>
+<p>There are several ways to make a copy of a list. The simplest that works most of the time is the slice operator since it always makes a new list even if it is a slice of a whole list:</p>
+<p><code>&gt;&gt;&gt; </code><strong><code>a`` ``=`` ``[1,`` ``2,`` ``3]</code></strong><br />
+<code>&gt;&gt;&gt; </code><strong><code>b`` ``=`` ``a[:]</code></strong><br />
+<code>&gt;&gt;&gt; </code><strong><code>b[1]`` ``=`` ``10</code></strong><br />
+<code>&gt;&gt;&gt; </code><strong><code>print(a)</code></strong><br />
+<code>[1, 2, 3]</code><br />
+<code>&gt;&gt;&gt; </code><strong><code>print(b)</code></strong><br />
+<code>[1, 10, 3]</code></p>
+<p>Taking the slice <code>[:]</code> creates a new copy of the list. However it only copies the outer list. Any sublist inside is still a references to the sublist in the original list. Therefore, when the list contains lists, the inner lists have to be copied as well. You could do that manually but Python already contains a module to do it. You use the <code>deepcopy</code> function of the <code>copy</code> module:</p>
+<p><code>&gt;&gt;&gt; </code><strong><code>import`` ``copy</code></strong><br />
+<code>&gt;&gt;&gt; </code><strong><code>a`` ``=`` ``[[1,`` ``2,`` ``3],`` ``[4,`` ``5,`` ``6]]</code></strong><br />
+<code>&gt;&gt;&gt; </code><strong><code>b`` ``=`` ``a[:]</code></strong><br />
+<code>&gt;&gt;&gt; </code><strong><code>c`` ``=`` ``copy.deepcopy(a)</code></strong><br />
+<code>&gt;&gt;&gt; </code><strong><code>b[0][1]`` ``=`` ``10</code></strong><br />
+<code>&gt;&gt;&gt; </code><strong><code>c[1][1]`` ``=`` ``12</code></strong><br />
+<code>&gt;&gt;&gt; </code><strong><code>print(a)</code></strong><br />
+<code>[[1, 10, 3], [4, 5, 6]]</code><br />
+<code>&gt;&gt;&gt; </code><strong><code>print(b)</code></strong><br />
+<code>[[1, 10, 3], [4, 5, 6]]</code><br />
+<code>&gt;&gt;&gt; </code><strong><code>print(c)</code></strong><br />
+<code>[[1, 2, 3], [4, 12, 6]]</code></p>
+<p>First of all notice that <code>a</code> is a list of lists. Then notice that when <code>b[0][1] = 10</code> is run both <code>a</code> and <code>b</code> are changed, but <code>c</code> is not. This happens because the inner arrays are still references when the slice operator is used. However with <code>deepcopy</code> <code>c</code> was fully copied.</p>
+<p>So, should I worry about references every time I use a function or <code>=</code>? The good news is that you only have to worry about references when using dictionaries and lists. Numbers and strings create references when assigned but every operation on numbers and strings that modifies them creates a new copy so you can never modify them unexpectedly. You do have to think about references when you are modifying a list or a dictionary.</p>
+<p>By now you are probably wondering why are references used at all? The basic reason is speed. It is much faster to make a reference to a thousand element list than to copy all the elements. The other reason is that it allows you to have a function to modify the inputed list or dictionary. Just remember about references if you ever have some weird problem with data being changed when it shouldn't be.</p>

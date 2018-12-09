@@ -1,0 +1,78 @@
+<h3 id="assignment">Assignment</h3>
+<p>Okay, so we have these boxes called variables and also data that can go into the variable. The computer will see a line like <code>first_name = &quot;Bill&quot;</code> and it reads it as &quot;Put the string <code>Bill</code> into the box (or variable) <code>first_name</code>&quot;. Later on it sees the statement <code>c = a + b</code> and it reads it as &quot;put the sum of <code>a + b</code> or <code>123.4 + 432</code> which equals <code>555.4</code> into <code>c</code>&quot;. The right hand side of the statement (<code>a + b</code>) is <em>evaluated</em> and the result is stored in the variable on the left hand side (<code>c</code>). This is called <em>assignment</em>, and you should not confuse the assignment equal sign (<code>=</code>) with &quot;equality&quot; in a mathematical sense here (that's what <code>==</code> will be used for later).</p>
+<p>Here is another example of variable usage:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1-1" data-line-number="1">a <span class="op">=</span> <span class="dv">1</span></a>
+<a class="sourceLine" id="cb1-2" data-line-number="2"><span class="bu">print</span>(a)</a>
+<a class="sourceLine" id="cb1-3" data-line-number="3">a <span class="op">=</span> a <span class="op">+</span> <span class="dv">1</span></a>
+<a class="sourceLine" id="cb1-4" data-line-number="4"><span class="bu">print</span>(a)</a>
+<a class="sourceLine" id="cb1-5" data-line-number="5">a <span class="op">=</span> a <span class="op">*</span> <span class="dv">2</span></a>
+<a class="sourceLine" id="cb1-6" data-line-number="6"><span class="bu">print</span>(a)</a></code></pre></div>
+<p>And of course here is the output:</p>
+<p><code>1</code><br />
+<code>2</code><br />
+<code>4</code></p>
+<p>Even if the same variable appears on both sides of the equals sign (e.g., spam = spam), the computer still reads it as, &quot;First find out the data to store and then find out where the data goes.&quot;</p>
+<p>One more program before I end this chapter:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb2-1" data-line-number="1">number <span class="op">=</span> <span class="bu">float</span>(<span class="bu">input</span>(<span class="st">&quot;Type in a number: &quot;</span>))</a>
+<a class="sourceLine" id="cb2-2" data-line-number="2">integer <span class="op">=</span> <span class="bu">int</span>(<span class="bu">input</span>(<span class="st">&quot;Type in an integer: &quot;</span>))</a>
+<a class="sourceLine" id="cb2-3" data-line-number="3">text <span class="op">=</span> <span class="bu">input</span>(<span class="st">&quot;Type in a string: &quot;</span>)</a>
+<a class="sourceLine" id="cb2-4" data-line-number="4"><span class="bu">print</span>(<span class="st">&quot;number =&quot;</span>, number)</a>
+<a class="sourceLine" id="cb2-5" data-line-number="5"><span class="bu">print</span>(<span class="st">&quot;number is a&quot;</span>, <span class="bu">type</span>(number))</a>
+<a class="sourceLine" id="cb2-6" data-line-number="6"><span class="bu">print</span>(<span class="st">&quot;number * 2 =&quot;</span>, number <span class="op">*</span> <span class="dv">2</span>)</a>
+<a class="sourceLine" id="cb2-7" data-line-number="7"><span class="bu">print</span>(<span class="st">&quot;integer =&quot;</span>, integer)</a>
+<a class="sourceLine" id="cb2-8" data-line-number="8"><span class="bu">print</span>(<span class="st">&quot;integer is a&quot;</span>, <span class="bu">type</span>(integer))</a>
+<a class="sourceLine" id="cb2-9" data-line-number="9"><span class="bu">print</span>(<span class="st">&quot;integer * 2 =&quot;</span>, integer <span class="op">*</span> <span class="dv">2</span>)</a>
+<a class="sourceLine" id="cb2-10" data-line-number="10"><span class="bu">print</span>(<span class="st">&quot;text =&quot;</span>, text)</a>
+<a class="sourceLine" id="cb2-11" data-line-number="11"><span class="bu">print</span>(<span class="st">&quot;text is a&quot;</span>, <span class="bu">type</span>(text))</a>
+<a class="sourceLine" id="cb2-12" data-line-number="12"><span class="bu">print</span>(<span class="st">&quot;text * 2 =&quot;</span>, text <span class="op">*</span> <span class="dv">2</span>)</a></code></pre></div>
+<p>The output I got was:</p>
+<p><code>Type in a number: </code><strong><code>12.34</code></strong><br />
+<code>Type in an integer: </code><strong><code>-3</code></strong><br />
+<code>Type in a string: </code><strong><code>Hello</code></strong><br />
+<code>number = 12.34</code><br />
+<code>number is a &lt;class 'float'&gt;</code><br />
+<code>number * 2 = 24.68</code><br />
+<code>integer = -3</code><br />
+<code>integer is a &lt;class 'int'&gt;</code><br />
+<code>integer * 2 = -6</code><br />
+<code>text = Hello</code><br />
+<code>text is a &lt;class 'str'&gt;</code><br />
+<code>text * 2 = HelloHello</code></p>
+<p>Notice that <code>number</code> was created with <code>float(input())</code> ,<code>int(input())</code> returns an integer, a number with no decimal point, while <code>text</code> created with <code>input()</code> returns a string(can be writen as <code>str(input())</code>, too). When you want the user to type in a decimal use <code>float(input())</code>, if you want the user to type in an integer use <code>int(input())</code>, but if you want the user to type in a string use <code>input()</code>.</p>
+<p>The second half of the program uses the <code>type()</code> function which tells what kind a variable is. Numbers are of type <code>int</code> or <code>float</code>, which are short for <em>integer</em> and <em>floating point</em> (mostly used for decimal numbers), respectively. Text strings are of type <code>str</code>, short for <em>string</em>. Integers and floats can be worked on by mathematical functions, strings cannot. Notice how when python multiplies a number by an integer the expected thing happens. However when a string is multiplied by an integer the result is that multiple copies of the string are produced (i.e., <code>text * 2 = HelloHello</code>).</p>
+<p>Operations with strings do different things than operations with numbers. As well, some operations only work with numbers (both integers and floating point numbers) and will give an error if a string is used. Here are some interactive mode examples to show that some more.</p>
+<pre><code>&gt;&gt;&gt; print(&quot;This&quot; + &quot; &quot; + &quot;is&quot; + &quot; joined.&quot;)
+This is joined.
+&gt;&gt;&gt; print(&quot;Ha, &quot; * 5)
+Ha, Ha, Ha, Ha, Ha, 
+&gt;&gt;&gt; print(&quot;Ha, &quot; * 5 + &quot;ha!&quot;)
+Ha, Ha, Ha, Ha, Ha, ha!
+&gt;&gt;&gt; print(3 - 1)
+2
+&gt;&gt;&gt; print(&quot;3&quot; - &quot;1&quot;)
+Traceback (most recent call last):
+  File &quot;&lt;stdin&gt;&quot;, line 1, in &lt;module&gt;
+TypeError: unsupported operand type(s) for -: &#39;str&#39; and &#39;str&#39;
+&gt;&gt;&gt; </code></pre>
+<p>Here is the list of some string operations:</p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Operation</th>
+<th style="text-align: left;">Symbol</th>
+<th style="text-align: left;">Example</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Repetition</td>
+<td style="text-align: left;"><code>*</code></td>
+<td style="text-align: left;"><code>&quot;i&quot; * 5 == &quot;iiiii&quot;</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Concatenation</td>
+<td style="text-align: left;"><code>+</code></td>
+<td style="text-align: left;"><code>&quot;Hello, &quot; + &quot;World!&quot; == &quot;Hello, World!&quot;</code></td>
+</tr>
+</tbody>
+</table>

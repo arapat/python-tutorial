@@ -1,0 +1,56 @@
+<h3 id="what-should-the-program-do">What should the program do?</h3>
+<p>The first thing to do (this sounds obvious) is to figure out what the program should be doing if it is running correctly. Come up with some test cases and see what happens. For example, let's say I have a program to compute the perimeter of a rectangle (the sum of the length of all the edges). I have the following test cases:</p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">height</th>
+<th style="text-align: left;">width</th>
+<th style="text-align: left;">perimeter</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">3</td>
+<td style="text-align: left;">4</td>
+<td style="text-align: left;">14</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">2</td>
+<td style="text-align: left;">3</td>
+<td style="text-align: left;">10</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">4</td>
+<td style="text-align: left;">4</td>
+<td style="text-align: left;">16</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">2</td>
+<td style="text-align: left;">2</td>
+<td style="text-align: left;">8</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">5</td>
+<td style="text-align: left;">1</td>
+<td style="text-align: left;">12</td>
+</tr>
+</tbody>
+</table>
+<p>I now run my program on all of the test cases and see if the program does what I expect it to do. If it doesn't then I need to find out what the computer is doing.</p>
+<p>More commonly some of the test cases will work and some will not. If that is the case you should try and figure out what the working ones have in common. For example here is the output for a perimeter program (you get to see the code in a minute):</p>
+<p><code>Height: </code><strong><code>3</code></strong><br />
+<code>Width: </code><strong><code>4</code></strong><br />
+<code>perimeter = 15</code></p>
+<p><code>Height: </code><strong><code>2</code></strong><br />
+<code>Width: </code><strong><code>3</code></strong><br />
+<code>perimeter = 11</code></p>
+<p><code>Height: </code><strong><code>4</code></strong><br />
+<code>Width: </code><strong><code>4</code></strong><br />
+<code>perimeter = 16</code></p>
+<p><code>Height: </code><strong><code>2</code></strong><br />
+<code>Width: </code><strong><code>2</code></strong><br />
+<code>perimeter = 8</code></p>
+<p><code>Height: </code><strong><code>5</code></strong><br />
+<code>Width: </code><strong><code>1</code></strong><br />
+<code>perimeter = 8</code></p>
+<p>Notice that it didn't work for the first two inputs, it worked for the next two and it didn't work on the last one. Try and figure out what is in common with the working ones. Once you have some idea what the problem is finding the cause is easier. With your own programs you should try more test cases if you need them.</p>

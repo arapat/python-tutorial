@@ -1,0 +1,281 @@
+<!-- Now for our first lesson, what is a computer program?  A computer program is a set of very detailed instructions that tell a computer what to do.   -->
+=== What you should know ===
+Once you've read and mastered this chapter, you should know how to edit programs in a text editor or IDLE,  save them to the hard disk, and run them once they have been saved.
+
+=== Printing ===
+
+Programming tutorials since the beginning of time have started with a little program called "Hello, World!"<ref>[[Computer Programming/Hello world|Here]] is a great list of the famous "Hello, world!" program in many programming languages. Just so you know how simple Python can be...</ref>  So here it is:
+
+<source lang="python">
+print("Hello, World!")
+</source>
+
+If you are using the command line to run programs then type it in with a text editor, save it as <code>hello.py</code> and run it with <code>python3 hello.py</code>
+
+Otherwise go into IDLE, create a new window, and create the program as
+in section [[Non-Programmer's Tutorial for Python 3/Intro#Creating_and_Running_Programs|Creating and Running Programs]].
+
+When this program is run here's what it prints:
+
+ Hello, World!
+
+Now I'm not going to tell you this every time, but when I show you a
+program I recommend that you type it in and run it.  I learn better
+when I type it in and you probably do too.
+
+Now here is a more complicated program:
+
+<source lang="python">
+print("Jack and Jill went up a hill")
+print("to fetch a pail of water;")
+print("Jack fell down, and broke his crown,")
+print("and Jill came tumbling after.")
+</source>
+
+When you run this program it prints out:
+
+ Jack and Jill went up a hill
+ to fetch a pail of water;
+ Jack fell down, and broke his crown,
+ and Jill came tumbling after.
+
+When the computer runs this program it first sees the line:
+
+<source lang="python">
+print("Jack and Jill went up a hill")
+</source>
+
+so the computer prints:
+
+ Jack and Jill went up a hill
+
+Then the computer goes down to the next line and sees:
+
+<source lang="python">
+print("to fetch a pail of water;")
+</source>
+
+So the computer prints to the screen:
+
+ to fetch a pail of water;
+
+The computer keeps looking at each line, follows the command and then goes on to the next line.  The computer keeps running commands until it reaches the end of the program.
+
+==== Terminology ====
+Now is probably a good time to give you a bit of an explanation of what is happening - and a little bit of programming terminology.
+
+What we were doing above was using a ''function'' called <code>print</code>.  The function's name - <code>print</code> - is followed by parentheses containing zero or more ''arguments''.  So in this example
+
+<source lang="python">
+print("Hello, World!")
+</source>
+
+there is one ''argument'', which is <code>"Hello, World!"</code>.  Note that this argument is a group of characters enclosed in double quotes ("").  This is commonly referred to as a ''string of characters'', or ''string'', for short.  Another example of a string is <code>"Jack and Jill went up a hill"</code>.  The combination of a function and parentheses with the arguments is a ''function call''.
+
+A function and its arguments are one type of ''statement'' that python has, so
+
+<source lang="python">
+print("Hello, World!")
+</source>
+
+is an example of a statement.  Basically, you can think of a statement as a single line in a program.  
+
+That's probably more than enough terminology for now.
+
+=== Expressions ===
+Here is another program:
+
+<source lang="python">
+print("2 + 2 is", 2 + 2)
+print("3 * 4 is", 3 * 4)
+print("100 - 1 is", 100 - 1)
+print("(33 + 2) / 5 + 11.5 is", (33 + 2) / 5 + 11.5)
+</source>
+
+And here is the ''output'' when the program is run:
+
+ 2 + 2 is 4
+ 3 * 4 is 12
+ 100 - 1 is 99
+ (33 + 2) / 5 + 11.5 is 18.5
+
+As you can see, Python can turn your thousand-dollar computer into a five-dollar calculator.
+
+==== Arithmetic expressions ====
+
+In this example, the print function is followed by two arguments, with each of the arguments separated by a comma.  So with the first line of the program
+
+<source lang="python">
+print("2 + 2 is", 2 + 2)
+</source>
+
+The first argument is the string <code>"2 + 2 is"</code> and the second argument is the ''arithmetic expression'' <code>2 + 2</code>, which is one kind of ''expression''.
+
+What is important to note is that a string is printed as is (without the enclosing double quotes), but an ''expression'' is ''evaluated'', or converted to its actual value.
+
+Python has seven basic operations for numbers: 
+
+{| class="wikitable"
+! Operation 
+! Symbol 
+! Example
+|-
+|Power (exponentiation)
+| <code>**</code> 
+| <code>5 ** 2 == 25</code>
+|-
+|Multiplication 
+| <code>*</code> 
+|<code>2 * 3 == 6</code>
+|-
+|Division 
+| <code>/</code> 
+| <code>14 / 3 == 4.666666666666667</code> 
+|-
+|Integer Division
+| <code>//</code>
+| <code>14 // 3 == 4</code>
+|-
+|Remainder (modulo)
+| <code>%</code> 
+| <code>14 % 3 == 2</code> 
+|-
+|Addition 
+| <code>+</code> 
+| <code>1 + 2 == 3</code> 
+|-
+|Subtraction 
+| <code>-</code> 
+| <code>4 - 3 == 1</code>
+|}
+
+Notice that there are two ways to do division, one that returns the repeating decimal, and the other that can get the remainder and the whole number.  
+The order of operations is the same as in math:
+* parentheses <code>()</code>
+* exponents <code>**</code>
+* multiplication <code>*</code>, division <code>/</code>, integer division <code>//</code>, and remainder <code>%</code> 
+* addition <code>+</code> and subtraction <code>-</code>
+So use parentheses to structure your formulas when needed.
+
+=== Talking to humans (and other intelligent beings) ===
+
+Often in programming you are doing something complicated and may not in the future remember what you did.  When this happens the program should probably be commented.  A ''comment'' is a note to you and other programmers explaining what is happening.  For example:
+
+<source lang="python">
+# Not quite PI, but a credible simulation
+print(22 / 7)
+</source>
+
+Which outputs
+
+ 3.14285714286
+
+Notice that the comment starts with a hash: <code>#</code>. Comments are used to communicate with others who read the program and your future self to make clear what is complicated.
+
+Note that any text can follow a comment, and that when the program is run, the text after the <code>#</code> through to the end of that line is ignored. The <code>#</code> does not have to be at the beginning of a new line:
+
+<source lang="python">
+# Output PI on the screen
+print(22 / 7) # Well, just a good approximation
+</source>
+
+=== Examples ===
+Each chapter (eventually) will contain examples of the programming features introduced in the chapter.  You should at least look over them and see if you understand them.  If you don't, you may want to type them in and see what happens.  Mess around with them, change them and see what happens.  
+
+'''Denmark.py'''
+
+<source lang="python">
+print("Something's rotten in the state of Denmark.")
+print("                -- Shakespeare")
+</source>
+
+Output:
+
+ Something's rotten in the state of Denmark.
+                 -- Shakespeare
+
+'''School.py'''
+
+<source lang="python">
+# This is not quite true outside of USA
+# and is based on my dim memories of my younger years
+print("Firstish Grade")
+print("1 + 1 =", 1 + 1)
+print("2 + 4 =", 2 + 4)
+print("5 - 2 =", 5 - 2)
+print()
+print("Thirdish Grade")
+print("243 - 23 =", 243 - 23)
+print("12 * 4 =", 12 * 4)
+print("12 / 3 =", 12 / 3)
+print("13 / 3 =", 13 // 3, "R", 13 % 3)
+print()
+print("Junior High")
+print("123.56 - 62.12 =", 123.56 - 62.12)
+print("(4 + 3) * 2 =", (4 + 3) * 2)
+print("4 + 3 * 2 =", 4 + 3 * 2)
+print("3 ** 2 =", 3 ** 2)
+</source>
+
+Output:
+
+ Firstish Grade
+ 1 + 1 = 2
+ 2 + 4 = 6
+ 5 - 2 = 3
+ 
+ Thirdish Grade
+ 243 - 23 = 220
+ 12 * 4 = 48
+ 12 / 3 = 4
+ 13 / 3 = 4 R 1
+ 
+ Junior High
+ 123.56 - 62.12 = 61.44
+ (4 + 3) * 2 = 14
+ 4 + 3 * 2 = 10
+ 3 ** 2 = 9
+
+=== Exercises ===
+
+# Write a program that prints your full name and your birthday as separate strings.
+# Write a program that shows the use of all 7 [[#Arithmetic_expressions|arithmetic operations]].
+
+{{Solution|title=Solution|text=
+
+1. Write a program that prints your full name and your birthday as separate strings.
+<source lang="python">
+print("Ada Lovelace", "born on", "November 27, 1852")
+</source>  
+
+<source lang="python">
+print("Albert Einstein", "born on", "14 March 1879")
+</source>
+
+<source lang="python">
+print(("John Smith"), ("born on"), ("14 March 1879"))
+</source>
+}}
+
+{{Solution|title=Solution|text=
+2. Write a program that shows the use of all 7 [[#Arithmetic_expressions|arithmetic operations]].
+<source lang="python">
+print("5**5 = ", 5**5)
+print("6*7 = ", 6*7)
+print("56/8 = ", 56/8)
+print("14//6 = ", 14//6)
+print("14%6 = ", 14%6)
+print("5+6 = ", 5+6)
+print("9-0 = ", 9-0)
+</source>
+}}
+
+----
+==== Footnotes ====
+<references/>
+
+{{navigation |previous=Intro |next=Who Goes There?}}
+{{BookCat}}
+
+[[ca:Python 3 per a no programadors/Hola, món]]
+

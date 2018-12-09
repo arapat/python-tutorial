@@ -1,0 +1,256 @@
+=== Input and Variables ===
+Now I feel it is time for a really complicated program.  Here it is:
+<source lang="python">
+print("Halt!")
+user_input = input("Who goes there? ")
+print("You may pass,",  user_input)
+</source>
+
+When '''I''' ran it, here is what '''my''' screen showed:
+
+ Halt!
+ Who goes there? '''Josh'''
+ You may pass, Josh
+
+''Note: After running the code by pressing F5, the python shell will only give output:''
+
+ Halt!
+ Who goes there?
+
+''You need to enter your name in the python shell, and then press enter for the rest of the output.''
+
+Of course when you run the program your screen will look different
+because of the <code>input()</code> statement. When you ran the program
+you probably noticed (you did run the program, right?) how you had to
+type in your name and then press Enter. Then the program printed out
+some more text and also your name. This is an example of ''input''.  The
+program reaches a certain point and then waits for the user to input
+some data that the program can use later.
+
+Of course, getting information from the user would be useless if we didn't have anywhere to put that information and this is where variables come in.  In the previous program <code>user_input</code> is a ''variable''.  Variables are like a box that can store some piece of data.  Here is a program to show examples of variables:
+<source lang="python">
+a = 123.4
+b23 = 'Spam'
+first_name = "Bill"
+b = 432
+c = a + b
+print("a + b is",c)
+print("first_name is",first_name)
+print("Sorted Parts, After Midnight or",b23)
+</source>
+
+And here is the output:
+
+ a + b is 555.4
+ first_name is Bill
+ Sorted Parts, After Midnight or Spam
+
+Variables store data.  The variables in the above program are <code>a</code>, <code>b23</code>, <code>first_name</code>, <code>b</code>, and <code>c</code>. The two basic types are ''strings'' and ''numbers''.  Strings are a sequence of letters, numbers and other characters. In this example <code>b23</code> and <code>first_name</code> are variables that are storing strings. <code>Spam</code>, <code>Bill</code>, <code>a + b is</code>, <code>first_name is</code>, and <code>Sorted Parts, After Midnight or</code> are the strings in this program.  The characters are surrounded by <code>"</code> or <code>'</code>.  The other type of variables are numbers. Remember that variables are used to store a value, they do not use quotation marks (" and '). If you want to use an actual ''value'', you ''must'' use quotation marks.
+
+<source lang="python">
+value1 == Pim
+value2 == "Pim"
+</source>
+
+Both look the same, but in the first one Python checks if the value stored in the variable <code>value1</code> is the same as the value stored in the ''variable'' <code>Pim</code>. In the second one, Python checks if the string (the actual letters <code>P</code>,<code>i</code>, and <code>m</code>) are the same as in <code>value2</code> (continue this tutorial for more explanation about strings and about the <code>==</code>).
+
+=== Assignment ===
+
+Okay, so we have these boxes called variables and also data that can go into the variable.  The computer will see a line like <code>first_name = "Bill"</code> and it reads it as "Put the string <code>Bill</code> into the box (or variable) <code>first_name</code>". Later on it sees the statement <code>c = a + b</code> and it reads it as "put the sum of <code>a + b</code> or <code>123.4 + 432</code> which equals <code>555.4</code> into <code>c</code>". The right hand side of the statement (<code>a + b</code>) is ''evaluated'' and the result is stored in the variable on the left hand side (<code>c</code>). This is called ''assignment'', and you should not confuse the assignment equal sign (<code>=</code>) with "equality" in a mathematical sense here (that's what <code>==</code> will be used for later).
+
+Here is another example of variable usage:
+<source lang="python">
+a = 1
+print(a)
+a = a + 1
+print(a)
+a = a * 2
+print(a)
+</source>
+
+And of course here is the output:
+
+ 1
+ 2
+ 4
+
+Even if the same variable appears on both sides of the equals sign (e.g., spam = spam), the computer still reads it as, "First find out the data to store and then find out where the data goes."
+
+One more program before I end this chapter:
+<source lang="python">
+number = float(input("Type in a number: "))
+integer = int(input("Type in an integer: "))
+text = input("Type in a string: ")
+print("number =", number)
+print("number is a", type(number))
+print("number * 2 =", number * 2)
+print("integer =", integer)
+print("integer is a", type(integer))
+print("integer * 2 =", integer * 2)
+print("text =", text)
+print("text is a", type(text))
+print("text * 2 =", text * 2)
+
+
+
+
+</source>
+
+The output I got was:
+
+ Type in a number: '''12.34'''
+ Type in an integer: '''-3'''
+ Type in a string: '''Hello'''
+ number = 12.34
+ number is a <class 'float'>
+ number * 2 = 24.68
+ integer = -3
+ integer is a <class 'int'>
+ integer * 2 = -6
+ text = Hello
+ text is a <class 'str'>
+ text * 2 = HelloHello
+
+Notice that <code>number</code> was created with <code>float(input())</code> ,<code>int(input())</code> returns an integer, a number with no decimal point, 
+while  <code>text</code> created with <code>input()</code> returns a string(can be writen as <code>str(input())</code>, too). When you want the user to type in a decimal use <code>float(input())</code>, if you want the user to type in an integer use <code>int(input())</code>, but if you want the user to type in a string use <code>input()</code>.
+
+The second half of the program uses the <code>type()</code> function which tells what kind a
+variable is. Numbers are of type <code>int</code> or <code>float</code>, which are
+short for ''integer'' and ''floating point'' (mostly used for decimal numbers), respectively. Text strings are of type <code>str</code>, short for ''string''. Integers and floats can be worked on by mathematical functions, strings cannot. Notice how when python
+multiplies a number by an integer the expected thing happens. However
+when a string is multiplied by an integer the result is that multiple
+copies of the string are produced (i.e., <code>text * 2 = HelloHello</code>).
+
+Operations with strings do different things than 
+operations with numbers. As well, some operations only work with numbers (both integers and floating point numbers) and will give an error if a string is used. Here are some interactive mode examples
+to show that some more.
+
+<pre>
+>>> print("This" + " " + "is" + " joined.")
+This is joined.
+>>> print("Ha, " * 5)
+Ha, Ha, Ha, Ha, Ha, 
+>>> print("Ha, " * 5 + "ha!")
+Ha, Ha, Ha, Ha, Ha, ha!
+>>> print(3 - 1)
+2
+>>> print("3" - "1")
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+TypeError: unsupported operand type(s) for -: 'str' and 'str'
+>>> 
+</pre>
+
+Here is the list of some string operations:
+
+{| class="wikitable"
+!Operation 
+!Symbol 
+!Example
+|-
+|Repetition 
+|<code>*</code> 
+|<code>"i" * 5 == "iiiii"</code>
+|-
+|Concatenation 
+|<code>+</code> 
+|<code>"Hello, " + "World!" == "Hello, World!"</code>
+|}
+
+=== Examples ===
+
+'''Rate_times.py'''
+<source lang="python">
+# This program calculates rate and distance problems
+print("Input a rate and a distance")
+rate = float(input("Rate: "))
+distance = float(input("Distance: "))
+time=(distance/ rate)
+print("Time:", time)
+
+</source>
+
+Sample runs:
+
+ Input a rate and a distance
+ Rate: '''5'''
+ Distance: '''10'''
+ Time: 2.0
+
+ Input a rate and a distance
+ Rate: '''3.52'''
+ Distance: '''45.6'''
+ Time: 12.9545454545
+
+'''Area.py'''
+<source lang="python">
+# This program calculates the perimeter and area of a rectangle
+print("Calculate information about a rectangle")
+length = float(input("Length: "))
+width = float(input("Width: "))
+Perimeter=(2 * length + 2 * width) 
+print("Area:", length * width)
+print("Perimeter:",Perimeter)
+</source>
+
+Sample runs:
+
+ Calculate information about a rectangle
+ Length: '''4'''
+ Width: '''3'''
+ Area: 12.0
+ Perimeter: 14.0
+
+ Calculate information about a rectangle
+ Length: '''2.53'''
+ Width: '''5.2'''
+ Area: 13.156
+ Perimeter: 15.46
+
+'''Temperature.py'''
+<source lang="python">
+# This program converts Fahrenheit to Celsius
+fahr_temp = float(input("Fahrenheit temperature: "))
+celc_temp = (fahr_temp - 32.0) *( 5.0 / 9.0)
+print("Celsius temperature:", celc_temp)
+</source>
+
+Sample runs:
+
+ Fahrenheit temperature: '''32'''
+ Celsius temperature: 0.0
+
+ Fahrenheit temperature: '''-40'''
+ Celsius temperature: -40.0
+
+ Fahrenheit temperature: '''212'''
+ Celsius temperature: 100.0
+
+ Fahrenheit temperature: '''98.6'''
+ Celsius temperature: 37.0
+
+=== Exercises ===
+Write a program that gets 2 string variables and 2 number variables
+from the user, concatenates (joins them together with no spaces) and
+displays the strings, then multiplies the two numbers on a new line.
+
+{{Solution|title=Solution|text=
+
+Write a program that gets 2 string variables and 2 number variables
+from the user, concatenates (joins them together with no spaces) and
+displays the strings, then multiplies the two numbers on a new line.
+
+<source lang="python">  
+string1 = input('String 1: ')
+string2 = input('String 2: ')
+float1 = float(input('Number 1: '))
+float2 = float(input('Number 2: '))
+print(string1 + string2)
+print(float1 * float2)
+</source>
+}}
+
+{{navigation |previous=Hello, World |next=Count to 10}}
+{{BookCat}}
+
+[[ca:Python 3 per a no programadors/Qui hi ha?]]

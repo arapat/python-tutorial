@@ -1,0 +1,209 @@
+<h3 id="more-features-of-lists">More features of lists</h3>
+<p>The next example is just to show a lot of other stuff lists can do (for once I don't expect you to type it in, but you should probably play around with lists in interactive mode until you are comfortable with them.). Here goes:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1-1" data-line-number="1">demolist <span class="op">=</span> [<span class="st">&quot;life&quot;</span>, <span class="dv">42</span>, <span class="st">&quot;the universe&quot;</span>, <span class="dv">6</span>, <span class="st">&quot;and&quot;</span>, <span class="dv">9</span>]</a>
+<a class="sourceLine" id="cb1-2" data-line-number="2"><span class="bu">print</span>(<span class="st">&quot;demolist = &quot;</span>,demolist)</a>
+<a class="sourceLine" id="cb1-3" data-line-number="3">demolist.append(<span class="st">&quot;everything&quot;</span>)</a>
+<a class="sourceLine" id="cb1-4" data-line-number="4"><span class="bu">print</span>(<span class="st">&quot;after &#39;everything&#39; was appended demolist is now:&quot;</span>)</a>
+<a class="sourceLine" id="cb1-5" data-line-number="5"><span class="bu">print</span>(demolist)</a>
+<a class="sourceLine" id="cb1-6" data-line-number="6"><span class="bu">print</span>(<span class="st">&quot;len(demolist) =&quot;</span>, <span class="bu">len</span>(demolist))</a>
+<a class="sourceLine" id="cb1-7" data-line-number="7"><span class="bu">print</span>(<span class="st">&quot;demolist.index(42) =&quot;</span>, demolist.index(<span class="dv">42</span>))</a>
+<a class="sourceLine" id="cb1-8" data-line-number="8"><span class="bu">print</span>(<span class="st">&quot;demolist[1] =&quot;</span>, demolist[<span class="dv">1</span>])</a>
+<a class="sourceLine" id="cb1-9" data-line-number="9"></a>
+<a class="sourceLine" id="cb1-10" data-line-number="10"><span class="co"># Next we will loop through the list</span></a>
+<a class="sourceLine" id="cb1-11" data-line-number="11"><span class="cf">for</span> c <span class="kw">in</span> <span class="bu">range</span>(<span class="bu">len</span>(demolist)):</a>
+<a class="sourceLine" id="cb1-12" data-line-number="12">    <span class="bu">print</span>(<span class="st">&quot;demolist[&quot;</span>, c, <span class="st">&quot;] =&quot;</span>, demolist[c])</a>
+<a class="sourceLine" id="cb1-13" data-line-number="13"></a>
+<a class="sourceLine" id="cb1-14" data-line-number="14"><span class="kw">del</span> demolist[<span class="dv">2</span>]</a>
+<a class="sourceLine" id="cb1-15" data-line-number="15"><span class="bu">print</span>(<span class="st">&quot;After &#39;the universe&#39; was removed demolist is now:&quot;</span>)</a>
+<a class="sourceLine" id="cb1-16" data-line-number="16"><span class="bu">print</span>(demolist)</a>
+<a class="sourceLine" id="cb1-17" data-line-number="17"><span class="cf">if</span> <span class="st">&quot;life&quot;</span> <span class="kw">in</span> demolist:</a>
+<a class="sourceLine" id="cb1-18" data-line-number="18">    <span class="bu">print</span>(<span class="st">&quot;&#39;life&#39; was found in demolist&quot;</span>)</a>
+<a class="sourceLine" id="cb1-19" data-line-number="19"><span class="cf">else</span>:</a>
+<a class="sourceLine" id="cb1-20" data-line-number="20">    <span class="bu">print</span>(<span class="st">&quot;&#39;life&#39; was not found in demolist&quot;</span>)</a>
+<a class="sourceLine" id="cb1-21" data-line-number="21"></a>
+<a class="sourceLine" id="cb1-22" data-line-number="22"><span class="cf">if</span> <span class="st">&quot;amoeba&quot;</span> <span class="kw">in</span> demolist:</a>
+<a class="sourceLine" id="cb1-23" data-line-number="23">    <span class="bu">print</span>(<span class="st">&quot;&#39;amoeba&#39; was found in demolist&quot;</span>)</a>
+<a class="sourceLine" id="cb1-24" data-line-number="24"></a>
+<a class="sourceLine" id="cb1-25" data-line-number="25"><span class="cf">if</span> <span class="st">&quot;amoeba&quot;</span> <span class="kw">not</span> <span class="kw">in</span> demolist:</a>
+<a class="sourceLine" id="cb1-26" data-line-number="26">    <span class="bu">print</span>(<span class="st">&quot;&#39;amoeba&#39; was not found in demolist&quot;</span>)</a>
+<a class="sourceLine" id="cb1-27" data-line-number="27"></a>
+<a class="sourceLine" id="cb1-28" data-line-number="28">another_list <span class="op">=</span> [<span class="dv">42</span>,<span class="dv">7</span>,<span class="dv">0</span>,<span class="dv">123</span>]</a>
+<a class="sourceLine" id="cb1-29" data-line-number="29">another_list.sort()</a>
+<a class="sourceLine" id="cb1-30" data-line-number="30"><span class="bu">print</span>(<span class="st">&quot;The sorted another_list is&quot;</span>, another_list)</a></code></pre></div>
+<p>The output is:</p>
+<p><code>demolist =  ['life', 42, 'the universe', 6, 'and', 9]</code><br />
+<code>after 'everything' was appended demolist is now:</code><br />
+<code>['life', 42, 'the universe', 6, 'and', 9, 'everything']</code><br />
+<code>len(demolist) = 7</code><br />
+<code>demolist.index(42) = 1</code><br />
+<code>demolist[1] = 42</code><br />
+<code>demolist[ 0 ] = life</code><br />
+<code>demolist[ 1 ] = 42</code><br />
+<code>demolist[ 2 ] = the universe</code><br />
+<code>demolist[ 3 ] = 6</code><br />
+<code>demolist[ 4 ] = and</code><br />
+<code>demolist[ 5 ] = 9</code><br />
+<code>demolist[ 6 ] = everything</code><br />
+<code>After 'the universe' was removed demolist is now:</code><br />
+<code>['life', 42, 6, 'and', 9, 'everything']</code><br />
+<code>'life' was found in demolist</code><br />
+<code>'amoeba' was not found in demolist</code><br />
+<code>The sorted another_list is [0, 7, 42, 123]</code></p>
+<p>This example uses a whole bunch of new functions. Notice that you can just <code>print</code> a whole list. Next the <code>append</code> function is used to add a new item to the end of the list. <code>len</code> returns how many items are in a list. The valid indexes (as in numbers that can be used inside of the <code>[]</code>) of a list range from 0 to <code>len - 1</code>. The <code>index</code> function tells where the first location of an item is located in a list. Notice how <code>demolist.index(42)</code> returns 1, and when <code>demolist[1]</code> is run it returns 42. To get help on all the functions a list provides for you, type <code>help(list)</code> in the interactive Python interpreter.</p>
+<p>The line <code># Next we will loop through the list</code> is a just a reminder to the programmer (also called a <em>comment</em>). Python ignores everything that is written after a <code>#</code> on the current line. Next the lines:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="cf">for</span> c <span class="kw">in</span> <span class="bu">range</span>(<span class="bu">len</span>(demolist)):</a>
+<a class="sourceLine" id="cb2-2" data-line-number="2">    <span class="bu">print</span>(<span class="st">&#39;demolist[&#39;</span>, c, <span class="st">&#39;] =&#39;</span>, demolist[c])</a></code></pre></div>
+<p>create a variable <code>c</code>, which starts at 0 and is incremented until it reaches the last index of the list. Meanwhile the <code>print</code> statement prints out each element of the list.</p>
+<p>A much better way to do the above is:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="cf">for</span> c, x <span class="kw">in</span> <span class="bu">enumerate</span>(demolist):</a>
+<a class="sourceLine" id="cb3-2" data-line-number="2">    <span class="bu">print</span>(<span class="st">&quot;demolist[&quot;</span>, c, <span class="st">&quot;] =&quot;</span>, x)</a></code></pre></div>
+<p>The <code>del</code> command can be used to remove a given element in a list. The next few lines use the <code>in</code> operator to test if an element is in or is not in a list. The <code>sort</code> function sorts the list. This is useful if you need a list in order from smallest number to largest or alphabetical. Note that this rearranges the list. In summary, for a list, the following operations occur:</p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">example</th>
+<th style="text-align: left;">explanation</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><code>demolist[2]</code></td>
+<td style="text-align: left;">accesses the element at index 2</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>demolist[2] = 3</code></td>
+<td style="text-align: left;">sets the element at index 2 to be 3</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><code>del demolist[2]</code></td>
+<td style="text-align: left;">removes the element at index 2</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>len(demolist)</code></td>
+<td style="text-align: left;">returns the length of <code>demolist</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><code>&quot;value&quot; in demolist</code></td>
+<td style="text-align: left;">is <em>True</em> if <code>&quot;value&quot;</code> is an element in <code>demolist</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>&quot;value&quot; not in demolist</code></td>
+<td style="text-align: left;">is <em>True</em> if <code>&quot;value&quot;</code> is not an element in <code>demolist</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><code>another_list.sort()</code></td>
+<td style="text-align: left;">sorts <code>another_list</code>. Note that the list must be all numbers or all strings to be sorted.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>demolist.index(&quot;value&quot;)</code></td>
+<td style="text-align: left;">returns the index of the first place that <code>&quot;value&quot;</code> occurs</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><code>demolist.append(&quot;value&quot;)</code></td>
+<td style="text-align: left;">adds an element <code>&quot;value&quot;</code> at the end of the list</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>demolist.remove(&quot;value&quot;)</code></td>
+<td style="text-align: left;">removes the first occurrence of value from <code>demolist</code> (same as <code>del demolist[demolist.index(&quot;value&quot;)]</code>)</td>
+</tr>
+</tbody>
+</table>
+<p>This next example uses these features in a more useful way:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb4-1" data-line-number="1">menu_item <span class="op">=</span> <span class="dv">0</span></a>
+<a class="sourceLine" id="cb4-2" data-line-number="2">namelist <span class="op">=</span> []</a>
+<a class="sourceLine" id="cb4-3" data-line-number="3"><span class="cf">while</span> menu_item <span class="op">!=</span> <span class="dv">9</span>:</a>
+<a class="sourceLine" id="cb4-4" data-line-number="4">    <span class="bu">print</span>(<span class="st">&quot;--------------------&quot;</span>)</a>
+<a class="sourceLine" id="cb4-5" data-line-number="5">    <span class="bu">print</span>(<span class="st">&quot;1. Print the list&quot;</span>)</a>
+<a class="sourceLine" id="cb4-6" data-line-number="6">    <span class="bu">print</span>(<span class="st">&quot;2. Add a name to the list&quot;</span>)</a>
+<a class="sourceLine" id="cb4-7" data-line-number="7">    <span class="bu">print</span>(<span class="st">&quot;3. Remove a name from the list&quot;</span>)</a>
+<a class="sourceLine" id="cb4-8" data-line-number="8">    <span class="bu">print</span>(<span class="st">&quot;4. Change an item in the list&quot;</span>)</a>
+<a class="sourceLine" id="cb4-9" data-line-number="9">    <span class="bu">print</span>(<span class="st">&quot;9. Quit&quot;</span>)</a>
+<a class="sourceLine" id="cb4-10" data-line-number="10">    menu_item <span class="op">=</span> <span class="bu">int</span>(<span class="bu">input</span>(<span class="st">&quot;Pick an item from the menu: &quot;</span>))</a>
+<a class="sourceLine" id="cb4-11" data-line-number="11">    <span class="cf">if</span> menu_item <span class="op">==</span> <span class="dv">1</span>:</a>
+<a class="sourceLine" id="cb4-12" data-line-number="12">        current <span class="op">=</span> <span class="dv">0</span></a>
+<a class="sourceLine" id="cb4-13" data-line-number="13">        <span class="cf">if</span> <span class="bu">len</span>(namelist) <span class="op">&gt;</span> <span class="dv">0</span>:</a>
+<a class="sourceLine" id="cb4-14" data-line-number="14">            <span class="cf">while</span> current <span class="op">&lt;</span> <span class="bu">len</span>(namelist):</a>
+<a class="sourceLine" id="cb4-15" data-line-number="15">                <span class="bu">print</span>(current, <span class="st">&quot;.&quot;</span>, namelist[current])</a>
+<a class="sourceLine" id="cb4-16" data-line-number="16">                current <span class="op">=</span> current <span class="op">+</span> <span class="dv">1</span></a>
+<a class="sourceLine" id="cb4-17" data-line-number="17">        <span class="cf">else</span>:</a>
+<a class="sourceLine" id="cb4-18" data-line-number="18">            <span class="bu">print</span>(<span class="st">&quot;List is empty&quot;</span>)</a>
+<a class="sourceLine" id="cb4-19" data-line-number="19">    <span class="cf">elif</span> menu_item <span class="op">==</span> <span class="dv">2</span>:</a>
+<a class="sourceLine" id="cb4-20" data-line-number="20">        name <span class="op">=</span> <span class="bu">input</span>(<span class="st">&quot;Type in a name to add: &quot;</span>)</a>
+<a class="sourceLine" id="cb4-21" data-line-number="21">        namelist.append(name)</a>
+<a class="sourceLine" id="cb4-22" data-line-number="22">    <span class="cf">elif</span> menu_item <span class="op">==</span> <span class="dv">3</span>:</a>
+<a class="sourceLine" id="cb4-23" data-line-number="23">        del_name <span class="op">=</span> <span class="bu">input</span>(<span class="st">&quot;What name would you like to remove: &quot;</span>)</a>
+<a class="sourceLine" id="cb4-24" data-line-number="24">        <span class="cf">if</span> del_name <span class="kw">in</span> namelist:</a>
+<a class="sourceLine" id="cb4-25" data-line-number="25">            <span class="co"># namelist.remove(del_name) would work just as fine</span></a>
+<a class="sourceLine" id="cb4-26" data-line-number="26">            item_number <span class="op">=</span> namelist.index(del_name)</a>
+<a class="sourceLine" id="cb4-27" data-line-number="27">            <span class="kw">del</span> namelist[item_number]</a>
+<a class="sourceLine" id="cb4-28" data-line-number="28">            <span class="co"># The code above only removes the first occurrence of</span></a>
+<a class="sourceLine" id="cb4-29" data-line-number="29">            <span class="co"># the name.  The code below from Gerald removes all.</span></a>
+<a class="sourceLine" id="cb4-30" data-line-number="30">            <span class="co"># while del_name in namelist:</span></a>
+<a class="sourceLine" id="cb4-31" data-line-number="31">            <span class="co">#       item_number = namelist.index(del_name)</span></a>
+<a class="sourceLine" id="cb4-32" data-line-number="32">            <span class="co">#       del namelist[item_number]</span></a>
+<a class="sourceLine" id="cb4-33" data-line-number="33">        <span class="cf">else</span>:</a>
+<a class="sourceLine" id="cb4-34" data-line-number="34">            <span class="bu">print</span>(del_name, <span class="st">&quot;was not found&quot;</span>)</a>
+<a class="sourceLine" id="cb4-35" data-line-number="35">    <span class="cf">elif</span> menu_item <span class="op">==</span> <span class="dv">4</span>:</a>
+<a class="sourceLine" id="cb4-36" data-line-number="36">        old_name <span class="op">=</span> <span class="bu">input</span>(<span class="st">&quot;What name would you like to change: &quot;</span>)</a>
+<a class="sourceLine" id="cb4-37" data-line-number="37">        <span class="cf">if</span> old_name <span class="kw">in</span> namelist:</a>
+<a class="sourceLine" id="cb4-38" data-line-number="38">            item_number <span class="op">=</span> namelist.index(old_name)</a>
+<a class="sourceLine" id="cb4-39" data-line-number="39">            new_name <span class="op">=</span> <span class="bu">input</span>(<span class="st">&quot;What is the new name: &quot;</span>)</a>
+<a class="sourceLine" id="cb4-40" data-line-number="40">            namelist[item_number] <span class="op">=</span> new_name</a>
+<a class="sourceLine" id="cb4-41" data-line-number="41">        <span class="cf">else</span>:</a>
+<a class="sourceLine" id="cb4-42" data-line-number="42">            <span class="bu">print</span>(old_name, <span class="st">&quot;was not found&quot;</span>)</a>
+<a class="sourceLine" id="cb4-43" data-line-number="43"></a>
+<a class="sourceLine" id="cb4-44" data-line-number="44"><span class="bu">print</span>(<span class="st">&quot;Goodbye&quot;</span>)</a></code></pre></div>
+<p>And here is part of the output:</p>
+<p><code>--------------------</code><br />
+<code>1. Print the list</code><br />
+<code>2. Add a name to the list</code><br />
+<code>3. Remove a name from the list</code><br />
+<code>4. Change an item in the list</code><br />
+<code>9. Quit</code><br />
+<br />
+<code>Pick an item from the menu: </code><strong><code>2</code></strong><br />
+<code>Type in a name to add: </code><strong><code>Jack</code></strong><br />
+<br />
+<code>Pick an item from the menu: </code><strong><code>2</code></strong><br />
+<code>Type in a name to add: </code><strong><code>Jill</code></strong><br />
+<br />
+<code>Pick an item from the menu: </code><strong><code>1</code></strong><br />
+<code>0 . Jack</code><br />
+<code>1 . Jill</code><br />
+<br />
+<code>Pick an item from the menu: </code><strong><code>3</code></strong><br />
+<code>What name would you like to remove: </code><strong><code>Jack</code></strong><br />
+<br />
+<code>Pick an item from the menu: </code><strong><code>4</code></strong><br />
+<code>What name would you like to change: </code><strong><code>Jill</code></strong><br />
+<code>What is the new name: </code><strong><code>Jill`` ``Peters</code></strong><br />
+<br />
+<code>Pick an item from the menu: </code><strong><code>1</code></strong><br />
+<code>0 . Jill Peters</code><br />
+<br />
+<code>Pick an item from the menu: </code><strong><code>9</code></strong><br />
+<code>Goodbye</code></p>
+<p>That was a long program. Let's take a look at the source code. The line <code>namelist = []</code> makes the variable <code>namelist</code> a list with no items (or elements). The next important line is <code>while menu_item != 9:</code>. This line starts a loop that allows the menu system for this program. The next few lines display a menu and decide which part of the program to run.</p>
+<p>The section</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb5-1" data-line-number="1">current <span class="op">=</span> <span class="dv">0</span></a>
+<a class="sourceLine" id="cb5-2" data-line-number="2"><span class="cf">if</span> <span class="bu">len</span>(namelist) <span class="op">&gt;</span> <span class="dv">0</span>:</a>
+<a class="sourceLine" id="cb5-3" data-line-number="3">    <span class="cf">while</span> current <span class="op">&lt;</span> <span class="bu">len</span>(namelist):</a>
+<a class="sourceLine" id="cb5-4" data-line-number="4">        <span class="bu">print</span>(current, <span class="st">&quot;.&quot;</span>, namelist[current])</a>
+<a class="sourceLine" id="cb5-5" data-line-number="5">        current <span class="op">=</span> current <span class="op">+</span> <span class="dv">1</span></a>
+<a class="sourceLine" id="cb5-6" data-line-number="6"><span class="cf">else</span>:</a>
+<a class="sourceLine" id="cb5-7" data-line-number="7">    <span class="bu">print</span>(<span class="st">&quot;List is empty&quot;</span>)</a></code></pre></div>
+<p>goes through the list and prints each name. <code>len(namelist)</code> tells how many items are in the list. If <code>len</code> returns <code>0</code>, then the list is empty.</p>
+<p>Then, a few lines later, the statement <code>namelist.append(name)</code> appears. It uses the <code>append</code> function to add an item to the end of the list. Jump down another two lines, and notice this section of code:</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb6-1" data-line-number="1">item_number <span class="op">=</span> namelist.index(del_name)</a>
+<a class="sourceLine" id="cb6-2" data-line-number="2"><span class="kw">del</span> namelist[item_number]</a></code></pre></div>
+<p>Here the <code>index</code> function is used to find the index value that will be used later to remove the item. <code>del namelist[item_number]</code> is used to remove an element of the list.</p>
+<p>The next section</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb7-1" data-line-number="1">old_name <span class="op">=</span> <span class="bu">input</span>(<span class="st">&quot;What name would you like to change: &quot;</span>)</a>
+<a class="sourceLine" id="cb7-2" data-line-number="2"><span class="cf">if</span> old_name <span class="kw">in</span> namelist:</a>
+<a class="sourceLine" id="cb7-3" data-line-number="3">    item_number <span class="op">=</span> namelist.index(old_name)</a>
+<a class="sourceLine" id="cb7-4" data-line-number="4">    new_name <span class="op">=</span> <span class="bu">input</span>(<span class="st">&quot;What is the new name: &quot;</span>)</a>
+<a class="sourceLine" id="cb7-5" data-line-number="5">    namelist[item_number] <span class="op">=</span> new_name</a>
+<a class="sourceLine" id="cb7-6" data-line-number="6"><span class="cf">else</span>:</a>
+<a class="sourceLine" id="cb7-7" data-line-number="7">   <span class="bu">print</span>(old_name, <span class="st">&quot;was not found&quot;</span>)</a></code></pre></div>
+<p>uses <code>index</code> to find the <code>item_number</code> and then puts <code>new_name</code> where the <code>old_name</code> was.</p>
+<p>Congratulations, with lists under your belt, you now know enough of the language that you could do any computations that a computer can do (this is technically known as <a href="Wikipedia:Turing_completeness" title="wikilink">Turing-Completeness</a>). Of course, there are still many features that are used to make your life easier.</p>

@@ -8,4 +8,4 @@ All text released under the Creative Commons Attribution-ShareAlike License.
 
 ## 翻译
 
-欢迎和我们一起将“写给非程序员的 Python 3 教程”翻译成中文。翻译说明请见 markdown/ 文件夹。
+欢迎和我们一起将“写给非程序员的 Python 3 教程”翻译成中文。翻译说明请见 [markdown/](python-tutorial/tree/master/markdown) 文件夹。
